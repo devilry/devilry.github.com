@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>devilry.core.models — Devilry core datastructure &mdash; Devilry v0.1alpha0 documentation</title>
+    <link rel="stylesheet" href="../../_static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1alpha0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
+    <link rel="up" title="API reference" href="index.html" />
+    <link rel="next" title="devilry.core.utils — Devilry core utilities" href="core.utils.html" />
+    <link rel="prev" title="API reference" href="index.html" /> 
+  </head>
+  <body>
+<div id='projectinfo'>
+	<h1 id='projectname'>Devilry</h1>
+	<div id='projectversion'>Version 0.1</div>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="API reference"
+             accesskey="P">previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
+	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+
+          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">API reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="devilry-core-models-devilry-core-datastructure">
+<span id="ref-devilry-core-models"></span><h1><tt class="xref docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure<a class="headerlink" href="#devilry-core-models-devilry-core-datastructure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basenode">
+<h2>BaseNode<a class="headerlink" href="#basenode" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.BaseNode">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">BaseNode</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.BaseNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>The base class of the Devilry hierarchy. Implements basic functionality
+used by the other Node classes. Is typically subclassed rather than 
+instantiated.</p>
+<dl class="attribute">
+<dt id="BaseNode.short_name">
+<tt class="descname">short_name</tt><a class="headerlink" href="#BaseNode.short_name" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#slugfield">django.db.models.SlugField</a> with max 20 characters. Only numbers,
+letters, &#8216;_&#8217; and &#8216;-&#8216;.</dd></dl>
+
+<dl class="attribute">
+<dt id="BaseNode.long_name">
+<tt class="descname">long_name</tt><a class="headerlink" href="#BaseNode.long_name" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#charfield">django.db.models.CharField</a> with max 100 characters. Gives a longer 
+description than <tt class="xref docutils literal"><span class="pre">short_name</span></tt></dd></dl>
+
+<dl class="classmethod">
+<dt id="devilry.core.models.BaseNode.where_is_admin">
+<em class="property">classmethod </em><tt class="descname">where_is_admin</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.BaseNode.where_is_admin" title="Permalink to this definition">¶</a></dt>
+<dd>Get all nodes where <cite>user_obj</cite> is admin.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="node">
+<h2>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.Node">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Node</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a title="devilry.core.models.BaseNode" class="reference internal" href="#devilry.core.models.BaseNode"><tt class="xref docutils literal"><span class="pre">devilry.core.models.BaseNode</span></tt></a></p>
+<p>This class is typically used to represent a hierarchy of institutions, 
+faculties and departments.</p>
+<dl class="attribute">
+<dt id="Node.parentnode">
+<tt class="descname">parentnode</tt><a class="headerlink" href="#Node.parentnode" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> that points to the parent node, which
+is always a <a class="reference internal" href="#node">Node</a>.</dd></dl>
+
+<dl class="attribute">
+<dt id="Node.admins">
+<tt class="descname">admins</tt><a class="headerlink" href="#Node.admins" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the <a class="reference internal" href="#node">Node</a>.</dd></dl>
+
+<dl class="classmethod">
+<dt id="devilry.core.models.Node.create_by_path">
+<em class="property">classmethod </em><tt class="descname">create_by_path</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node.create_by_path" title="Permalink to this definition">¶</a></dt>
+<dd>Just like <cite>get_by_pathlist</cite>, but the path is a string where each <cite>short_name</cite>
+is separated by &#8216;.&#8217;, instead of a list.</dd></dl>
+
+<dl class="classmethod">
+<dt id="devilry.core.models.Node.create_by_pathlist">
+<em class="property">classmethod </em><tt class="descname">create_by_pathlist</tt><big>(</big><em>pathlist</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node.create_by_pathlist" title="Permalink to this definition">¶</a></dt>
+<dd>Create a new node from the path given in <cite>nodelist</cite>, creating all
+missing parents.</dd></dl>
+
+<dl class="classmethod">
+<dt id="devilry.core.models.Node.get_by_path">
+<em class="property">classmethod </em><tt class="descname">get_by_path</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node.get_by_path" title="Permalink to this definition">¶</a></dt>
+<dd>Get a node by path. Just like <cite>get_by_pathlist</cite>, but the path is a
+string where the node-names are separated with &#8216;.&#8217;.</dd></dl>
+
+<dl class="classmethod">
+<dt id="devilry.core.models.Node.get_by_pathlist">
+<em class="property">classmethod </em><tt class="descname">get_by_pathlist</tt><big>(</big><em>pathlist</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node.get_by_pathlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get node by path just like get_by_path(), the parameter
+is a list of node-names instead of a single string. Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">uio</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;uio&#39;</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s">&#39;UiO&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uio</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifi</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">short_name</span><span class="o">=</span><span class="s">&#39;ifi&#39;</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s">&#39;Ifi&#39;</span><span class="p">,</span> <span class="n">parentnode</span><span class="o">=</span><span class="n">uio</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifi</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifi</span>
+<span class="go">&lt;Node: uio.ifi&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Node</span><span class="o">.</span><span class="n">get_by_pathlist</span><span class="p">([</span><span class="s">&#39;uio&#39;</span><span class="p">,</span> <span class="s">&#39;ifi&#39;</span><span class="p">])</span>
+<span class="go">&lt;Node: uio.ifi&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="subject">
+<h2>Subject<a class="headerlink" href="#subject" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.Subject">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Subject</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a title="devilry.core.models.BaseNode" class="reference internal" href="#devilry.core.models.BaseNode"><tt class="xref docutils literal"><span class="pre">devilry.core.models.BaseNode</span></tt></a></p>
+<p>This class represents a subject. This may be either a full course,
+or one part of a course, if it is divided into parallell courses.</p>
+<dl class="attribute">
+<dt id="Subject.parentnode">
+<tt class="descname">parentnode</tt><a class="headerlink" href="#Subject.parentnode" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> that points to the parent node,
+which is always a <a class="reference internal" href="#node">Node</a>.</dd></dl>
+
+<dl class="attribute">
+<dt id="Subject.admins">
+<tt class="descname">admins</tt><a class="headerlink" href="#Subject.admins" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the <a class="reference internal" href="#node">Node</a>.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="period">
+<h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.Period">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Period</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a title="devilry.core.models.BaseNode" class="reference internal" href="#devilry.core.models.BaseNode"><tt class="xref docutils literal"><span class="pre">devilry.core.models.BaseNode</span></tt></a></p>
+<p>A Period represents a period of time, for example a half-year term
+at a university.</p>
+<dl class="attribute">
+<dt id="Period.parentnode">
+<tt class="descname">parentnode</tt><a class="headerlink" href="#Period.parentnode" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> that points to the parent node,
+which is always a <a class="reference internal" href="#subject">Subject</a>.</dd></dl>
+
+<dl class="attribute">
+<dt id="Period.start_time">
+<tt class="descname">start_time</tt><a class="headerlink" href="#Period.start_time" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> representing the starting time of the period.</dd></dl>
+
+<dl class="attribute">
+<dt id="Period.end_time">
+<tt class="descname">end_time</tt><a class="headerlink" href="#Period.end_time" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> representing the ending time of the period.</dd></dl>
+
+<dl class="attribute">
+<dt id="Period.admins">
+<tt class="descname">admins</tt><a class="headerlink" href="#Period.admins" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the node.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="assignment">
+<h2>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.Assignment">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Assignment</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a title="devilry.core.models.BaseNode" class="reference internal" href="#devilry.core.models.BaseNode"><tt class="xref docutils literal"><span class="pre">devilry.core.models.BaseNode</span></tt></a></p>
+<p>Represents one assignment for a given period in a given subject. May consist
+of several parts, which means that several exercises can be given as one 
+Assignment.</p>
+<dl class="attribute">
+<dt id="Assignment.parentnode">
+<tt class="descname">parentnode</tt><a class="headerlink" href="#Assignment.parentnode" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> that points to the parent node,
+which is always a <a class="reference internal" href="#period">Period</a>.</dd></dl>
+
+<dl class="attribute">
+<dt id="Assignment.publishing_time">
+<tt class="descname">publishing_time</tt><a class="headerlink" href="#Assignment.publishing_time" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> representing the publishing time of
+the assignment.</dd></dl>
+
+<dl class="attribute">
+<dt id="Assignment.deadline">
+<tt class="descname">deadline</tt><a class="headerlink" href="#Assignment.deadline" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> representing the deadline of the assignment.</dd></dl>
+
+<dl class="attribute">
+<dt id="Assignment.admins">
+<tt class="descname">admins</tt><a class="headerlink" href="#Assignment.admins" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the Node.</dd></dl>
+
+<dl class="attribute">
+<dt id="Assignment.feedback_plugin">
+<tt class="descname">feedback_plugin</tt><a class="headerlink" href="#Assignment.feedback_plugin" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#charfield">django.db.models.CharField</a> that holds the current feedback plugin used.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="assignmentgroup">
+<h2>AssignmentGroup<a class="headerlink" href="#assignmentgroup" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.AssignmentGroup">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">AssignmentGroup</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Represents a student or a group of students.</p>
+<dl class="attribute">
+<dt id="AssignmentGroup.parentnode">
+<tt class="descname">parentnode</tt><a class="headerlink" href="#AssignmentGroup.parentnode" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> that points to the parent node,
+which is always an <a class="reference internal" href="#assignment">Assignment</a>.</dd></dl>
+
+<dl class="attribute">
+<dt id="AssignmentGroup.students">
+<tt class="descname">students</tt><a class="headerlink" href="#AssignmentGroup.students" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds the student(s) that have
+handed in the assignment</dd></dl>
+
+<dl class="attribute">
+<dt id="AssignmentGroup.examiners">
+<tt class="descname">examiners</tt><a class="headerlink" href="#AssignmentGroup.examiners" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds the examiner(s) that are
+to correct and grade the assignment.</dd></dl>
+
+<dl class="attribute">
+<dt id="AssignmentGroup.is_open">
+<tt class="descname">is_open</tt><a class="headerlink" href="#AssignmentGroup.is_open" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#booleanfield">django.db.models.BooleanField</a> that tells you if the group can add
+deliveries or not.</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.is_examiner">
+<tt class="descname">is_examiner</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.is_examiner" title="Permalink to this definition">¶</a></dt>
+<dd>Return True if user is examiner on this assignment group</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="delivery">
+<h2>Delivery<a class="headerlink" href="#delivery" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.Delivery">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Delivery</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>A class representing a given delivery from an <a class="reference internal" href="#assignmentgroup">AssignmentGroup</a>. In some cases,
+a group are allowed to hand in several deliveries per assignment.</p>
+<dl class="attribute">
+<dt id="Delivery.assignment_group">
+<tt class="descname">assignment_group</tt><a class="headerlink" href="#Delivery.assignment_group" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> pointing to the <a class="reference internal" href="#assignmentgroup">AssignmentGroup</a> that
+handed in the Delivery.</dd></dl>
+
+<dl class="attribute">
+<dt id="Delivery.time_of_delivery">
+<tt class="descname">time_of_delivery</tt><a class="headerlink" href="#Delivery.time_of_delivery" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> that holds the date and time the Delivery
+was uploaded.</dd></dl>
+
+<dl class="attribute">
+<dt id="Delivery.delivered_by">
+<tt class="descname">delivered_by</tt><a class="headerlink" href="#Delivery.delivered_by" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey">django.db.models.ForeignKey</a> pointing to the user that uploaded the Delivery</dd></dl>
+
+<dl class="attribute">
+<dt id="Delivery.successful">
+<tt class="descname">successful</tt><a class="headerlink" href="#Delivery.successful" title="Permalink to this definition">¶</a></dt>
+<dd>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#booleanfield">django.db.models.BooleanField</a> telling whether or not the Delivery was
+successfully uploaded.</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="filemeta">
+<h2>FileMeta<a class="headerlink" href="#filemeta" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.core.models.FileMeta">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">FileMeta</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.FileMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>FileMeta(id, delivery_id, filename, size)</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#"><tt class="docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a><ul>
+<li><a class="reference external" href="#basenode">BaseNode</a></li>
+<li><a class="reference external" href="#node">Node</a></li>
+<li><a class="reference external" href="#subject">Subject</a></li>
+<li><a class="reference external" href="#period">Period</a></li>
+<li><a class="reference external" href="#assignment">Assignment</a></li>
+<li><a class="reference external" href="#assignmentgroup">AssignmentGroup</a></li>
+<li><a class="reference external" href="#delivery">Delivery</a></li>
+<li><a class="reference external" href="#filemeta">FileMeta</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="index.html"
+                                  title="previous chapter">API reference</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="core.utils.html"
+                                  title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/developer/ref/core.models.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="API reference"
+             >previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
+	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+
+          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
+          <li><a href="index.html" >API reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

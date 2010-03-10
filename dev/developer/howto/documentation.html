@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to document Devilry &mdash; Devilry v0.1alpha0 documentation</title>
+    <link rel="stylesheet" href="../../_static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1alpha0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
+    <link rel="up" title="How-to’s" href="index.html" />
+    <link rel="prev" title="How-to’s" href="index.html" /> 
+  </head>
+  <body>
+<div id='projectinfo'>
+	<h1 id='projectname'>Devilry</h1>
+	<div id='projectversion'>Version 0.1</div>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="How-to’s"
+             accesskey="P">previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
+	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+
+          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="how-to-document-devilry">
+<span id="developer-howto-documentation"></span><h1>How to document Devilry<a class="headerlink" href="#how-to-document-devilry" title="Permalink to this headline">¶</a></h1>
+<p>Devilry is documented the <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> documentation generator. You need to learn
+how to write <em>restructured text</em> and how to use the Sphinx-specific
+<em>restructured text</em>-directives. All of this is documented on the <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> website.</p>
+<p>The most relevant Sphinx documentation if you are just documenting a python
+module is:</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://sphinx.pocoo.org/rest.html">reStructuredText Primer</a></li>
+<li><a class="reference external" href="http://sphinx.pocoo.org/markup/desc.html">Module-specific markup</a></li>
+<li><a class="reference external" href="http://sphinx.pocoo.org/ext/autodoc.html">Include documentation from docstrings</a></li>
+</ul>
+</blockquote>
+<p>You can find lots of examples in the <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/devilry/">devilry sourcecode</a>.
+The devilry data-model file, <a class="reference external" href="http://github.com/devilry/devilry-django/blob/master/devilry/core/models.py">devilry.core.models.py</a>, is a good example.</p>
+<div class="section" id="how-documentation-is-organized">
+<h2>How documentation is organized<a class="headerlink" href="#how-documentation-is-organized" title="Permalink to this headline">¶</a></h2>
+<p>Documentation lives <tt class="docutils literal"><span class="pre">doc/</span></tt>. The sources are in <tt class="docutils literal"><span class="pre">doc/source</span></tt>, and the
+sources are organized like this:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">source/developer</span></tt> &#8212; Developer documentation.</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">ref/</span></tt> &#8212; Module API reference.</li>
+<li><tt class="docutils literal"><span class="pre">howto/</span></tt> &#8212; How-to&#8217;s.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">source/user</span></tt> &#8212; User documentation.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">source/admin</span></tt> &#8212; Administrator documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">How to document Devilry</a><ul>
+<li><a class="reference external" href="#how-documentation-is-organized">How documentation is organized</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="index.html"
+                                  title="previous chapter">How-to&#8217;s</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/developer/howto/documentation.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="How-to’s"
+             >previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
+	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+
+          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
+          <li><a href="index.html" >How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>
