@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    '#',
         VERSION:     '0.1alpha0',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
@@ -31,12 +31,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="" title="General Index"
+          <a href="#" title="General Index"
              accesskey="I">index</a></li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="user/index.html">User</a>&nbsp;|&nbsp;</li>
-	<li><a href="sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
-	<li><a href="developer/index.html">Developer</a>&nbsp;|&nbsp;</li>
+	<li><a href="documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>  
@@ -80,8 +78,10 @@
 <table width="100%" class="indextable"><tr><td width="33%" valign="top">
 <dl>
 
-<dt><a href="developer/ref/core.models.html#devilry.core.models.Node.create_by_path">create_by_path() (devilry.core.models.Node class method)</a></dt>
-<dt><a href="developer/ref/core.models.html#devilry.core.models.Node.create_by_pathlist">create_by_pathlist() (devilry.core.models.Node class method)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.BaseNode.can_save">can_save() (devilry.core.models.BaseNode method)</a></dt>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Feedback.content_object">content_object (devilry.core.models.Feedback attribute)</a></dt>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Node.create_by_path">create_by_path() (devilry.core.models.Node class method)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Node.create_by_pathlist">create_by_pathlist() (devilry.core.models.Node class method)</a></dt>
 </dl></td></tr></table>
 
 <h2 id="D">D</h2>
@@ -89,8 +89,9 @@
 <dl>
 
 <dt><a href="developer/ref/core.models.html#Assignment.deadline">deadline (Assignment attribute)</a></dt>
-<dt><a href="developer/ref/core.models.html#Delivery.delivered_by">delivered_by (Delivery attribute)</a></dt></dl></td><td width="33%" valign="top"><dl>
-<dt><a href="developer/ref/core.models.html#devilry.core.models.Delivery">Delivery (class in devilry.core.models)</a></dt>
+<dt><a href="developer/ref/core.models.html#Delivery.delivered_by">delivered_by (Delivery attribute)</a></dt>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Delivery">Delivery (class in devilry.core.models)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#Feedback.delivery">delivery (Feedback attribute)</a></dt>
 </dl></td></tr></table>
 
 <h2 id="E">E</h2>
@@ -105,8 +106,12 @@
 <table width="100%" class="indextable"><tr><td width="33%" valign="top">
 <dl>
 
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Feedback">Feedback (class in devilry.core.models)</a></dt>
+<dt><a href="developer/ref/core.models.html#Feedback.feedback_format">feedback_format (Feedback attribute)</a></dt>
 <dt><a href="developer/ref/core.models.html#Assignment.feedback_plugin">feedback_plugin (Assignment attribute)</a></dt>
-<dt><a href="developer/ref/core.models.html#devilry.core.models.FileMeta">FileMeta (class in devilry.core.models)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#Feedback.feedback_published">feedback_published (Feedback attribute)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#Feedback.feedback_text">feedback_text (Feedback attribute)</a></dt>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.FileMeta">FileMeta (class in devilry.core.models)</a></dt>
 </dl></td></tr></table>
 
 <h2 id="G">G</h2>
@@ -115,14 +120,16 @@
 
 <dt><a href="developer/ref/core.models.html#devilry.core.models.Node.get_by_path">get_by_path() (devilry.core.models.Node class method)</a></dt>
 <dt><a href="developer/ref/core.models.html#devilry.core.models.Node.get_by_pathlist">get_by_pathlist() (devilry.core.models.Node class method)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#Feedback.grade">grade (Feedback attribute)</a></dt>
 </dl></td></tr></table>
 
 <h2 id="I">I</h2>
 <table width="100%" class="indextable"><tr><td width="33%" valign="top">
 <dl>
 
-<dt><a href="developer/ref/core.models.html#devilry.core.models.AssignmentGroup.is_examiner">is_examiner() (devilry.core.models.AssignmentGroup method)</a></dt>
-<dt><a href="developer/ref/core.models.html#AssignmentGroup.is_open">is_open (AssignmentGroup attribute)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.BaseNode.is_admin">is_admin() (devilry.core.models.BaseNode method)</a></dt>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.AssignmentGroup.is_examiner">is_examiner() (devilry.core.models.AssignmentGroup method)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#AssignmentGroup.is_open">is_open (AssignmentGroup attribute)</a></dt>
 </dl></td></tr></table>
 
 <h2 id="L">L</h2>
@@ -183,7 +190,14 @@
 <table width="100%" class="indextable"><tr><td width="33%" valign="top">
 <dl>
 
-<dt><a href="developer/ref/core.models.html#devilry.core.models.BaseNode.where_is_admin">where_is_admin() (devilry.core.models.BaseNode class method)</a></dt></dl></td><td width="33%" valign="top"><dl>
+<dt><a href="developer/ref/core.models.html#devilry.core.models.Assignment.where_is_admin">where_is_admin() (devilry.core.models.Assignment class method)</a></dt>
+  <dd><dl>
+    <dt><a href="developer/ref/core.models.html#devilry.core.models.AssignmentGroup.where_is_admin">(devilry.core.models.AssignmentGroup class method)</a></dt>
+    <dt><a href="developer/ref/core.models.html#devilry.core.models.Delivery.where_is_admin">(devilry.core.models.Delivery class method)</a></dt>
+    <dt><a href="developer/ref/core.models.html#devilry.core.models.Node.where_is_admin">(devilry.core.models.Node class method)</a></dt>
+    <dt><a href="developer/ref/core.models.html#devilry.core.models.Period.where_is_admin">(devilry.core.models.Period class method)</a></dt>
+    <dt><a href="developer/ref/core.models.html#devilry.core.models.Subject.where_is_admin">(devilry.core.models.Subject class method)</a></dt>
+  </dl></dd></dl></td><td width="33%" valign="top"><dl>
 </dl></td></tr></table>
 
 
@@ -217,18 +231,16 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="" title="General Index"
+          <a href="#" title="General Index"
              >index</a></li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="user/index.html">User</a>&nbsp;|&nbsp;</li>
-	<li><a href="sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
-	<li><a href="developer/index.html">Developer</a>&nbsp;|&nbsp;</li>
+	<li><a href="documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
     </div>
   </body>
 </html>

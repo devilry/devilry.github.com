@@ -20,8 +20,9 @@
     <script type="text/javascript" src="../../static/jquery.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
-    <link rel="up" title="How-to’s" href="index.html" />
-    <link rel="prev" title="How-to’s" href="index.html" /> 
+    <link rel="up" title="How-to’s" href="contents.html" />
+    <link rel="next" title="How to write a plugin" href="plugins.html" />
+    <link rel="prev" title="How-to’s" href="contents.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -36,15 +37,16 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="index.html" title="How-to’s"
+          <a href="plugins.html" title="How to write a plugin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="contents.html" title="How-to’s"
              accesskey="P">previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
-	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,13 +62,11 @@ how to write <em>restructured text</em> and how to use the Sphinx-specific
 <em>restructured text</em>-directives. All of this is documented on the <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> website.</p>
 <p>The most relevant Sphinx documentation if you are just documenting a python
 module is:</p>
-<blockquote>
 <ul class="simple">
 <li><a class="reference external" href="http://sphinx.pocoo.org/rest.html">reStructuredText Primer</a></li>
 <li><a class="reference external" href="http://sphinx.pocoo.org/markup/desc.html">Module-specific markup</a></li>
 <li><a class="reference external" href="http://sphinx.pocoo.org/ext/autodoc.html">Include documentation from docstrings</a></li>
 </ul>
-</blockquote>
 <p>You can find lots of examples in the <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/devilry/">devilry sourcecode</a>.
 The devilry data-model file, <a class="reference external" href="http://github.com/devilry/devilry-django/blob/master/devilry/core/models.py">devilry.core.models.py</a>, is a good example.</p>
 <div class="section" id="how-documentation-is-organized">
@@ -74,6 +74,12 @@ The devilry data-model file, <a class="reference external" href="http://github.c
 <p>Documentation lives <tt class="docutils literal"><span class="pre">doc/</span></tt>. The sources are in <tt class="docutils literal"><span class="pre">doc/source</span></tt>, and the
 sources are organized like this:</p>
 <ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">source/index.rst</span></tt> &#8212; Frontpage.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">source/contents.rst</span></tt> &#8212; Table of contents.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">source/documentation.rst</span></tt> &#8212; The documentation index page.</p>
+</li>
 <li><dl class="first docutils">
 <dt><tt class="docutils literal"><span class="pre">source/developer</span></tt> &#8212; Developer documentation.</dt>
 <dd><ul class="first last simple">
@@ -82,10 +88,6 @@ sources are organized like this:</p>
 </ul>
 </dd>
 </dl>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">source/user</span></tt> &#8212; User documentation.</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">source/admin</span></tt> &#8212; Administrator documentation.</p>
 </li>
 </ul>
 </div>
@@ -97,17 +99,20 @@ sources are organized like this:</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <h3><a href="../../contents.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference external" href="">How to document Devilry</a><ul>
+<li><a class="reference external" href="#">How to document Devilry</a><ul>
 <li><a class="reference external" href="#how-documentation-is-organized">How documentation is organized</a></li>
 </ul>
 </li>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="index.html"
+            <p class="topless"><a href="contents.html"
                                   title="previous chapter">How-to&#8217;s</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="plugins.html"
+                                  title="next chapter">How to write a plugin</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="../../sources/developer/howto/documentation.txt"
@@ -137,20 +142,21 @@ sources are organized like this:</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="index.html" title="How-to’s"
+          <a href="plugins.html" title="How to write a plugin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="contents.html" title="How-to’s"
              >previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../user/index.html">User</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../sysadm/index.html">System admin</a>&nbsp;|&nbsp;</li>
-	<li><a href="../index.html">Developer</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../index.html" >Developer documentation</a> &raquo;</li>
-          <li><a href="index.html" >How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" >How-to&#8217;s</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
     </div>
   </body>
 </html>
