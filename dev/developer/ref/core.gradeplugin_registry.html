@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Grade plugins &mdash; Devilry v0.1alpha0 documentation</title>
+    <title>devilry.core.gradeplugin_registry — Gradeplugin registry &mdash; Devilry v0.1alpha0 documentation</title>
     <link rel="stylesheet" href="../../static/devilry.css" type="text/css" />
     <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="../../static/underscore.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
-    <link rel="up" title="How-to’s" href="contents.html" />
-    <link rel="next" title="XMLRPC howto" href="xmlrpc.html" />
-    <link rel="prev" title="How to write a plugin" href="plugins.html" /> 
+    <link rel="up" title="API reference" href="contents.html" />
+    <link rel="next" title="devilry.xmlrpc — Devilry XMLRPC" href="xmlrpc.html" />
+    <link rel="prev" title="devilry.core.deliverystore — DeliveryStore" href="core.deliverystore.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -42,16 +42,16 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="xmlrpc.html" title="XMLRPC howto"
+          <a href="xmlrpc.html" title="devilry.xmlrpc — Devilry XMLRPC"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plugins.html" title="How to write a plugin"
+          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
              accesskey="P">previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="contents.html" accesskey="U">API reference</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,9 +60,21 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="grade-plugins">
-<span id="developer-howto-grade-plugins"></span><h1>Grade plugins<a class="headerlink" href="#grade-plugins" title="Permalink to this headline">¶</a></h1>
-<p>TODO</p>
+  <div class="section" id="devilry-core-gradeplugin-registry-gradeplugin-registry">
+<span id="ref-devilry-core-gradeplugin-registry"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.gradeplugin_registry</span></tt> &#8212; Gradeplugin registry<a class="headerlink" href="#devilry-core-gradeplugin-registry-gradeplugin-registry" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="devilry.core.gradeplugin_registry.RegistryItem">
+<em class="property">class </em><tt class="descclassname">devilry.core.gradeplugin_registry.</tt><tt class="descname">RegistryItem</tt><big>(</big><em>view</em>, <em>model_cls</em>, <em>label</em>, <em>description</em>, <em>admin_url_callback</em>, <em>xmlrpc_gradeconf=None</em><big>)</big><a class="headerlink" href="#devilry.core.gradeplugin_registry.RegistryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Information about a grade plugin.</p>
+<dl class="attribute">
+<dt>
+<tt class="descname">model_cls::</tt></dt>
+<dd><p>A class for storing grades.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -72,14 +84,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="plugins.html"
-                        title="previous chapter">How to write a plugin</a></p>
+  <p class="topless"><a href="core.deliverystore.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.deliverystore</span></tt> &#8212; DeliveryStore</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="xmlrpc.html"
-                        title="next chapter">XMLRPC howto</a></p>
+                        title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.xmlrpc</span></tt> &#8212; Devilry XMLRPC</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../sources/developer/howto/grade-plugins.txt"
+    <li><a href="../../sources/developer/ref/core.gradeplugin_registry.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -109,16 +121,16 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="xmlrpc.html" title="XMLRPC howto"
+          <a href="xmlrpc.html" title="devilry.xmlrpc — Devilry XMLRPC"
              >next</a> |</li>
         <li class="right" >
-          <a href="plugins.html" title="How to write a plugin"
+          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
              >previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" >How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="contents.html" >API reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

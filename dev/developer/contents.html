@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,16 +13,17 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.1alpha0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="next" title="API reference" href="ref/contents.html" />
-    <link rel="prev" title="Devilry documentation contents" href="../contents.html" /> 
+    <link rel="prev" title="Devilry documentation" href="../documentation.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -36,10 +38,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="ref/contents.html" title="API reference"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../contents.html" title="Devilry documentation contents"
+          <a href="../documentation.html" title="Devilry documentation"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
@@ -54,45 +59,80 @@
             
   <div class="section" id="developers">
 <span id="developer-index"></span><h1>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference external" href="ref/contents.html">API reference</a><ul>
-<li class="toctree-l2"><a class="reference external" href="ref/core.models.html"><tt class="docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a><ul>
-<li class="toctree-l3"><a class="reference external" href="ref/core.models.html#basenode-and-children">BaseNode and children</a><ul>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#basenode">BaseNode</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#node">Node</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#subject">Subject</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#period">Period</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#assignment">Assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref/contents.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ref/core.models.html"><tt class="docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#module-devilry.core.models">Functions and attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#basenode">BaseNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#node">Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#subject">Subject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#period">Period</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#assignment">Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#assignmentgroup">AssignmentGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#delivery">Delivery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#feeback">Feeback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.models.html#filemeta">FileMeta</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference external" href="ref/core.models.html#other">Other</a><ul>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#assignmentgroup">AssignmentGroup</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#feeback">Feeback</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#delivery">Delivery</a></li>
-<li class="toctree-l4"><a class="reference external" href="ref/core.models.html#filemeta">FileMeta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref/core.utils.html"><tt class="docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref/core.deliverystore.html"><tt class="docutils literal"><span class="pre">devilry.core.deliverystore</span></tt> &#8212; DeliveryStore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.deliverystore.html#selecting-a-deliverystore">Selecting a DeliveryStore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.deliverystore.html#creating-your-own-deliverystore">Creating your own DeliveryStore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref/core.deliverystore.html#testing-your-own-deliverystore">Testing your own DeliveryStore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.deliverystore.html#setting-the-deliverystore-manually-for-tests">Setting the DeliveryStore manually - for tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref/core.deliverystore.html#module-devilry.core.deliverystore">API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ref/core.gradeplugin_registry.html"><tt class="docutils literal"><span class="pre">devilry.core.gradeplugin_registry</span></tt> &#8212; Gradeplugin registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref/xmlrpc.html"><tt class="docutils literal"><span class="pre">devilry.xmlrpc</span></tt> &#8212; Devilry XMLRPC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/contents.html">How-to&#8217;s</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/documentation.html">How to document Devilry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/documentation.html#how-documentation-is-organized">How documentation is organized</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="howto/plugins.html">How to write a plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/plugins.html#setting-up-your-testsite">Setting up your testsite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/plugins.html#autoload-plugins">Autoload plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/plugins.html#your-first-plugin">Your first plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/plugins.html#plugin-errors">Plugin errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="howto/grade-plugins.html">Grade plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/xmlrpc.html">XMLRPC howto</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/xmlrpc.html#getting-started">Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="howto/xmlrpc.html#a-function">A function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/xmlrpc.html#make-it-into-a-xmlrpc-function">Make it into a XMLRPC-function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/xmlrpc.html#urls">Urls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/xmlrpc.html#check-if-it-is-working">Check if it is working</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/xmlrpc.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="howto/xmlrpc.html#other-stuff">Other stuff</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="howto/cli.html">Developing and extending the command line client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/cli.html#module-devilry.xmlrpc_client.command">Command and general purpose subclasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/cli.html#utilities">Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="howto/cli.html#assignmenttreewalker">AssignmentTreeWalker</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="howto/cli.html#directory-tree-format">Directory-tree format</a></li>
+<li class="toctree-l5"><a class="reference internal" href="howto/cli.html#handling-directory-name-duplicates">Handling directory name duplicates</a></li>
+<li class="toctree-l5"><a class="reference internal" href="howto/cli.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="howto/cli.html#assignmentsync">AssignmentSync</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference external" href="ref/core.utils.html"><tt class="docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="howto/contents.html">How-to&#8217;s</a><ul>
-<li class="toctree-l2"><a class="reference external" href="howto/documentation.html">How to document Devilry</a><ul>
-<li class="toctree-l3"><a class="reference external" href="howto/documentation.html#how-documentation-is-organized">How documentation is organized</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference external" href="howto/plugins.html">How to write a plugin</a><ul>
-<li class="toctree-l3"><a class="reference external" href="howto/plugins.html#setting-up-your-testsite">Setting up your testsite</a></li>
-<li class="toctree-l3"><a class="reference external" href="howto/plugins.html#autoload-plugins">Autoload plugins</a></li>
-<li class="toctree-l3"><a class="reference external" href="howto/plugins.html#your-first-plugin">Your first plugin</a></li>
-<li class="toctree-l3"><a class="reference external" href="howto/plugins.html#plugin-errors">Plugin errors</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference external" href="howto/grade-plugins.html">Grade plugins</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 
 
@@ -101,30 +141,30 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="../contents.html"
-                                  title="previous chapter">Devilry documentation contents</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="ref/contents.html"
-                                  title="next chapter">API reference</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../sources/developer/contents.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../documentation.html"
+                        title="previous chapter">Devilry documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ref/contents.html"
+                        title="next chapter">API reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/developer/contents.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -136,10 +176,13 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="ref/contents.html" title="API reference"
              >next</a> |</li>
         <li class="right" >
-          <a href="../contents.html" title="Devilry documentation contents"
+          <a href="../documentation.html" title="Devilry documentation"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
@@ -147,8 +190,8 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
     </div>
   </body>
 </html>

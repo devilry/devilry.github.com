@@ -1,0 +1,247 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>XMLRPC howto &mdash; Devilry v0.1alpha0 documentation</title>
+    <link rel="stylesheet" href="../../static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1alpha0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
+    <link rel="up" title="How-to’s" href="contents.html" />
+    <link rel="next" title="Developing and extending the command line client" href="cli.html" />
+    <link rel="prev" title="Grade plugins" href="grade-plugins.html" /> 
+  </head>
+  <body>
+<div id='projectinfo'>
+	<h1 id='projectname'>Devilry</h1>
+	<div id='projectversion'>Version 0.1</div>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cli.html" title="Developing and extending the command line client"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="grade-plugins.html" title="Grade plugins"
+             accesskey="P">previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="xmlrpc-howto">
+<span id="developer-howto-xmlrpc"></span><h1>XMLRPC howto<a class="headerlink" href="#xmlrpc-howto" title="Permalink to this headline">¶</a></h1>
+<p>It is very easy to export parts of your addons as a <em>XMLRPC</em> with the help of
+the <tt class="docutils literal"><span class="pre">devilry.xmlrpc</span></tt> module. <em>XMLRPC</em> can be used to communicate with the
+devilry server from any programming language with support for XMLRPC with
+cookies over SSL.</p>
+<p>We will explain how to use XMLRPC by explaining how the
+<tt class="docutils literal"><span class="pre">devilry.addons.xmlrpc_examiner</span></tt> module works. The module exports the most
+common functionality required by <em>examiners</em>.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-function">
+<h3>A function<a class="headerlink" href="#a-function" title="Permalink to this headline">¶</a></h3>
+<p>First of all we need some functions. XMLRPC works over HTTP, so they basically
+work just like a normal django view. Therefore we choose to put our views in
+<em>views.py</em>. First we have to define our function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">list_deliveries</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">assignmentgroup_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get a list (xmlrpc array) containing all deliveries within</span>
+<span class="sd">    the given assignment group.</span>
+<span class="sd">    </span>
+<span class="sd">    :return:</span>
+<span class="sd">        A list where each entry is a dict (xmlrpc structure) with the</span>
+<span class="sd">        following values:</span>
+
+<span class="sd">            id</span>
+<span class="sd">                A number identifying the assignment-group.</span>
+
+<span class="sd">            time_of_delivery</span>
+<span class="sd">                Date/time of the delivery.</span>
+
+<span class="sd">            successful</span>
+<span class="sd">                Boolean which tells if the delivery was completed successfully.</span>
+<span class="sd">                This might be false if the delivery was aborted midway through.</span>
+
+<span class="sd">            filemetas</span>
+<span class="sd">                List (xmlrpc array) containing a dict (xmlrpc structure) for</span>
+<span class="sd">                each filemeta attached to the delivery. Each dict</span>
+<span class="sd">                contains``id``, ``size`` and ``filename``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">assignment_group</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">AssignmentGroup</span><span class="p">,</span>
+            <span class="n">pk</span><span class="o">=</span><span class="n">assignmentgroup_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">assignment_group</span><span class="o">.</span><span class="n">is_examiner</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">HttpResponseForbidden</span><span class="p">(</span><span class="s">&quot;Forbidden&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s">&#39;time_of_delivery&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">time_of_delivery</span><span class="p">,</span>
+            <span class="c"># TODO: Add delivered_by when it has been updated to use candidate</span>
+            <span class="s">&#39;successful&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">successful</span><span class="p">,</span>
+            <span class="s">&#39;filemetas&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;id&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;size&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">filemeta_set</span><span class="o">.</span><span class="n">all</span><span class="p">()]}</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">assignment_group</span><span class="o">.</span><span class="n">delivery_set</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-it-into-a-xmlrpc-function">
+<h3>Make it into a XMLRPC-function<a class="headerlink" href="#make-it-into-a-xmlrpc-function" title="Permalink to this headline">¶</a></h3>
+<p>Next we need to create a <a class="reference internal" href="../ref/xmlrpc.html#ref-devilry-xmlrpc"><em>devilry.xmlrpc.XmlRpc</em></a> object where we can register our function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">doc</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;The functions required to do the most common operations required by</span>
+<span class="s">a examiner.&quot;&quot;&quot;</span>
+
+<span class="n">rpc</span> <span class="o">=</span> <span class="n">XmlRpc</span><span class="p">(</span><span class="s">&#39;examiner&#39;</span><span class="p">,</span> <span class="s">&#39;devilry-xmlrpc-examiner&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we decorate our function with <tt class="docutils literal"><span class="pre">rpc.rpcdec_login_required</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@rpc.rpcdec_login_required</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">list_deliveries</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">assignmentgroup_id</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="urls">
+<h3>Urls<a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h3>
+<p>At last we need to add the <tt class="docutils literal"><span class="pre">rpc</span></tt> object to <tt class="docutils literal"><span class="pre">urls.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;devilry.addons.xmlrpc_examiner&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="s">&#39;views.rpc&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;devilry-xmlrpc-examiner&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-if-it-is-working">
+<h3>Check if it is working<a class="headerlink" href="#check-if-it-is-working" title="Permalink to this headline">¶</a></h3>
+<p>To find out if it is working, just start the django test server and visit
+<a class="reference external" href="http://localhost:8000/xmlrpc">http://localhost:8000/xmlrpc</a>. The xmlrpc, in this case <tt class="docutils literal"><span class="pre">&quot;examiner&quot;</span></tt> should be
+in the menu, and clicking on it will take you to it&#8217;s documentation.</p>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>To connect to this xmlrpc you will need a xmlrpc client with cookies (and SSL
+for production use). A example of this can be found in <em>exampleclient.py</em> found
+in the Devilry <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/xmlrpc-client/">xmlrpc-client</a>.</p>
+</div>
+</div>
+<div class="section" id="other-stuff">
+<h2>Other stuff<a class="headerlink" href="#other-stuff" title="Permalink to this headline">¶</a></h2>
+<p>For examples of how to:</p>
+<ul class="simple">
+<li>write unit-tests.</li>
+<li>document arguments and constraints</li>
+</ul>
+<p>You should check out the sourcecode for <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/devilry/addons/xmlrpc_examiner">devilry.addons.xmlrpc_examiner</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">XMLRPC howto</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li><a class="reference internal" href="#a-function">A function</a></li>
+<li><a class="reference internal" href="#make-it-into-a-xmlrpc-function">Make it into a XMLRPC-function</a></li>
+<li><a class="reference internal" href="#urls">Urls</a></li>
+<li><a class="reference internal" href="#check-if-it-is-working">Check if it is working</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-stuff">Other stuff</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="grade-plugins.html"
+                        title="previous chapter">Grade plugins</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cli.html"
+                        title="next chapter">Developing and extending the command line client</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../sources/developer/howto/xmlrpc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cli.html" title="Developing and extending the command line client"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="grade-plugins.html" title="Grade plugins"
+             >previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" >How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

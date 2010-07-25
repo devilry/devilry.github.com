@@ -1,0 +1,439 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developing and extending the command line client &mdash; Devilry v0.1alpha0 documentation</title>
+    <link rel="stylesheet" href="../../static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1alpha0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
+    <link rel="up" title="How-to’s" href="contents.html" />
+    <link rel="prev" title="XMLRPC howto" href="xmlrpc.html" /> 
+  </head>
+  <body>
+<div id='projectinfo'>
+	<h1 id='projectname'>Devilry</h1>
+	<div id='projectversion'>Version 0.1</div>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xmlrpc.html" title="XMLRPC howto"
+             accesskey="P">previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developing-and-extending-the-command-line-client">
+<span id="developer-howto-cli"></span><h1>Developing and extending the command line client<a class="headerlink" href="#developing-and-extending-the-command-line-client" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-devilry.xmlrpc_client.command">
+<span id="command-and-general-purpose-subclasses"></span><h2>Command and general purpose subclasses<a class="headerlink" href="#module-devilry.xmlrpc_client.command" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="devilry.xmlrpc_client.command.IdFileNotFoundError">
+<em class="property">exception </em><tt class="descclassname">devilry.xmlrpc_client.command.</tt><tt class="descname">IdFileNotFoundError</tt><big>(</big><em>dirpath</em>, <em>idfilename</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.IdFileNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>The command-line uses hidden files to store id in the sync-tree.
+When such a ID-file is not found, this exception is raised.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="devilry.xmlrpc_client.command.NotInDevilryDirError">
+<em class="property">exception </em><tt class="descclassname">devilry.xmlrpc_client.command.</tt><tt class="descname">NotInDevilryDirError</tt><a class="headerlink" href="#devilry.xmlrpc_client.command.NotInDevilryDirError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Raised when searching the current working directory and it&#8217;s parents for
+a .devilry subdirectory fails.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="devilry.xmlrpc_client.command.Command">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.command.</tt><tt class="descname">Command</tt><a class="headerlink" href="#devilry.xmlrpc_client.command.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for all commands in the cli.</p>
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_configfile">
+<tt class="descname">get_configfile</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_configfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses <a class="reference internal" href="#devilry.xmlrpc_client.command.Command.get_configdir" title="devilry.xmlrpc_client.command.Command.get_configdir"><tt class="xref py py-meth docutils literal"><span class="pre">get_configdir()</span></tt></a> to find config.cfg in the configdir.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.write_config">
+<tt class="descname">write_config</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.write_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the configfile on disk.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.set_config">
+<tt class="descname">set_config</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.set_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a config value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_config">
+<tt class="descname">get_config</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a config value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_url">
+<tt class="descname">get_url</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get server url from config-file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_rootdir">
+<tt class="descname">get_rootdir</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_rootdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the first parent-directory of path containing a
+.devilry-directory.  Returns <tt class="xref docutils literal"><span class="pre">None</span></tt> if there is no .devilry
+directory within any of the parent-directories of <tt class="docutils literal"><span class="pre">path</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> &#8211; Defaults to current working directory.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_configdir">
+<tt class="descname">get_configdir</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_configdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the config-directory (the .devilry directory).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_cookiepath">
+<tt class="descname">get_cookiepath</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_cookiepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cli uses cookies to maintain a session. The cookie-file is
+stored in the configdir. This method returns the path to the cookie
+file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_id_from_path">
+<tt class="descname">get_id_from_path</tt><big>(</big><em>dirpath</em>, <em>idfilename</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_id_from_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get id from the file name <tt class="docutils literal"><span class="pre">idfilename</span></tt> in the
+<tt class="docutils literal"><span class="pre">dirpath</span></tt>-directory.</p>
+<p>Raises <a class="reference internal" href="#devilry.xmlrpc_client.command.IdFileNotFoundError" title="devilry.xmlrpc_client.command.IdFileNotFoundError"><tt class="xref py py-exc docutils literal"><span class="pre">IdFileNotFoundError</span></tt></a> if the file cannot be found.</p>
+<p>Raises <tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt> if the contents of the id-file can not be
+converted to int.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.determine_id">
+<tt class="descname">determine_id</tt><big>(</big><em>id_or_path</em>, <em>idfilename</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.determine_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determin id from the string <tt class="docutils literal"><span class="pre">id_or_path</span></tt>.</p>
+<p>If <tt class="docutils literal"><span class="pre">id_or_path</span></tt> contains a digit, return the digit converted to
+int, else use <a class="reference internal" href="#devilry.xmlrpc_client.command.Command.get_id_from_path" title="devilry.xmlrpc_client.command.Command.get_id_from_path"><tt class="xref py py-meth docutils literal"><span class="pre">get_id_from_path()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.cli">
+<tt class="descname">cli</tt><big>(</big><em>argv</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the cli.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.add_user_option">
+<tt class="descname">add_user_option</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.add_user_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a option for providing username using -u or &#8211;username. The
+optparse dest is <tt class="docutils literal"><span class="pre">&quot;username&quot;</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.add_options">
+<tt class="descname">add_options</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.add_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override to add options to the optionparser. Does nothing by
+default.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.command">
+<tt class="descname">command</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override to and put the code for the command here. Does nothing by
+default.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.exit_help">
+<tt class="descname">exit_help</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.exit_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show help and exit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.validate_argslen">
+<tt class="descname">validate_argslen</tt><big>(</big><em>length</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.validate_argslen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the length of <tt class="xref py py-attr docutils literal"><span class="pre">args</span></tt>, and call <a class="reference internal" href="#devilry.xmlrpc_client.command.Command.exit_help" title="devilry.xmlrpc_client.command.Command.exit_help"><tt class="xref py py-meth docutils literal"><span class="pre">exit_help()</span></tt></a>
+if the validation fails.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.command.Command.get_serverproxy">
+<tt class="descname">get_serverproxy</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.command.Command.get_serverproxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a server-proxy object. If the url starts with https, a
+server-proxy with SSL-support is created.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="devilry.xmlrpc_client.command.Login">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.command.</tt><tt class="descname">Login</tt><a class="headerlink" href="#devilry.xmlrpc_client.command.Login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#devilry.xmlrpc_client.command.Command" title="devilry.xmlrpc_client.command.Command"><tt class="xref py py-class docutils literal"><span class="pre">devilry.xmlrpc_client.command.Command</span></tt></a></p>
+<p>Login command.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="devilry.xmlrpc_client.command.Init">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.command.</tt><tt class="descname">Init</tt><a class="headerlink" href="#devilry.xmlrpc_client.command.Init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#devilry.xmlrpc_client.command.Command" title="devilry.xmlrpc_client.command.Command"><tt class="xref py py-class docutils literal"><span class="pre">devilry.xmlrpc_client.command.Command</span></tt></a></p>
+<p>Init command.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="assignmenttreewalker">
+<h3>AssignmentTreeWalker<a class="headerlink" href="#assignmenttreewalker" title="Permalink to this headline">¶</a></h3>
+<p>AssignmentTreeWalker does not change anything on the
+filesystem or on the server, but provides a base for any operation
+needing to walk the assignment-tree using the <em>examiner xmlrpc</em>.</p>
+<div class="section" id="directory-tree-format">
+<h4>Directory-tree format<a class="headerlink" href="#directory-tree-format" title="Permalink to this headline">¶</a></h4>
+<p>Even though this class does not create any directories, it does presume
+a direcotry hierarchy:</p>
+<div class="highlight-python"><pre>[path of assignment]
+    .info
+    [group members separated by '-']
+        .info
+        [time of delivery YYYY-MM-DD_hh.mm.ss]
+            .info
+            [feedback.server.[rst|txt]]
+            files/
+                [files in the delivery]</pre>
+</div>
+</div>
+<div class="section" id="handling-directory-name-duplicates">
+<h4>Handling directory name duplicates<a class="headerlink" href="#handling-directory-name-duplicates" title="Permalink to this headline">¶</a></h4>
+<p>Assignment groups might have exactly the same members, and deliveries
+might be delivered withing the same second. We could just add <em>id</em> to
+every AssignmentGroup and Delivery, but that would be ugly for something
+so uncommon. So instead we just add id when needed. This leads to some
+extra complexity.</p>
+<p>We use <tt class="xref py py-class docutils literal"><span class="pre">Info</span></tt>-objects to distribute the directory-path to the
+functions which can be overridden in subclasses. The info-objects has
+two extra functions only used when duplicates is a possibility:</p>
+<blockquote>
+<ol class="arabic simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">Info.determine_location()</span></tt> determines and sets the correct
+directory-name in the info-object, but does not change anything
+on the filesystem. After calling this function
+<tt class="xref py py-meth docutils literal"><span class="pre">Info.get_dirpath()</span></tt> will return the correct directory.</li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">Info.rename_if_required()</span></tt> is run to rename a already
+existing directory (adding id to the name) if determine_location
+returns False.</li>
+</ol>
+</blockquote>
+</div>
+<div class="section" id="api">
+<h4>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.utils.</tt><tt class="descname">AssignmentTreeWalker</tt><big>(</big><em>cookiepath</em>, <em>server</em>, <em>serverurl</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Finds all assignment where the current user is examiner, and walks
+through every AssignmentGroup, Delivery, Feedback and FileMeta.</p>
+<p>Calls <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignment" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignment"><tt class="xref py py-meth docutils literal"><span class="pre">assignment()</span></tt></a>, <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignmentgroup" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignmentgroup"><tt class="xref py py-meth docutils literal"><span class="pre">assignmentgroup()</span></tt></a>, <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.delivery" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.delivery"><tt class="xref py py-meth docutils literal"><span class="pre">delivery()</span></tt></a>,
+<a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.filemeta" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.filemeta"><tt class="xref py py-meth docutils literal"><span class="pre">filemeta()</span></tt></a>, <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_none" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_none"><tt class="xref py py-meth docutils literal"><span class="pre">feedback_none()</span></tt></a> and <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_exists" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_exists"><tt class="xref py py-meth docutils literal"><span class="pre">feedback_exists()</span></tt></a> with
+the returned dicts from the corresponding functions in the examiner
+xmlrpc as argument.</p>
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignment">
+<tt class="descname">assignment</tt><big>(</big><em>assignment</em>, <em>info</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called on each assignment.</p>
+<p>Calls <tt class="xref py py-meth docutils literal"><span class="pre">assignment_new()</span></tt> if the assignment has not been synced
+before, and <tt class="xref py py-meth docutils literal"><span class="pre">assignment_exists()</span></tt> if not. These two methods do
+nothing by default, and are ment to be overridden in subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>assignment</strong> &#8211; A dictionary as returned from the</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignmentgroup">
+<tt class="descname">assignmentgroup</tt><big>(</big><em>group</em>, <em>info</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.assignmentgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called on each assignment-group.</p>
+<p>Calls <tt class="xref py py-meth docutils literal"><span class="pre">assignmentgroup_nodeliveries()</span></tt> if the assignmentgroup
+has no deliveries, <tt class="xref py py-meth docutils literal"><span class="pre">assignmentgroup_new()</span></tt> if the assignment has
+not been synced before, and <tt class="xref py py-meth docutils literal"><span class="pre">assignmentgroup_exists()</span></tt> if not.
+These three methods do nothing by default, and are ment to be
+overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.delivery">
+<tt class="descname">delivery</tt><big>(</big><em>delivery</em>, <em>info</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.delivery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called on each delivery.</p>
+<p>Calls <tt class="xref py py-meth docutils literal"><span class="pre">delivery_new()</span></tt> if the delivery has not been synced
+before, and <tt class="xref py py-meth docutils literal"><span class="pre">delivery_exists()</span></tt> if not. These two methods do
+nothing by default, and are ment to be overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.filemeta">
+<tt class="descname">filemeta</tt><big>(</big><em>filemeta</em>, <em>filepath</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.filemeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called on each filemeta.</p>
+<p>Calls <tt class="xref py py-meth docutils literal"><span class="pre">filemeta_new()</span></tt> if the filemeta has not been synced
+before, and <tt class="xref py py-meth docutils literal"><span class="pre">filemeta_exists()</span></tt> if not. These two methods do
+nothing by default, and are ment to be overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_none">
+<tt class="descname">feedback_none</tt><big>(</big><em>delivery</em>, <em>deliverydir</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when there is no feedback on a delivery. Does nothing by
+default, and should be overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_exists">
+<tt class="descname">feedback_exists</tt><big>(</big><em>delivery</em>, <em>deliverydir</em>, <em>feedback</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker.feedback_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when there is feedback on a delivery. Does nothing by
+default, and should be overridden in subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="assignmentsync">
+<h3>AssignmentSync<a class="headerlink" href="#assignmentsync" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="devilry.xmlrpc_client.utils.AssignmentSync">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.utils.</tt><tt class="descname">AssignmentSync</tt><big>(</big><em>rootdir</em>, <em>cookiepath</em>, <em>server</em>, <em>serverurl</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.utils.AssignmentSync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker"><tt class="xref py py-class docutils literal"><span class="pre">devilry.xmlrpc_client.utils.AssignmentTreeWalker</span></tt></a></p>
+<p>Uses <a class="reference internal" href="#devilry.xmlrpc_client.utils.AssignmentTreeWalker" title="devilry.xmlrpc_client.utils.AssignmentTreeWalker"><tt class="xref py py-class docutils literal"><span class="pre">AssignmentTreeWalker</span></tt></a> to sync all deliveries on any
+active assignment where the current user is examiner to the filesystem.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Developing and extending the command line client</a><ul>
+<li><a class="reference internal" href="#module-devilry.xmlrpc_client.command">Command and general purpose subclasses</a></li>
+<li><a class="reference internal" href="#utilities">Utilities</a><ul>
+<li><a class="reference internal" href="#assignmenttreewalker">AssignmentTreeWalker</a><ul>
+<li><a class="reference internal" href="#directory-tree-format">Directory-tree format</a></li>
+<li><a class="reference internal" href="#handling-directory-name-duplicates">Handling directory name duplicates</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#assignmentsync">AssignmentSync</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xmlrpc.html"
+                        title="previous chapter">XMLRPC howto</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../sources/developer/howto/cli.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xmlrpc.html" title="XMLRPC howto"
+             >previous</a> |</li>
+	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="../contents.html" >Developers</a> &raquo;</li>
+          <li><a href="contents.html" >How-to&#8217;s</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

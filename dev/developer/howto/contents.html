@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,17 +13,18 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.1alpha0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
     <link rel="up" title="Developers" href="../contents.html" />
     <link rel="next" title="How to document Devilry" href="documentation.html" />
-    <link rel="prev" title="devilry.core.utils — Devilry core utilities" href="../ref/core.utils.html" /> 
+    <link rel="prev" title="devilry.xmlrpc — Devilry XMLRPC" href="../ref/xmlrpc.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -37,10 +39,13 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="documentation.html" title="How to document Devilry"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../ref/core.utils.html" title="devilry.core.utils — Devilry core utilities"
+          <a href="../ref/xmlrpc.html" title="devilry.xmlrpc — Devilry XMLRPC"
              accesskey="P">previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
@@ -56,20 +61,32 @@
             
   <div class="section" id="how-to-s">
 <h1>How-to&#8217;s<a class="headerlink" href="#how-to-s" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference external" href="documentation.html">How to document Devilry</a><ul>
-<li class="toctree-l2"><a class="reference external" href="documentation.html#how-documentation-is-organized">How documentation is organized</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">How to document Devilry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-documentation-is-organized">How documentation is organized</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="plugins.html">How to write a plugin</a><ul>
-<li class="toctree-l2"><a class="reference external" href="plugins.html#setting-up-your-testsite">Setting up your testsite</a></li>
-<li class="toctree-l2"><a class="reference external" href="plugins.html#autoload-plugins">Autoload plugins</a></li>
-<li class="toctree-l2"><a class="reference external" href="plugins.html#your-first-plugin">Your first plugin</a></li>
-<li class="toctree-l2"><a class="reference external" href="plugins.html#plugin-errors">Plugin errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">How to write a plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#setting-up-your-testsite">Setting up your testsite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#autoload-plugins">Autoload plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#your-first-plugin">Your first plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#plugin-errors">Plugin errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="grade-plugins.html">Grade plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grade-plugins.html">Grade plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xmlrpc.html">XMLRPC howto</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html#other-stuff">Other stuff</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Developing and extending the command line client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#module-devilry.xmlrpc_client.command">Command and general purpose subclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#utilities">Utilities</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -78,30 +95,30 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="../ref/core.utils.html"
-                                  title="previous chapter"><tt class="docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="documentation.html"
-                                  title="next chapter">How to document Devilry</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../sources/developer/howto/contents.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../ref/xmlrpc.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">devilry.xmlrpc</span></tt> &#8212; Devilry XMLRPC</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="documentation.html"
+                        title="next chapter">How to document Devilry</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../sources/developer/howto/contents.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -113,10 +130,13 @@
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="documentation.html" title="How to document Devilry"
              >next</a> |</li>
         <li class="right" >
-          <a href="../ref/core.utils.html" title="devilry.core.utils — Devilry core utilities"
+          <a href="../ref/xmlrpc.html" title="devilry.xmlrpc — Devilry XMLRPC"
              >previous</a> |</li>
 	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
@@ -125,8 +145,8 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
     </div>
   </body>
 </html>

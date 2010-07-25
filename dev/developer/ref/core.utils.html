@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,16 +13,17 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '0.1alpha0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
     <script type="text/javascript" src="../../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
     <link rel="up" title="API reference" href="contents.html" />
-    <link rel="next" title="How-to’s" href="../howto/contents.html" />
+    <link rel="next" title="devilry.core.deliverystore — DeliveryStore" href="core.deliverystore.html" />
     <link rel="prev" title="devilry.core.models — Devilry core datastructure" href="core.models.html" /> 
   </head>
   <body>
@@ -37,7 +39,10 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../howto/contents.html" title="How-to’s"
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="core.models.html" title="devilry.core.models — Devilry core datastructure"
@@ -56,33 +61,13 @@
           <div class="body">
             
   <div class="section" id="devilry-core-utils-devilry-core-utilities">
-<span id="ref-devilry-core-utils"></span><h1><tt class="xref docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities<a class="headerlink" href="#devilry-core-utils-devilry-core-utilities" title="Permalink to this headline">¶</a></h1>
+<span id="ref-devilry-core-utils"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities<a class="headerlink" href="#devilry-core-utils-devilry-core-utilities" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="devilry.core.utils.OrderedDict">
-<em class="property">class </em><tt class="descclassname">devilry.core.utils.</tt><tt class="descname">OrderedDict</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#devilry.core.utils.OrderedDict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref docutils literal"><span class="pre">dict</span></tt>, <tt class="xref docutils literal"><span class="pre">UserDict.DictMixin</span></tt></p>
-<p>OrderedDict implementation which works just like OrderedDict
-in python &gt;2.7. See: <a class="reference external" href="http://docs.python.org/dev/library/collections.html#collections.OrderedDict">http://docs.python.org/dev/library/collections.html#collections.OrderedDict</a></p>
-<p><strong>Released under the MIT license</strong></p>
-<p>Copyright (c) 2009 Raymond Hettinger</p>
-<p>Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the &#8220;Software&#8221;), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:</p>
-<p>The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.</p>
+<em class="property">class </em><tt class="descclassname">devilry.core.utils.</tt><tt class="descname">OrderedDict</tt><a class="headerlink" href="#devilry.core.utils.OrderedDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>If python version &gt;=2.7, <a class="reference external" href="http://docs.python.org/dev/library/collections.html#ordereddict-objects">collections.OrderedDict</a> is imported. For older
+python versions, the fallback mentioned in the OrderedDict docs is
+imported.</p>
 </dd></dl>
 
 </div>
@@ -93,30 +78,30 @@ OTHER DEALINGS IN THE SOFTWARE.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="core.models.html"
-                                  title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="../howto/contents.html"
-                                  title="next chapter">How-to&#8217;s</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="../../sources/developer/ref/core.utils.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="../../search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="core.models.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="core.deliverystore.html"
+                        title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">devilry.core.deliverystore</span></tt> &#8212; DeliveryStore</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../sources/developer/ref/core.utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -128,7 +113,10 @@ OTHER DEALINGS IN THE SOFTWARE.</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../howto/contents.html" title="How-to’s"
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
              >next</a> |</li>
         <li class="right" >
           <a href="core.models.html" title="devilry.core.models — Devilry core datastructure"
@@ -141,8 +129,8 @@ OTHER DEALINGS IN THE SOFTWARE.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
     </div>
   </body>
 </html>
