@@ -7,23 +7,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>XMLRPC howto &mdash; Devilry v0.1alpha0 documentation</title>
-    <link rel="stylesheet" href="../../static/devilry.css" type="text/css" />
-    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
+        URL_ROOT:    '../',
         VERSION:     '0.1alpha0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../../static/jquery.js"></script>
-    <script type="text/javascript" src="../../static/underscore.js"></script>
-    <script type="text/javascript" src="../../static/doctools.js"></script>
-    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
-    <link rel="up" title="How-to’s" href="contents.html" />
-    <link rel="next" title="Developing and extending the command line client" href="cli.html" />
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
+    <link rel="up" title="Developers" href="contents.html" />
+    <link rel="next" title="Developing and extending the command line client" href="commandline.html" />
     <link rel="prev" title="Grade plugins" href="grade-plugins.html" /> 
   </head>
   <body>
@@ -36,22 +36,21 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="cli.html" title="Developing and extending the command line client"
+          <a href="commandline.html" title="Developing and extending the command line client"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="grade-plugins.html" title="Grade plugins"
              accesskey="P">previous</a> |</li>
-	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" accesskey="U">How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -61,7 +60,16 @@
           <div class="body">
             
   <div class="section" id="xmlrpc-howto">
-<span id="developer-howto-xmlrpc"></span><h1>XMLRPC howto<a class="headerlink" href="#xmlrpc-howto" title="Permalink to this headline">¶</a></h1>
+<span id="xmlrpc"></span><h1>XMLRPC howto<a class="headerlink" href="#xmlrpc-howto" title="Permalink to this headline">¶</a></h1>
+<p>Devilry exports some common functionality over <em>XMLRPC</em>. XMLRPC is a language
+independent standard, so if you need to do some of the more common operations
+in devilry, but don&#8217;t know Python, the XMLRPC should be able to help.</p>
+<p>All XMLRPC functions exported by a running Devilry server can be found at
+<em>/xmlrpc/</em>. So if your server is running at <a class="reference external" href="http://example.com">http://example.com</a>, the xmlrpc will
+be available at <a class="reference external" href="http://example.com/xmlrpc/">http://example.com/xmlrpc/</a> (just visit the address in a browser
+for documentation).</p>
+<div class="section" id="creating-a-xmlrpc-for-your-devilry-plugin">
+<h2>Creating a XMLRPC for your Devilry plugin<a class="headerlink" href="#creating-a-xmlrpc-for-your-devilry-plugin" title="Permalink to this headline">¶</a></h2>
 <p>It is very easy to export parts of your addons as a <em>XMLRPC</em> with the help of
 the <tt class="docutils literal"><span class="pre">devilry.xmlrpc</span></tt> module. <em>XMLRPC</em> can be used to communicate with the
 devilry server from any programming language with support for XMLRPC with
@@ -69,8 +77,6 @@ cookies over SSL.</p>
 <p>We will explain how to use XMLRPC by explaining how the
 <tt class="docutils literal"><span class="pre">devilry.addons.xmlrpc_examiner</span></tt> module works. The module exports the most
 common functionality required by <em>examiners</em>.</p>
-<div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-function">
 <h3>A function<a class="headerlink" href="#a-function" title="Permalink to this headline">¶</a></h3>
 <p>First of all we need some functions. XMLRPC works over HTTP, so they basically
@@ -109,15 +115,16 @@ work just like a normal django view. Therefore we choose to put our views in
             <span class="c"># TODO: Add delivered_by when it has been updated to use candidate</span>
             <span class="s">&#39;successful&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">successful</span><span class="p">,</span>
             <span class="s">&#39;filemetas&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;id&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;size&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
-                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">filemeta_set</span><span class="o">.</span><span class="n">all</span><span class="p">()]}</span>
-        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">assignment_group</span><span class="o">.</span><span class="n">delivery_set</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">filemetas</span><span class="o">.</span><span class="n">all</span><span class="p">()]}</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">assignment_group</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
     <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="make-it-into-a-xmlrpc-function">
 <h3>Make it into a XMLRPC-function<a class="headerlink" href="#make-it-into-a-xmlrpc-function" title="Permalink to this headline">¶</a></h3>
-<p>Next we need to create a <a class="reference internal" href="../ref/xmlrpc.html#ref-devilry-xmlrpc"><em>devilry.xmlrpc.XmlRpc</em></a> object where we can register our function:</p>
+<p>Next we need to create a <a class="reference internal" href="#devilry.xmlrpc.XmlRpc" title="devilry.xmlrpc.XmlRpc"><tt class="xref py py-class docutils literal"><span class="pre">devilry.xmlrpc.XmlRpc</span></tt></a> object where we can
+register our function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">doc</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;The functions required to do the most common operations required by</span>
 <span class="s">a examiner.&quot;&quot;&quot;</span>
 
@@ -149,12 +156,12 @@ work just like a normal django view. Therefore we choose to put our views in
 <a class="reference external" href="http://localhost:8000/xmlrpc">http://localhost:8000/xmlrpc</a>. The xmlrpc, in this case <tt class="docutils literal"><span class="pre">&quot;examiner&quot;</span></tt> should be
 in the menu, and clicking on it will take you to it&#8217;s documentation.</p>
 </div>
-<div class="section" id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="using-the-xmlrpc">
+<h2>Using the XMLRPC<a class="headerlink" href="#using-the-xmlrpc" title="Permalink to this headline">¶</a></h2>
 <p>To connect to this xmlrpc you will need a xmlrpc client with cookies (and SSL
 for production use). A example of this can be found in <em>exampleclient.py</em> found
 in the Devilry <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/xmlrpc-client/">xmlrpc-client</a>.</p>
-</div>
 </div>
 <div class="section" id="other-stuff">
 <h2>Other stuff<a class="headerlink" href="#other-stuff" title="Permalink to this headline">¶</a></h2>
@@ -165,6 +172,65 @@ in the Devilry <a class="reference external" href="http://github.com/devilry/dev
 </ul>
 <p>You should check out the sourcecode for <a class="reference external" href="http://github.com/devilry/devilry-django/tree/master/devilry/addons/xmlrpc_examiner">devilry.addons.xmlrpc_examiner</a>.</p>
 </div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="devilry.xmlrpc.XmlRpc">
+<em class="property">class </em><tt class="descclassname">devilry.xmlrpc.</tt><tt class="descname">XmlRpc</tt><big>(</big><em>name</em>, <em>viewname</em>, <em>docs=''</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc.XmlRpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Represents a xmlrpc.</p>
+<p>Raises <tt class="docutils literal"><span class="pre">ValueError</span></tt> if <em>name</em> is not unique.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; A unique name for this xmlrpc.</li>
+<li><strong>viewname</strong> &#8211; Name of the view (you define this when you add the object to
+your urls. Must be something that
+<tt class="docutils literal"><span class="pre">django.core.urlresolvers.reverse</span></tt> can handle.</li>
+<li><strong>docs</strong> &#8211; A reStructuredText string displayed at the top of the HTML
+documentation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="devilry.xmlrpc.XmlRpc.rpcdec">
+<tt class="descname">rpcdec</tt><big>(</big><em>argnames=''</em>, <em>constraints=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#devilry.xmlrpc.XmlRpc.rpcdec" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator for XML-RPC functions.</p>
+<p><strong>Note</strong>: the arguments are only for documentation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>argnames</strong> &#8211; A string containing arguments for the html documentation.</li>
+<li><strong>constraints</strong> &#8211; A list informing the user of extra constraints, like required
+permissions.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.xmlrpc.XmlRpc.rpcdec_login_required">
+<tt class="descname">rpcdec_login_required</tt><big>(</big><em>argnames=''</em>, <em>constraints=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#devilry.xmlrpc.XmlRpc.rpcdec_login_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut for:</p>
+<div class="highlight-python"><pre>@rpcdec(argnames, ['Login required'])
+@django.contrib.auth.decorators.login_required</pre>
+</div>
+<p>Note that the constraint, &#8216;Login requred&#8217;, is inserted first in
+constraints, so you can add more constrains just like with
+<em class="xref std std-ref">rpcdec</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -173,18 +239,19 @@ in the Devilry <a class="reference external" href="http://github.com/devilry/dev
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">XMLRPC howto</a><ul>
-<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li><a class="reference internal" href="#creating-a-xmlrpc-for-your-devilry-plugin">Creating a XMLRPC for your Devilry plugin</a><ul>
 <li><a class="reference internal" href="#a-function">A function</a></li>
 <li><a class="reference internal" href="#make-it-into-a-xmlrpc-function">Make it into a XMLRPC-function</a></li>
 <li><a class="reference internal" href="#urls">Urls</a></li>
 <li><a class="reference internal" href="#check-if-it-is-working">Check if it is working</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#using-the-xmlrpc">Using the XMLRPC</a></li>
 <li><a class="reference internal" href="#other-stuff">Other stuff</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
 </ul>
 </li>
 </ul>
@@ -193,16 +260,16 @@ in the Devilry <a class="reference external" href="http://github.com/devilry/dev
   <p class="topless"><a href="grade-plugins.html"
                         title="previous chapter">Grade plugins</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="cli.html"
+  <p class="topless"><a href="commandline.html"
                         title="next chapter">Developing and extending the command line client</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../sources/developer/howto/xmlrpc.txt"
+    <li><a href="../sources/developer/xmlrpc.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" size="18" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -221,22 +288,21 @@ in the Devilry <a class="reference external" href="http://github.com/devilry/dev
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="cli.html" title="Developing and extending the command line client"
+          <a href="commandline.html" title="Developing and extending the command line client"
              >next</a> |</li>
         <li class="right" >
           <a href="grade-plugins.html" title="Grade plugins"
              >previous</a> |</li>
-	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" >How-to&#8217;s</a> &raquo;</li> 
+          <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -1,4 +1,4 @@
-.. _ref-devilry.core.models:
+.. _devilry.core.models:
 
 =========================================================
 :mod:`devilry.core.models` --- Devilry core datastructure
@@ -86,7 +86,7 @@ but as shown above it can be anything you want.
 .. autoclass:: devilry.core.models.Delivery
 
 
-Feeback
+Feedback
 #########################################################
 
 .. autoclass:: devilry.core.models.Feedback

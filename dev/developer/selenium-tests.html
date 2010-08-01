@@ -1,0 +1,163 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Selenium tests &mdash; Devilry v0.1alpha0 documentation</title>
+    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1alpha0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
+    <link rel="up" title="Developers" href="contents.html" />
+    <link rel="prev" title="Developing and extending the command line client" href="commandline.html" /> 
+  </head>
+  <body>
+<div id='projectinfo'>
+	<h1 id='projectname'>Devilry</h1>
+	<div id='projectversion'>Version 0.1</div>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="commandline.html" title="Developing and extending the command line client"
+             accesskey="P">previous</a> |</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="selenium-tests">
+<span id="developer-selenium-tests"></span><h1>Selenium tests<a class="headerlink" href="#selenium-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements-for-selenium-testing">
+<h2>Requirements for Selenium testing<a class="headerlink" href="#requirements-for-selenium-testing" title="Permalink to this headline">¶</a></h2>
+<p><strong>robotframework</strong> (<a class="reference external" href="http://code.google.com/p/robotframework/wiki/">http://code.google.com/p/robotframework/wiki/</a>)</p>
+<p>Install:</p>
+<div class="highlight-python"><pre>$ easy_install robotframework</pre>
+</div>
+<p><strong>SeleniumLibrary</strong> (<a class="reference external" href="http://code.google.com/p/robotframework-seleniumlibrary/wiki">http://code.google.com/p/robotframework-seleniumlibrary/wiki</a>)</p>
+<p>Install:</p>
+<div class="highlight-python"><pre>$ hg clone https://robotframework-seleniumlibrary.googlecode.com/hg/ robotframework-seleniumlibrary
+$ python setup.py install</pre>
+</div>
+</div>
+<div class="section" id="running-the-tests">
+<h2>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h2>
+<p>To run tests, first start the selenium server</p>
+<div class="highlight-python"><pre>robotframework-seleniumlibrary/demo$ python rundemo.py selenium start</pre>
+</div>
+<p>Then run the tests with:</p>
+<div class="highlight-python"><pre>devilry$ make selenium-test</pre>
+</div>
+<p>The server is stopped with:</p>
+<div class="highlight-python"><pre>robotframework-seleniumlibrary/demo$ python rundemo.py selenium stop</pre>
+</div>
+</div>
+<div class="section" id="creating-selenium-tests-using-firefox-plugin">
+<h2>Creating Selenium tests using Firefox plugin<a class="headerlink" href="#creating-selenium-tests-using-firefox-plugin" title="Permalink to this headline">¶</a></h2>
+<p>To create tests through Firefox using Firefox pugin, install Selenium IDE:
+<a class="reference external" href="http://seleniumhq.org/download/">http://seleniumhq.org/download/</a></p>
+<p><strong>Creating the python test</strong></p>
+<ul class="simple">
+<li>Go to Tools-&gt;Selenium IDE in Firefox</li>
+<li>Go to the web page you wish to record.</li>
+<li>To the operations you want to test.</li>
+<li>To finish recording, click the record button.</li>
+<li>To get the python code, go to Options-&gt;Format and choose Python.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Selenium tests</a><ul>
+<li><a class="reference internal" href="#requirements-for-selenium-testing">Requirements for Selenium testing</a></li>
+<li><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
+<li><a class="reference internal" href="#creating-selenium-tests-using-firefox-plugin">Creating Selenium tests using Firefox plugin</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="commandline.html"
+                        title="previous chapter">Developing and extending the command line client</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/developer/selenium-tests.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="commandline.html" title="Developing and extending the command line client"
+             >previous</a> |</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+
+          <li><a href="contents.html" >Developers</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, The Devilry Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>

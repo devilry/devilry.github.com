@@ -7,24 +7,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>devilry.core.models — Devilry core datastructure &mdash; Devilry v0.1alpha0 documentation</title>
-    <link rel="stylesheet" href="../../static/devilry.css" type="text/css" />
-    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
+        URL_ROOT:    '../',
         VERSION:     '0.1alpha0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../../static/jquery.js"></script>
-    <script type="text/javascript" src="../../static/underscore.js"></script>
-    <script type="text/javascript" src="../../static/doctools.js"></script>
-    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../../index.html" />
-    <link rel="up" title="API reference" href="contents.html" />
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
+    <link rel="up" title="Developers" href="contents.html" />
     <link rel="next" title="devilry.core.utils — Devilry core utilities" href="core.utils.html" />
-    <link rel="prev" title="API reference" href="contents.html" /> 
+    <link rel="prev" title="Developers" href="contents.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -36,22 +36,21 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="contents.html" title="API reference"
+          <a href="contents.html" title="Developers"
              accesskey="P">previous</a> |</li>
-	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" accesskey="U">API reference</a> &raquo;</li> 
+          <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -61,8 +60,8 @@
           <div class="body">
             
   <div class="section" id="devilry-core-models-devilry-core-datastructure">
-<span id="ref-devilry-core-models"></span><h1><a class="reference internal" href="#module-devilry.core.models"><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.models</span></tt></a> &#8212; Devilry core datastructure<a class="headerlink" href="#devilry-core-models-devilry-core-datastructure" title="Permalink to this headline">¶</a></h1>
-<p>Check out the <a class="reference internal" href="../../overview.html#overview"><em>Overview</em></a> if you need a simple overview of the different
+<span id="devilry-core-models"></span><h1><a class="reference internal" href="#module-devilry.core.models"><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.models</span></tt></a> &#8212; Devilry core datastructure<a class="headerlink" href="#devilry-core-models-devilry-core-datastructure" title="Permalink to this headline">¶</a></h1>
+<p>Check out the <a class="reference internal" href="../overview.html#overview"><em>Overview</em></a> if you need a simple overview of the different
 components.</p>
 <div class="section" id="module-devilry.core.models">
 <span id="functions-and-attributes"></span><h2>Functions and attributes<a class="headerlink" href="#module-devilry.core.models" title="Permalink to this headline">¶</a></h2>
@@ -148,6 +147,18 @@ is always a <a class="reference external" href="#node">Node</a>.</p>
 <tt class="descname">admins</tt><a class="headerlink" href="#devilry.core.models.Node.admins" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the
 <a class="reference external" href="#node">Node</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Node.nodes">
+<tt class="descname">nodes</tt><a class="headerlink" href="#devilry.core.models.Node.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of child_nodes for this node</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Node.subjects">
+<tt class="descname">subjects</tt><a class="headerlink" href="#devilry.core.models.Node.subjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of subjects for this node</p>
 </dd></dl>
 
 <dl class="method">
@@ -262,6 +273,12 @@ to avoid the overhead of having to recurse all the way to the top of
 the node hierarchy for every unique path.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="devilry.core.models.Subject.periods">
+<tt class="descname">periods</tt><a class="headerlink" href="#devilry.core.models.Subject.periods" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of periods for this subject</p>
+</dd></dl>
+
 <dl class="classmethod">
 <dt id="devilry.core.models.Subject.where_is_admin">
 <em class="property">classmethod </em><tt class="descname">where_is_admin</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.Subject.where_is_admin" title="Permalink to this definition">¶</a></dt>
@@ -350,6 +367,12 @@ the period.</p>
 <tt class="descname">admins</tt><a class="headerlink" href="#devilry.core.models.Period.admins" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#manytomanyfield">django.db.models.ManyToManyField</a> that holds all the admins of the
 node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Period.assignments">
+<tt class="descname">assignments</tt><a class="headerlink" href="#devilry.core.models.Period.assignments" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of assignments for this period</p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -478,13 +501,19 @@ Node.</p>
 <tt class="descname">grade_plugin</tt><a class="headerlink" href="#devilry.core.models.Assignment.grade_plugin" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#charfield">django.db.models.CharField</a> that holds the key of the current
 grade-plugin. More info on grade-plugins
-<a class="reference internal" href="core.gradeplugin_registry.html#ref-devilry-core-gradeplugin-registry"><em>here</em></a>.</p>
+<em class="xref std std-ref">here</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.assignmentgroups">
+<tt class="descname">assignmentgroups</tt><a class="headerlink" href="#devilry.core.models.Assignment.assignmentgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of the assignmentgroups for this assignment.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="devilry.core.models.Assignment.get_gradeplugin_registryitem">
 <tt class="descname">get_gradeplugin_registryitem</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.get_gradeplugin_registryitem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the <a class="reference internal" href="core.gradeplugin_registry.html#devilry.core.gradeplugin_registry.RegistryItem" title="devilry.core.gradeplugin_registry.RegistryItem"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin_registry.RegistryItem</span></tt></a>
+<dd><p>Get the <a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.RegistryItem" title="devilry.core.gradeplugin.RegistryItem"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.RegistryItem</span></tt></a>
 for the current <a class="reference internal" href="#devilry.core.models.Assignment.grade_plugin" title="devilry.core.models.Assignment.grade_plugin"><tt class="xref py py-attr docutils literal"><span class="pre">grade_plugin</span></tt></a>.</p>
 </dd></dl>
 
@@ -640,6 +669,27 @@ path-elements (uses <a class="reference internal" href="#devilry.core.models.spl
 </dd></dl>
 
 <dl class="method">
+<dt id="devilry.core.models.Assignment.assignment_groups_where_is_examiner_or_admin">
+<tt class="descname">assignment_groups_where_is_examiner_or_admin</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.assignment_groups_where_is_examiner_or_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all assignment groups within this assignment where the given
+<tt class="docutils literal"><span class="pre">user_obj</span></tt> is examiner or is admin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user_obj</strong> &#8211; A <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/auth/#users">django.contrib.auth.models.User</a> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">QuerySet</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="devilry.core.models.Assignment.clean">
 <tt class="descname">clean</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the assignment.</p>
@@ -684,6 +734,18 @@ to correct and grade the assignment.</p>
 <tt class="descname">is_open</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.is_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#booleanfield">django.db.models.BooleanField</a> that tells you if the group can add
 deliveries or not.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.deliveries">
+<tt class="descname">deliveries</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.deliveries" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of deliveries for this assignmentgroup</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.deadlines">
+<tt class="descname">deadlines</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.deadlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of deadlines for this assignmentgroup</p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -955,6 +1017,12 @@ the Delivery</p>
 was successfully uploaded.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="devilry.core.models.Delivery.filemetas">
+<tt class="descname">filemetas</tt><a class="headerlink" href="#devilry.core.models.Delivery.filemetas" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of filemetas for this delivery.</p>
+</dd></dl>
+
 <dl class="classmethod">
 <dt id="devilry.core.models.Delivery.where_is_admin">
 <em class="property">classmethod </em><tt class="descname">where_is_admin</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.where_is_admin" title="Permalink to this definition">¶</a></dt>
@@ -1034,38 +1102,38 @@ to this delivery.</td>
 </dd></dl>
 
 </div>
-<div class="section" id="feeback">
-<h2>Feeback<a class="headerlink" href="#feeback" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="feedback">
+<h2>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="devilry.core.models.Feedback">
 <em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Feedback</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
 <p>Represents the feedback for a given <a class="reference external" href="#delivery">Delivery</a>.</p>
 <dl class="attribute">
-<dt id="devilry.core.models.Feedback.feedback_text">
-<tt class="descname">feedback_text</tt><a class="headerlink" href="#devilry.core.models.Feedback.feedback_text" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.Feedback.text">
+<tt class="descname">text</tt><a class="headerlink" href="#devilry.core.models.Feedback.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#textfield">django.db.models.TextField</a> that holds the feedback text given by
 the examiner.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="devilry.core.models.Feedback.feedback_format">
-<tt class="descname">feedback_format</tt><a class="headerlink" href="#devilry.core.models.Feedback.feedback_format" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.Feedback.format">
+<tt class="descname">format</tt><a class="headerlink" href="#devilry.core.models.Feedback.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#charfield">django.db.models.CharField</a> that holds the format of the feedback
 text. Valid values are:</p>
 <blockquote>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">&quot;restructuredtext&quot;</span></tt></dt>
-<dd>Format feedback as restructured text.</dd>
+<dt><tt class="docutils literal"><span class="pre">&quot;rst&quot;</span></tt></dt>
+<dd>Format feedback using restructured text.</dd>
 <dt><tt class="docutils literal"><span class="pre">&quot;text&quot;</span></tt></dt>
-<dd>No text formatting.</dd>
+<dd>Plain text - no text formatting.</dd>
 </dl>
 </blockquote>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="devilry.core.models.Feedback.feedback_published">
-<tt class="descname">feedback_published</tt><a class="headerlink" href="#devilry.core.models.Feedback.feedback_published" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.Feedback.published">
+<tt class="descname">published</tt><a class="headerlink" href="#devilry.core.models.Feedback.published" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#booleanfield">django.db.models.BooleanField</a> that tells if the feedback is
 published or not. This allows editing and saving the feedback before
 publishing it. Is useful for exams and other assignments when
@@ -1080,48 +1148,85 @@ be given feedback.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="devilry.core.models.Feedback.content_object">
-<tt class="descname">content_object</tt><a class="headerlink" href="#devilry.core.models.Feedback.content_object" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.Feedback.grade">
+<tt class="descname">grade</tt><a class="headerlink" href="#devilry.core.models.Feedback.grade" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic relation
 (django.contrib.contenttypes.generic.GenericForeignKey) to the
-grade-plugin object storing the grade for this feedback. The
+grade-plugin object storing the grade for this feedback. This will
+always be a subclass of
+<a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.GradeModel" title="devilry.core.gradeplugin.GradeModel"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.GradeModel</span></tt></a>. The
 <a class="reference internal" href="#devilry.core.models.Feedback.clean" title="devilry.core.models.Feedback.clean"><tt class="xref py py-meth docutils literal"><span class="pre">clean()</span></tt></a>-method checks that this points to a class of the type
 defined in <a class="reference internal" href="#devilry.core.models.Assignment.grade_plugin" title="devilry.core.models.Assignment.grade_plugin"><tt class="xref py py-attr docutils literal"><span class="pre">Assignment.grade_plugin</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt>
-<tt class="descname">content_object</tt></dt>
+<tt class="descname">grade</tt></dt>
 <dd><p>Provides a generic relation to any object through content-type/object-id
 fields.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.Feedback.get_grade">
-<tt class="descname">get_grade</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the grade as a string.</p>
+<dt id="devilry.core.models.Feedback.get_grade_as_short_string">
+<tt class="descname">get_grade_as_short_string</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade_as_short_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the grade as a short string suitable for short one-line
+display.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.Feedback.set_grade_from_string">
-<tt class="descname">set_grade_from_string</tt><big>(</big><em>grade</em><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.set_grade_from_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the grade from string. This is primarly intended for xmlrpc,
-and a grade-plugin is not
-required to support it.</p>
+<dt id="devilry.core.models.Feedback.get_grade_as_long_string">
+<tt class="descname">get_grade_as_long_string</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade_as_long_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the grade as a longer string formatted with restructured
+text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">None if getting long string is not supported by the grade
+plugin.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Feedback.set_grade_from_xmlrpcstring">
+<tt class="descname">set_grade_from_xmlrpcstring</tt><big>(</big><em>grade</em><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.set_grade_from_xmlrpcstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the grade from string. This is primarly intended for xmlrpc, and
+a grade-plugin is not required to support it.</p>
 <p>Raises <tt class="xref py py-exc docutils literal"><span class="pre">NotImplementedError</span></tt> if the grade-plugin do not support
-setting grades from string. The error message in the exception is
-suited for direct display to the user.</p>
+setting grades from string.</p>
 <p>Raises <tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt> if the grade-plugin given grade is invalid
 for this grade-plugin. The error message in the exception is suited
 for direct display to the user.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.Feedback.get_gradeplugin_registryitem">
-<tt class="descname">get_gradeplugin_registryitem</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_gradeplugin_registryitem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for
-getting the assignment (delivery.assignment_group.parentnode), and
-calling <a class="reference internal" href="#devilry.core.models.Assignment.get_gradeplugin_registryitem" title="devilry.core.models.Assignment.get_gradeplugin_registryitem"><tt class="xref py py-meth docutils literal"><span class="pre">Assignment.get_gradeplugin_registryitem()</span></tt></a>.</p>
+<dt id="devilry.core.models.Feedback.get_grade_as_xmlrpcstring">
+<tt class="descname">get_grade_as_xmlrpcstring</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade_as_xmlrpcstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the grade as a string compatible with
+<tt class="xref py py-meth docutils literal"><span class="pre">set_grade_from_string()</span></tt>. This is primarly intended for xmlrpc,
+and a grade-plugin is not required to support it.</p>
+<p>If you need a simple string representation, use <a class="reference internal" href="#devilry.core.models.Feedback.get_grade_as_short_string" title="devilry.core.models.Feedback.get_grade_as_short_string"><tt class="xref py py-meth docutils literal"><span class="pre">get_grade_as_short_string()</span></tt></a>
+instead.</p>
+<p>Raises <tt class="xref py py-exc docutils literal"><span class="pre">NotImplementedError</span></tt> if the grade-plugin do not support
+getting grades as string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">None if getting grade as xmlrpcstring is not supported by
+the grade plugin.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Feedback.get_assignment">
+<tt class="descname">get_assignment</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_assignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut for getting the assignment
+(<tt class="docutils literal"><span class="pre">delivery.assignment_group.parentnode</span></tt>).</p>
 </dd></dl>
 
 <dl class="method">
@@ -1133,9 +1238,9 @@ calling <a class="reference internal" href="#devilry.core.models.Assignment.get_
 <p>Raises ValidationError if:</p>
 <blockquote>
 <ul class="simple">
-<li><a class="reference internal" href="#devilry.core.models.Feedback.content_object" title="devilry.core.models.Feedback.content_object"><tt class="xref py py-attr docutils literal"><span class="pre">content_object</span></tt></a> is not a instance of the model-class
+<li><a class="reference internal" href="#devilry.core.models.Feedback.grade" title="devilry.core.models.Feedback.grade"><tt class="xref py py-attr docutils literal"><span class="pre">grade</span></tt></a> is not a instance of the model-class
 defined in
-<tt class="xref py py-attr docutils literal"><span class="pre">devilry.core.gradeplugin_registry.RegistryItem.model_cls</span></tt>
+<tt class="xref py py-attr docutils literal"><span class="pre">devilry.core.gradeplugin.RegistryItem.model_cls</span></tt>
 referred by <a class="reference internal" href="#devilry.core.models.Assignment.grade_plugin" title="devilry.core.models.Assignment.grade_plugin"><tt class="xref py py-attr docutils literal"><span class="pre">Assignment.grade_plugin</span></tt></a>.</li>
 <li>The node is the child of itself or one of its childnodes.</li>
 </ul>
@@ -1174,7 +1279,7 @@ be given feedback.</p>
 <dl class="attribute">
 <dt id="devilry.core.models.FileMeta.deliverystore">
 <tt class="descname">deliverystore</tt><a class="headerlink" href="#devilry.core.models.FileMeta.deliverystore" title="Permalink to this definition">¶</a></dt>
-<dd><p>The current <a class="reference internal" href="core.deliverystore.html#ref-devilry-core-deliverystore"><em>DeliveryStore</em></a>.</p>
+<dd><p>The current <em class="xref std std-ref">DeliveryStore</em>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1212,7 +1317,7 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../contents.html">Table Of Contents</a></h3>
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a><ul>
 <li><a class="reference internal" href="#module-devilry.core.models">Functions and attributes</a></li>
@@ -1223,7 +1328,7 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
 <li><a class="reference internal" href="#assignment">Assignment</a></li>
 <li><a class="reference internal" href="#assignmentgroup">AssignmentGroup</a></li>
 <li><a class="reference internal" href="#delivery">Delivery</a></li>
-<li><a class="reference internal" href="#feeback">Feeback</a></li>
+<li><a class="reference internal" href="#feedback">Feedback</a></li>
 <li><a class="reference internal" href="#filemeta">FileMeta</a></li>
 </ul>
 </li>
@@ -1231,18 +1336,18 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="contents.html"
-                        title="previous chapter">API reference</a></p>
+                        title="previous chapter">Developers</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="core.utils.html"
                         title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../sources/developer/ref/core.models.txt"
+    <li><a href="../sources/developer/core.models.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" size="18" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -1261,22 +1366,21 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
              >next</a> |</li>
         <li class="right" >
-          <a href="contents.html" title="API reference"
+          <a href="contents.html" title="Developers"
              >previous</a> |</li>
-	<li><a href="../../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
+	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
-          <li><a href="../contents.html" >Developers</a> &raquo;</li>
-          <li><a href="contents.html" >API reference</a> &raquo;</li> 
+          <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
