@@ -11,9 +11,12 @@ Developers
     core.models
     core.utils
     core.deliverystore
-    documentation
+
     plugins
     grade-plugins
     xmlrpc
+
+    contribute
+    documentation
     commandline
     selenium-tests

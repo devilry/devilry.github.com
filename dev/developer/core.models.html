@@ -48,7 +48,7 @@
           <a href="contents.html" title="Developers"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
@@ -61,8 +61,8 @@
             
   <div class="section" id="devilry-core-models-devilry-core-datastructure">
 <span id="devilry-core-models"></span><h1><a class="reference internal" href="#module-devilry.core.models"><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.models</span></tt></a> &#8212; Devilry core datastructure<a class="headerlink" href="#devilry-core-models-devilry-core-datastructure" title="Permalink to this headline">¶</a></h1>
-<p>Check out the <a class="reference internal" href="../overview.html#overview"><em>Overview</em></a> if you need a simple overview of the different
-components.</p>
+<img alt="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Node]++1-subjects&gt;*[Subject],[Node]++0-child-nodes&gt;*[Node],[Subject]++1-periods&gt;*[Period],[Period]++1-assignments&gt;*[Assignment]" src="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Node]++1-subjects&gt;*[Subject],[Node]++0-child-nodes&gt;*[Node],[Subject]++1-periods&gt;*[Period],[Period]++1-assignments&gt;*[Assignment]" />
+<img alt="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Assignment]++1-assignmentgroups&gt;*[AssignmentGroup],[AssignmentGroup]++1-deliveries&gt;*[Delivery],[AssignmentGroup]++1-deadlines&gt;*[Deadline],[Delivery]++1-feedback&gt;0..1[Feedback],[Delivery]++1-filemetas&gt;*[FileMeta]" src="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Assignment]++1-assignmentgroups&gt;*[AssignmentGroup],[AssignmentGroup]++1-deliveries&gt;*[Delivery],[AssignmentGroup]++1-deadlines&gt;*[Deadline],[Delivery]++1-feedback&gt;0..1[Feedback],[Delivery]++1-filemetas&gt;*[FileMeta]" />
 <div class="section" id="module-devilry.core.models">
 <span id="functions-and-attributes"></span><h2>Functions and attributes<a class="headerlink" href="#module-devilry.core.models" title="Permalink to this headline">¶</a></h2>
 <dl class="attribute">
@@ -129,6 +129,26 @@ description than <a class="reference internal" href="#devilry.core.models.BaseNo
 </div>
 <div class="section" id="node">
 <h2>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
+<p>A node at the top of the navigation tree. It is a generic element used to
+organize administrators. A Node can be organized below another Node, and it
+can only have one parent.</p>
+<p>Let us say you use Devilry within two departments at <em>Fantasy University</em>;
+mathematics and physics. The university have a administration, and each
+department have their own administration. You would end ut with this
+node-hierarchy:</p>
+<blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>Fantasy University</dt>
+<dd><ul class="first last simple">
+<li>Department of informatics</li>
+<li>Department of mathematics</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</blockquote>
 <dl class="class">
 <dt id="devilry.core.models.Node">
 <em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Node</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Node" title="Permalink to this definition">¶</a></dt>
@@ -245,6 +265,8 @@ queries including paths. Example:</p>
 </div>
 <div class="section" id="subject">
 <h2>Subject<a class="headerlink" href="#subject" title="Permalink to this headline">¶</a></h2>
+<p>A subject is a course, seminar, class or something else beeing given
+regularly. A subject is further divided into periods.</p>
 <dl class="class">
 <dt id="devilry.core.models.Subject">
 <em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Subject</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Subject" title="Permalink to this definition">¶</a></dt>
@@ -335,6 +357,8 @@ guaranteed to be unique.</p>
 </div>
 <div class="section" id="period">
 <h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
+<p>A Period is a limited period of time, like <em>spring 2009</em>, <em>week 34 2010</em> or
+even a single day.</p>
 <dl class="class">
 <dt id="devilry.core.models.Period">
 <em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Period</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Period" title="Permalink to this definition">¶</a></dt>
@@ -972,6 +996,32 @@ comma (<tt class="docutils literal"><span class="pre">','</span></tt>).</p>
 </dd></dl>
 
 </div>
+<div class="section" id="deadline">
+<h2>Deadline<a class="headerlink" href="#deadline" title="Permalink to this headline">¶</a></h2>
+<p>Each <a class="reference internal" href="#devilry.core.models.AssignmentGroup" title="devilry.core.models.AssignmentGroup"><tt class="xref py py-class docutils literal"><span class="pre">AssignmentGroup</span></tt></a> have zero or more deadlines.</p>
+<dl class="class">
+<dt id="devilry.core.models.Deadline">
+<em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Deadline</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Deadline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Deadline(id, assignment_group_id, deadline, text)</p>
+<dl class="method">
+<dt id="devilry.core.models.Deadline.clean">
+<tt class="descname">clean</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Deadline.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the deadline.</p>
+<p>Always call this before save()! Read about validation here:
+<a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/instances/#id1">http://docs.djangoproject.com/en/dev/ref/models/instances/#id1</a></p>
+<p>Raises ValidationError if:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">deadline</span></tt> is before <tt class="docutils literal"><span class="pre">Assignment.publishing_time</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">deadline</span></tt> is not before <tt class="docutils literal"><span class="pre">Period.end_time</span></tt>.</li>
+</ul>
+</blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="delivery">
 <h2>Delivery<a class="headerlink" href="#delivery" title="Permalink to this headline">¶</a></h2>
 <p>You will normally not create Delivery-objects manually, but rather
@@ -1001,6 +1051,16 @@ that handed in the Delivery.</p>
 <tt class="descname">time_of_delivery</tt><a class="headerlink" href="#devilry.core.models.Delivery.time_of_delivery" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> that holds the date and time the
 Delivery was uploaded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Delivery.number">
+<tt class="descname">number</tt><a class="headerlink" href="#devilry.core.models.Delivery.number" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a href="#id1"><span class="problematic" id="id2">django.db.models.PositiveIntegerField_</span></a> with the delivery-number
+within this assignment-group. This number is automatically
+incremented within each assignmentgroup, starting from 1. Must be
+unique within the assignment-group. Automatic incrementation is used
+if number is None when calling <a class="reference internal" href="#devilry.core.models.Delivery.save" title="devilry.core.models.Delivery.save"><tt class="xref py py-meth docutils literal"><span class="pre">save()</span></tt></a> (or <a class="reference internal" href="#devilry.core.models.Delivery.begin" title="devilry.core.models.Delivery.begin"><tt class="xref py py-meth docutils literal"><span class="pre">begin()</span></tt></a>).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1097,6 +1157,13 @@ to this delivery.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Delivery.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set <a class="reference internal" href="#devilry.core.models.Delivery.number" title="devilry.core.models.Delivery.number"><tt class="xref py py-attr docutils literal"><span class="pre">number</span></tt></a> automatically to one greater than what is was
+last.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1327,6 +1394,7 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
 <li><a class="reference internal" href="#period">Period</a></li>
 <li><a class="reference internal" href="#assignment">Assignment</a></li>
 <li><a class="reference internal" href="#assignmentgroup">AssignmentGroup</a></li>
+<li><a class="reference internal" href="#deadline">Deadline</a></li>
 <li><a class="reference internal" href="#delivery">Delivery</a></li>
 <li><a class="reference internal" href="#feedback">Feedback</a></li>
 <li><a class="reference internal" href="#filemeta">FileMeta</a></li>
@@ -1378,7 +1446,7 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
           <a href="contents.html" title="Developers"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>

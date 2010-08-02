@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>devilry.core.utils — Devilry core utilities &mdash; Devilry v0.1alpha0 documentation</title>
+    <title>How to contribute code to Devilry &mdash; Devilry v0.1alpha0 documentation</title>
     <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
-    <link rel="next" title="devilry.core.deliverystore — DeliveryStore" href="core.deliverystore.html" />
-    <link rel="prev" title="devilry.core.models — Devilry core datastructure" href="core.models.html" /> 
+    <link rel="next" title="How to document Devilry" href="documentation.html" />
+    <link rel="prev" title="XMLRPC howto" href="xmlrpc.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -42,10 +42,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
+          <a href="documentation.html" title="How to document Devilry"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="core.models.html" title="devilry.core.models — Devilry core datastructure"
+          <a href="xmlrpc.html" title="XMLRPC howto"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
@@ -59,16 +59,35 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="devilry-core-utils-devilry-core-utilities">
-<span id="devilry-core-utils"></span><h1><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities<a class="headerlink" href="#devilry-core-utils-devilry-core-utilities" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="devilry.core.utils.OrderedDict">
-<em class="property">class </em><tt class="descclassname">devilry.core.utils.</tt><tt class="descname">OrderedDict</tt><a class="headerlink" href="#devilry.core.utils.OrderedDict" title="Permalink to this definition">¶</a></dt>
-<dd><p>If python version &gt;=2.7, <a class="reference external" href="http://docs.python.org/dev/library/collections.html#ordereddict-objects">collections.OrderedDict</a> is imported. For older
-python versions, the fallback mentioned in the OrderedDict docs is
-imported.</p>
-</dd></dl>
-
+  <div class="section" id="how-to-contribute-code-to-devilry">
+<span id="developer-contribute"></span><h1>How to contribute code to Devilry<a class="headerlink" href="#how-to-contribute-code-to-devilry" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li>Fork the <a class="reference external" href="http://github.com/devilry/devilry-django">devilry sourcecode</a> using the fork-button on github.</li>
+<li>Make changes to your fork</li>
+<li>Make sure you fork is fully merged with the <a class="reference external" href="http://github.com/devilry/devilry-django">devilry sourcecode</a>.</li>
+<li>Send a pull request to <em>espeak</em> and <em>bendikro</em> using the pull request button
+<em>on your fork</em>.</li>
+</ol>
+<p>If we consider your code stable and useful enough, we will merge it into the
+devilry sourcecode. It is important to understand that we might not accept your
+code (for various) reasons, so you should probably message us your idea before
+you start coding. You should also be prepared to have to go a couple of rounds
+of reviews before we accept your code, especially if it is a big change.</p>
+<div class="section" id="source-code-guidelines">
+<h2>Source code guidelines<a class="headerlink" href="#source-code-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>We follow the official python guidelines for python code (<a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">PEP 8</a>). Additional
+restrictions:</p>
+<blockquote>
+<ul class="simple">
+<li>Use spaces-only for indentation.</li>
+<li>Write <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/testing/">tests</a> (selenium-tests for webinterfaces). We do not accept new
+code into the tree without tests.</li>
+<li>Write <a class="reference internal" href="documentation.html#developer-documentation"><em>documentation</em></a>. We prefer a
+howto/examples in addition to API-docs (see <a class="reference internal" href="grade-plugins.html#grade-plugins"><em>Grade plugins</em></a> for a
+example.)</li>
+</ul>
+</blockquote>
+</div>
 </div>
 
 
@@ -77,15 +96,23 @@ imported.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to contribute code to Devilry</a><ul>
+<li><a class="reference internal" href="#source-code-guidelines">Source code guidelines</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="core.models.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">devilry.core.models</span></tt> &#8212; Devilry core datastructure</a></p>
+  <p class="topless"><a href="xmlrpc.html"
+                        title="previous chapter">XMLRPC howto</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="core.deliverystore.html"
-                        title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.deliverystore</span></tt> &#8212; DeliveryStore</a></p>
+  <p class="topless"><a href="documentation.html"
+                        title="next chapter">How to document Devilry</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/developer/core.utils.txt"
+    <li><a href="../sources/developer/contribute.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -115,10 +142,10 @@ imported.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="core.deliverystore.html" title="devilry.core.deliverystore — DeliveryStore"
+          <a href="documentation.html" title="How to document Devilry"
              >next</a> |</li>
         <li class="right" >
-          <a href="core.models.html" title="devilry.core.models — Devilry core datastructure"
+          <a href="xmlrpc.html" title="XMLRPC howto"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
 	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>

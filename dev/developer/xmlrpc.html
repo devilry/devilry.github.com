@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
-    <link rel="next" title="Developing and extending the command line client" href="commandline.html" />
+    <link rel="next" title="How to contribute code to Devilry" href="contribute.html" />
     <link rel="prev" title="Grade plugins" href="grade-plugins.html" /> 
   </head>
   <body>
@@ -42,13 +42,13 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="commandline.html" title="Developing and extending the command line client"
+          <a href="contribute.html" title="How to contribute code to Devilry"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="grade-plugins.html" title="Grade plugins"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
@@ -96,6 +96,12 @@ work just like a normal django view. Therefore we choose to put our views in
 <span class="sd">            time_of_delivery</span>
 <span class="sd">                Date/time of the delivery.</span>
 
+<span class="sd">            number</span>
+<span class="sd">                A unique number for this delivery within the</span>
+<span class="sd">                AssignmentGroup. The number starts at 1 with the first</span>
+<span class="sd">                delivery by the assignmentgroup, and is incremented for each</span>
+<span class="sd">                new delivery.</span>
+
 <span class="sd">            successful</span>
 <span class="sd">                Boolean which tells if the delivery was completed successfully.</span>
 <span class="sd">                This might be false if the delivery was aborted midway through.</span>
@@ -113,6 +119,7 @@ work just like a normal django view. Therefore we choose to put our views in
             <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
             <span class="s">&#39;time_of_delivery&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">time_of_delivery</span><span class="p">,</span>
             <span class="c"># TODO: Add delivered_by when it has been updated to use candidate</span>
+            <span class="s">&#39;number&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
             <span class="s">&#39;successful&#39;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">successful</span><span class="p">,</span>
             <span class="s">&#39;filemetas&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&#39;id&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s">&#39;filename&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;size&#39;</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
                 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">filemetas</span><span class="o">.</span><span class="n">all</span><span class="p">()]}</span>
@@ -260,8 +267,8 @@ constraints, so you can add more constrains just like with
   <p class="topless"><a href="grade-plugins.html"
                         title="previous chapter">Grade plugins</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="commandline.html"
-                        title="next chapter">Developing and extending the command line client</a></p>
+  <p class="topless"><a href="contribute.html"
+                        title="next chapter">How to contribute code to Devilry</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../sources/developer/xmlrpc.txt"
@@ -294,13 +301,13 @@ constraints, so you can add more constrains just like with
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="commandline.html" title="Developing and extending the command line client"
+          <a href="contribute.html" title="How to contribute code to Devilry"
              >next</a> |</li>
         <li class="right" >
           <a href="grade-plugins.html" title="Grade plugins"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>

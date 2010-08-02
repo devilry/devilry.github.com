@@ -24,7 +24,7 @@
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
     <link rel="next" title="Selenium tests" href="selenium-tests.html" />
-    <link rel="prev" title="XMLRPC howto" href="xmlrpc.html" /> 
+    <link rel="prev" title="How to document Devilry" href="documentation.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -45,10 +45,10 @@
           <a href="selenium-tests.html" title="Selenium tests"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="xmlrpc.html" title="XMLRPC howto"
+          <a href="documentation.html" title="How to document Devilry"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
@@ -90,6 +90,38 @@ where the message starts and ends.</p>
 <em class="property">class </em><tt class="descclassname">devilry.xmlrpc_client.cli.</tt><tt class="descname">Command</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Base class for all commands in the cli.</p>
+<dl class="attribute">
+<dt id="devilry.xmlrpc_client.cli.Command.name">
+<tt class="descname">name</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the argument. Lowercase-only and no spaces. Max 12
+characters. Use <tt class="docutils literal"><span class="pre">-</span></tt> to improve readablilty on long names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.xmlrpc_client.cli.Command.short_info">
+<tt class="descname">short_info</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.short_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short info shown when <tt class="xref py py-class docutils literal"><span class="pre">Cli</span></tt> list commands.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.xmlrpc_client.cli.Command.description">
+<tt class="descname">description</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description shown in addition to option help and usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.xmlrpc_client.cli.Command.args_help">
+<tt class="descname">args_help</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.args_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of arguments in usage. Use <tt class="docutils literal"><span class="pre">[arg-description]</span></tt> for
+optional arguments and <tt class="docutils literal"><span class="pre">&lt;arg-description&gt;</span></tt> for required arguments.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.xmlrpc_client.cli.Command.urlpath">
+<tt class="descname">urlpath</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.urlpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the xmlrpc used by the command.</p>
+</dd></dl>
+
 <dl class="exception">
 <dt id="devilry.xmlrpc_client.cli.Command.NotInDevilryDirError">
 <em class="property">exception </em><tt class="descname">NotInDevilryDirError</tt><a class="headerlink" href="#devilry.xmlrpc_client.cli.Command.NotInDevilryDirError" title="Permalink to this definition">¶</a></dt>
@@ -380,8 +412,8 @@ set to <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p
 
 <dl class="method">
 <dt id="devilry.xmlrpc_client.assignmenttree.Info.get">
-<tt class="descclassname">Info.</tt><tt class="descname">get</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.Info.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a value.</p>
+<tt class="descclassname">Info.</tt><tt class="descname">get</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.Info.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a item, but default to <tt class="docutils literal"><span class="pre">default</span></tt> if the key is not found.</p>
 </dd></dl>
 
 <dl class="method">
@@ -566,13 +598,6 @@ might be overridden in subclasses.</p>
 <div class="section" id="module-devilry.xmlrpc_client.assignmenttree">
 <span id="the-rest-of-devilry-xmlrpc-client-assignmenttree"></span><h3>The rest of devilry.xmlrpc_client.assignmenttree<a class="headerlink" href="#module-devilry.xmlrpc_client.assignmenttree" title="Permalink to this headline">¶</a></h3>
 <dl class="attribute">
-<dt id="devilry.xmlrpc_client.assignmenttree.DATETIME_FORMAT">
-<tt class="descclassname">devilry.xmlrpc_client.assignmenttree.</tt><tt class="descname">DATETIME_FORMAT</tt><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.DATETIME_FORMAT" title="Permalink to this definition">¶</a></dt>
-<dd><p>The format used with strftime to create directory-names from dates:
-<tt class="docutils literal"><span class="pre">'%Y-%m-%d_%H.%M.%S'</span></tt>.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="devilry.xmlrpc_client.assignmenttree.ID_SEP">
 <tt class="descclassname">devilry.xmlrpc_client.assignmenttree.</tt><tt class="descname">ID_SEP</tt><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.ID_SEP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Separator used to separate id and filenames when handling duplicate
@@ -652,8 +677,8 @@ existing file does not match <tt class="docutils literal"><span class="pre">data
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="xmlrpc.html"
-                        title="previous chapter">XMLRPC howto</a></p>
+  <p class="topless"><a href="documentation.html"
+                        title="previous chapter">How to document Devilry</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="selenium-tests.html"
                         title="next chapter">Selenium tests</a></p>
@@ -692,10 +717,10 @@ existing file does not match <tt class="docutils literal"><span class="pre">data
           <a href="selenium-tests.html" title="Selenium tests"
              >next</a> |</li>
         <li class="right" >
-          <a href="xmlrpc.html" title="XMLRPC howto"
+          <a href="documentation.html" title="How to document Devilry"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>

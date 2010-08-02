@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &mdash; Devilry v0.1alpha0 documentation</title>
+    <title>Devilry documentation overview &mdash; Devilry v0.1alpha0 documentation</title>
     <link rel="stylesheet" href="static/devilry.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="index.html" />
-    <link rel="next" title="Devilry documentation" href="documentation.html" />
+    <link rel="next" title="Developers" href="developer/contents.html" />
     <link rel="prev" title="About devilry" href="index.html" /> 
   </head>
   <body>
@@ -41,13 +41,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="documentation.html" title="Devilry documentation"
+          <a href="developer/contents.html" title="Developers"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="About devilry"
              accesskey="P">previous</a> |</li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="#">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>  
@@ -57,45 +57,36 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="overview">
-<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<img alt="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Node]++1-subjects&gt;*[Subject],[Node]++0-child-nodes&gt;*[Node],[Subject]++1-periods&gt;*[Period],[Period]++1-assignments&gt;*[Assignment]" src="http://yuml.me/diagram/scruffy;dir:LR;scale:80;/class/[Node]++1-subjects&gt;*[Subject],[Node]++0-child-nodes&gt;*[Node],[Subject]++1-periods&gt;*[Period],[Period]++1-assignments&gt;*[Assignment]" />
-<div class="section" id="node">
-<h2>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
-<p>A node at the top of the navigation tree. It is a generic element used to
-organize administrators. A Node can be organized below another Node, and it
-can only have one parent.</p>
-<p>Let us say you use Devilry within two departments at <em>Fantasy University</em>;
-mathematics and physics. The university have a administration, and each
-department have their own administration. You would end ut with this
-node-hierarchy:</p>
-<blockquote>
-<ul>
-<li><dl class="first docutils">
-<dt>Fantasy University</dt>
-<dd><ul class="first last simple">
-<li>Department of informatics</li>
-<li>Department of mathematics</li>
+  <div class="section" id="devilry-documentation-overview">
+<span id="overview"></span><h1>Devilry documentation overview<a class="headerlink" href="#devilry-documentation-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="core">
+<h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="developer/core.models.html#devilry-core-models"><em>devilry.core.models</em></a></li>
+<li><a class="reference internal" href="developer/core.utils.html#devilry-core-utils"><em>devilry.core.utils</em></a></li>
+<li><a class="reference internal" href="developer/core.deliverystore.html#devilry-core-deliverystore"><em>devilry.core.deliverystore</em></a></li>
 </ul>
-</dd>
-</dl>
-</li>
+</div>
+<div class="section" id="plugin-development">
+<h2>Plugin development<a class="headerlink" href="#plugin-development" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>The basics:</strong> <a class="reference internal" href="developer/plugins.html#plugins"><em>How to write a plugin</em></a></li>
+<li><strong>Grade plugins:</strong> <a class="reference internal" href="developer/grade-plugins.html#grade-plugins"><em>Overview</em></a></li>
+<li><strong>XMLRPC:</strong> <a class="reference internal" href="developer/xmlrpc.html#xmlrpc"><em>Overview</em></a></li>
 </ul>
-</blockquote>
 </div>
-<div class="section" id="subject">
-<h2>Subject<a class="headerlink" href="#subject" title="Permalink to this headline">¶</a></h2>
-<p>A subject is a course, seminar, class or something else beeing given
-regularly. A subject is further divided into periods.</p>
+<div class="section" id="developing-devilry">
+<h2>Developing devilry<a class="headerlink" href="#developing-devilry" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="developer/contribute.html#developer-contribute"><em>How to contribute code to Devilry</em></a></li>
+<li><a class="reference internal" href="developer/documentation.html#developer-documentation"><em>How to document Devilry</em></a></li>
+<li><a class="reference internal" href="developer/commandline.html#developer-commandline"><em>Developing and extending the command line client</em></a></li>
+<li><a class="reference internal" href="developer/selenium-tests.html#developer-selenium-tests"><em>Selenium tests</em></a></li>
+</ul>
 </div>
-<div class="section" id="period">
-<h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
-<p>A Period is a limited period of time, like <em>spring 2009</em>, <em>week 34 2010</em> or
-even a single day.</p>
-</div>
-<div class="section" id="assignment">
-<h2>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<div class="section" id="more-help">
+<h2>More help<a class="headerlink" href="#more-help" title="Permalink to this headline">¶</a></h2>
+<p>Looking for specific information? Try the <a class="reference internal" href="genindex.html"><em>Index</em></a> or the <a class="reference internal" href="contents.html#contents"><em>Devilry documentation contents</em></a>.</p>
 </div>
 </div>
 
@@ -107,11 +98,11 @@ even a single day.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="contents.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Overview</a><ul>
-<li><a class="reference internal" href="#node">Node</a></li>
-<li><a class="reference internal" href="#subject">Subject</a></li>
-<li><a class="reference internal" href="#period">Period</a></li>
-<li><a class="reference internal" href="#assignment">Assignment</a></li>
+<li><a class="reference internal" href="#">Devilry documentation overview</a><ul>
+<li><a class="reference internal" href="#core">Core</a></li>
+<li><a class="reference internal" href="#plugin-development">Plugin development</a></li>
+<li><a class="reference internal" href="#developing-devilry">Developing devilry</a></li>
+<li><a class="reference internal" href="#more-help">More help</a></li>
 </ul>
 </li>
 </ul>
@@ -120,8 +111,8 @@ even a single day.</p>
   <p class="topless"><a href="index.html"
                         title="previous chapter">About devilry</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="documentation.html"
-                        title="next chapter">Devilry documentation</a></p>
+  <p class="topless"><a href="developer/contents.html"
+                        title="next chapter">Developers</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="sources/overview.txt"
@@ -154,13 +145,13 @@ even a single day.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="documentation.html" title="Devilry documentation"
+          <a href="developer/contents.html" title="Developers"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="About devilry"
              >previous</a> |</li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="documentation.html">Documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="#">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>
