@@ -292,13 +292,13 @@ easy to work with and sync a copy of the assignment-tree on the filesystem.</p>
 <div class="section" id="directory-tree-format">
 <h3>Directory-tree format<a class="headerlink" href="#directory-tree-format" title="Permalink to this headline">¶</a></h3>
 <p>The following directory-format is used:</p>
-<div class="highlight-python"><pre>[path of assignment]
-    .info
-    [group members separated by '-']
-        .info
-        [time of delivery YYYY-MM-DD_hh.mm.ss]
-            .info
-            [feedback.server.[rst|txt]]
+<div class="highlight-python"><pre>[assignment path]
+    .overwriteable-info
+    [assignment group members (usernames separated with -)]
+        .overwriteable-info
+        [deliveries numbered from 1 and up, 1 beeing the first delivery]
+            .overwriteable-info
+            [feedback.server.rst]
             files/
                 [files in the delivery]</pre>
 </div>
@@ -643,10 +643,16 @@ unique filename.</p>
 
 <dl class="function">
 <dt id="devilry.xmlrpc_client.assignmenttree.overwrite_with_backup">
-<tt class="descclassname">devilry.xmlrpc_client.assignmenttree.</tt><tt class="descname">overwrite_with_backup</tt><big>(</big><em>dirname</em>, <em>filename</em>, <em>data</em>, <em>lastsavefile=None</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.overwrite_with_backup" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">devilry.xmlrpc_client.assignmenttree.</tt><tt class="descname">overwrite_with_backup</tt><big>(</big><em>dirname</em>, <em>filename</em>, <em>data</em>, <em>lastsavefilename=None</em><big>)</big><a class="headerlink" href="#devilry.xmlrpc_client.assignmenttree.overwrite_with_backup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overwrite the given file with the given <tt class="docutils literal"><span class="pre">data</span></tt> and create a backup
 using <a class="reference internal" href="#devilry.xmlrpc_client.assignmenttree.make_backup" title="devilry.xmlrpc_client.assignmenttree.make_backup"><tt class="xref py py-func docutils literal"><span class="pre">make_backup()</span></tt></a> if the file exists and the contents of the
 existing file does not match <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
+<p>Both <tt class="docutils literal"><span class="pre">filename</span></tt> and <tt class="docutils literal"><span class="pre">lastsavefilename</span></tt> are files in the <tt class="docutils literal"><span class="pre">dirname</span></tt>
+directory. They do not have to exist. <tt class="docutils literal"><span class="pre">lastsavefilename</span></tt> is filtered
+throught <a class="reference internal" href="#devilry.xmlrpc_client.assignmenttree.overwriteable_filename" title="devilry.xmlrpc_client.assignmenttree.overwriteable_filename"><tt class="xref py py-func docutils literal"><span class="pre">overwriteable_filename()</span></tt></a>.</p>
+<p>If <tt class="docutils literal"><span class="pre">lastsavefilename</span></tt> is the name of a existing file, a backup will
+not be created unless the contents of <tt class="docutils literal"><span class="pre">filename</span></tt> does not match the
+contents of <tt class="docutils literal"><span class="pre">lastsavefilename</span></tt>.</p>
 </dd></dl>
 
 </div>
@@ -727,7 +733,7 @@ existing file does not match <tt class="docutils literal"><span class="pre">data
     </div>
     <div class="footer">
         &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>

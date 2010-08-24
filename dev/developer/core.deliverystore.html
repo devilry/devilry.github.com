@@ -63,7 +63,7 @@
 <span id="devilry-core-deliverystore"></span><h1><a class="reference internal" href="#module-devilry.core.deliverystore"><tt class="xref py py-mod docutils literal"><span class="pre">devilry.core.deliverystore</span></tt></a> &#8212; DeliveryStore<a class="headerlink" href="#devilry-core-deliverystore-deliverystore" title="Permalink to this headline">¶</a></h1>
 <p>A <em>DeliveryStore</em> is a place to put the files from deliveries. In more
 technical terms, it is a place where each file related to a
-ref:<cite>devilry.core.models.FileMeta</cite> is stored.</p>
+<em class="xref std std-ref">devilry.core.models.FileMeta</em> is stored.</p>
 <div class="section" id="selecting-a-deliverystore">
 <h2>Selecting a DeliveryStore<a class="headerlink" href="#selecting-a-deliverystore" title="Permalink to this headline">¶</a></h2>
 <p>Devilry on comes with one DeliveryStore ready for production use,
@@ -261,7 +261,7 @@ defined by the documentation of the standard python file-class.</p>
 <p>Note that this method is called <em>before</em> the filemeta_obj is
 removed. This means that the file might be removed, and the removal
 of the filemeta_obj can still fail. To prevent users from having to
-manually resolv such cases implementations should check if the file
+manually resolve such cases implementations should check if the file
 exists, and raise FileNotFoundError if it does not.</p>
 <p>The calling function has to check for FileNotFoundError and
 handle any other error.</p>
@@ -426,7 +426,7 @@ Suitable for unittesting.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010, The Devilry Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
     </div>
   </body>
 </html>
