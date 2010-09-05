@@ -39,7 +39,8 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="developer/overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>  
@@ -198,6 +199,7 @@
     <dt><a href="developer/core.models.html#devilry.core.models.Delivery.finish">finish() (devilry.core.models.Delivery method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Feedback.format">format (devilry.core.models.Feedback attribute)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.format_long_message">format_long_message() (in module devilry.xmlrpc_client.cli)</a></dt>
+    <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.FormLogin">FormLogin (class in devilry.xmlrpc_client.cli)</a></dt>
     <dt><a href="developer/core.deliverystore.html#devilry.core.deliverystore.FsDeliveryStore">FsDeliveryStore (class in devilry.core.deliverystore)</a></dt>
 </dl></td>
 </tr></table>
@@ -208,6 +210,7 @@
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.get">get() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_active_deadline">get_active_deadline() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Feedback.get_assignment">get_assignment() (devilry.core.models.Feedback method)</a></dt>
+    <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_auth_cookiepath">get_auth_cookiepath() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Assignment.get_by_path">get_by_path() (devilry.core.models.Assignment class method)</a></dt>
     <dd><dl>
       <dt><a href="developer/core.models.html#devilry.core.models.Node.get_by_path">(devilry.core.models.Node class method)</a></dt>
@@ -220,10 +223,12 @@
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_configdir">get_configdir() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_configfile">get_configfile() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_cookiepath">get_cookiepath() (devilry.xmlrpc_client.cli.Command method)</a></dt>
+    <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_deliveries_with_published_feedback">get_deliveries_with_published_feedback() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.get_dirpath">get_dirpath() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_examiners">get_examiners() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Delivery.get_feedback">get_feedback() (devilry.core.models.Delivery method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Assignment.get_filenames">get_filenames() (devilry.core.models.Assignment method)</a></dt>
+    <dt><a href="developer/core.models.html#devilry.core.models.Feedback.get_grade">get_grade() (devilry.core.models.Feedback method)</a></dt>
     <dt><a href="developer/grade-plugins.html#devilry.core.gradeplugin.GradeModel.get_grade_as_long_string">get_grade_as_long_string() (devilry.core.gradeplugin.GradeModel method)</a></dt>
     <dd><dl>
       <dt><a href="developer/core.models.html#devilry.core.models.Feedback.get_grade_as_long_string">(devilry.core.models.Feedback method)</a></dt>
@@ -237,17 +242,18 @@
     <dd><dl>
       <dt><a href="developer/core.models.html#devilry.core.models.Feedback.get_grade_as_xmlrpcstring">(devilry.core.models.Feedback method)</a></dt>
   </dl></dd>
-    <dt><a href="developer/core.models.html#devilry.core.models.Assignment.get_gradeplugin_registryitem">get_gradeplugin_registryitem() (devilry.core.models.Assignment method)</a></dt>
+    <dt><a href="developer/core.models.html#devilry.core.models.Feedback.get_grade_object_info">get_grade_object_info() (devilry.core.models.Feedback method)</a></dt>
 </dl></td>
   <td width="33%" valign="top"><dl>
+    <dt><a href="developer/core.models.html#devilry.core.models.Assignment.get_gradeplugin_registryitem">get_gradeplugin_registryitem() (devilry.core.models.Assignment method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.get_id">get_id() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Candidate.get_identifier">get_identifier() (devilry.core.models.Candidate method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.get_infofilepath">get_infofilepath() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_latest_delivery">get_latest_delivery() (devilry.core.models.AssignmentGroup method)</a></dt>
+    <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_latest_delivery_with_feedback">get_latest_delivery_with_feedback() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_logfilepath">get_logfilepath() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_number_of_deliveries">get_number_of_deliveries() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Subject.get_path">get_path() (devilry.core.models.Subject method)</a></dt>
-    <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_published_deliveries">get_published_deliveries() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.get_serverproxy">get_serverproxy() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.get_status">get_status() (devilry.core.models.AssignmentGroup method)</a></dt>
     <dd><dl>
@@ -261,6 +267,8 @@
     <dt><a href="developer/core.models.html#devilry.core.models.Feedback.grade">grade (devilry.core.models.Feedback attribute)</a>, <a href="developer/core.models.html#devilry.core.models.Feedback.grade">[1]</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Assignment.grade_plugin">grade_plugin (devilry.core.models.Assignment attribute)</a></dt>
     <dt><a href="developer/grade-plugins.html#devilry.core.gradeplugin.GradeModel">GradeModel (class in devilry.core.gradeplugin)</a></dt>
+    <dt><a href="developer/grade-plugins.html#devilry.core.gradeplugin.GradePluginDoesNotExistError">GradePluginDoesNotExistError</a></dt>
+    <dt><a href="developer/grade-plugins.html#devilry.core.gradeplugin.GradePluginError">GradePluginError</a></dt>
 </dl></td>
 </tr></table>
 
@@ -452,8 +460,10 @@
   <td width="33%" valign="top"><dl>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.validate_argslen">validate_argslen() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/core.models.html#devilry.core.models.Assignment.validate_filenames">validate_filenames() (devilry.core.models.Assignment method)</a></dt>
+    <dt><a href="developer/core.models.html#devilry.core.models.Feedback.validate_gradeobj">validate_gradeobj() (devilry.core.models.Feedback method)</a></dt>
 </dl></td>
   <td width="33%" valign="top"><dl>
+    <dt><a href="developer/core.models.html#devilry.core.models.Assignment.validate_gradeplugin">validate_gradeplugin() (devilry.core.models.Assignment method)</a></dt>
     <dt><a href="developer/grade-plugins.html#devilry.addons.examiner.feedback_view.view_shortcut">view_shortcut() (in module devilry.addons.examiner.feedback_view)</a></dt>
 </dl></td>
 </tr></table>
@@ -474,11 +484,12 @@
     <dd><dl>
       <dt><a href="developer/core.models.html#devilry.core.models.AssignmentGroup.where_is_examiner">(devilry.core.models.AssignmentGroup class method)</a></dt>
   </dl></dd>
+    <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.write">write() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
 </dl></td>
   <td width="33%" valign="top"><dl>
-    <dt><a href="developer/commandline.html#devilry.xmlrpc_client.assignmenttree.Info.write">write() (devilry.xmlrpc_client.assignmenttree.Info method)</a></dt>
     <dt><a href="developer/commandline.html#devilry.xmlrpc_client.cli.Command.write_config">write_config() (devilry.xmlrpc_client.cli.Command method)</a></dt>
     <dt><a href="developer/core.deliverystore.html#devilry.core.deliverystore.DeliveryStoreInterface.write_open">write_open() (devilry.core.deliverystore.DeliveryStoreInterface method)</a></dt>
+    <dt><a href="developer/grade-plugins.html#devilry.core.gradeplugin.WrongContentTypeError">WrongContentTypeError</a></dt>
 </dl></td>
 </tr></table>
 
@@ -529,7 +540,8 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
 	<li><a href="index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="developer/overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
  
       </ul>
     </div>

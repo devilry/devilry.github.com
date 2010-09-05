@@ -24,7 +24,7 @@
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
     <link rel="next" title="devilry.core.utils — Devilry core utilities" href="core.utils.html" />
-    <link rel="prev" title="Developers" href="contents.html" /> 
+    <link rel="prev" title="Devilry developer documentation overview" href="overview.html" /> 
   </head>
   <body>
 <div id='projectinfo'>
@@ -45,10 +45,11 @@
           <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="contents.html" title="Developers"
+          <a href="overview.html" title="Devilry developer documentation overview"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
@@ -572,6 +573,14 @@ grade-plugin. More info on grade-plugins
 <tt class="descname">get_gradeplugin_registryitem</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.get_gradeplugin_registryitem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the <a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.RegistryItem" title="devilry.core.gradeplugin.RegistryItem"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.RegistryItem</span></tt></a>
 for the current <a class="reference internal" href="#devilry.core.models.Assignment.grade_plugin" title="devilry.core.models.Assignment.grade_plugin"><tt class="xref py py-attr docutils literal"><span class="pre">grade_plugin</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Assignment.validate_gradeplugin">
+<tt class="descname">validate_gradeplugin</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.validate_gradeplugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if grade plugin is valid (exists). 
+Raise <a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.GradePluginDoesNotExistError" title="devilry.core.gradeplugin.GradePluginDoesNotExistError"><tt class="xref py py-exc docutils literal"><span class="pre">devilry.core.gradeplugin.GradePluginDoesNotExistError</span></tt></a>
+on error.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1115,6 +1124,13 @@ comma (<tt class="docutils literal"><span class="pre">','</span></tt>).</p>
 <dl class="method">
 <dt id="devilry.core.models.AssignmentGroup.get_latest_delivery">
 <tt class="descname">get_latest_delivery</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_latest_delivery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the latest delivery by this assignment group,
+or <tt class="xref docutils literal"><span class="pre">None</span></tt> if there is no deliveries.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_latest_delivery_with_feedback">
+<tt class="descname">get_latest_delivery_with_feedback</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_latest_delivery_with_feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the latest delivery by this assignment group with feedback,
 or <tt class="xref docutils literal"><span class="pre">None</span></tt> if there is no deliveries with feedback.</p>
 </dd></dl>
@@ -1132,8 +1148,8 @@ or <tt class="xref docutils literal"><span class="pre">None</span></tt> if there
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.AssignmentGroup.get_published_deliveries">
-<tt class="descname">get_published_deliveries</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_published_deliveries" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.AssignmentGroup.get_deliveries_with_published_feedback">
+<tt class="descname">get_deliveries_with_published_feedback</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_deliveries_with_published_feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the the deliveries by this assignment group which have
 published feedback.</p>
 </dd></dl>
@@ -1435,6 +1451,28 @@ fields.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="devilry.core.models.Feedback.get_grade_object_info">
+<tt class="descname">get_grade_object_info</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade_object_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about the grade object as a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Feedback.get_grade">
+<tt class="descname">get_grade</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get <a class="reference internal" href="#devilry.core.models.Feedback.grade" title="devilry.core.models.Feedback.grade"><tt class="xref py py-attr docutils literal"><span class="pre">grade</span></tt></a>, but raise <tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt> if the grade
+object is not a subclass of
+<a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.GradeModel" title="devilry.core.gradeplugin.GradeModel"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.GradeModel</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Feedback.validate_gradeobj">
+<tt class="descname">validate_gradeobj</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.validate_gradeobj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the grade object integrity. When this fails, the
+database integrity is corrupt. Raises one of the subclasses of
+<a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.GradePluginError" title="devilry.core.gradeplugin.GradePluginError"><tt class="xref py py-exc docutils literal"><span class="pre">devilry.core.gradeplugin.GradePluginError</span></tt></a> on error.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="devilry.core.models.Feedback.get_grade_as_short_string">
 <tt class="descname">get_grade_as_short_string</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback.get_grade_as_short_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the grade as a short string suitable for short one-line
@@ -1605,8 +1643,8 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="contents.html"
-                        title="previous chapter">Developers</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Devilry developer documentation overview</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="core.utils.html"
                         title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></p>
@@ -1645,10 +1683,11 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
           <a href="core.utils.html" title="devilry.core.utils — Devilry core utilities"
              >next</a> |</li>
         <li class="right" >
-          <a href="contents.html" title="Developers"
+          <a href="overview.html" title="Devilry developer documentation overview"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>

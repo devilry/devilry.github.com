@@ -48,7 +48,8 @@
           <a href="plugins.html" title="How to write a plugin"
              accesskey="P">previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" accesskey="U">Developers</a> &raquo;</li> 
       </ul>
@@ -144,6 +145,28 @@ something like the following in <tt class="docutils literal"><span class="pre">d
 <dt id="devilry.core.gradeplugin.registry">
 <tt class="descclassname">devilry.core.gradeplugin.</tt><tt class="descname">registry</tt><a class="headerlink" href="#devilry.core.gradeplugin.registry" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference internal" href="#devilry.core.gradeplugin.Registry" title="devilry.core.gradeplugin.Registry"><tt class="xref py py-class docutils literal"><span class="pre">Registry</span></tt></a>-object.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="devilry.core.gradeplugin.GradePluginError">
+<em class="property">exception </em><tt class="descclassname">devilry.core.gradeplugin.</tt><tt class="descname">GradePluginError</tt><a class="headerlink" href="#devilry.core.gradeplugin.GradePluginError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Base class for grade plugin errors.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="devilry.core.gradeplugin.GradePluginDoesNotExistError">
+<em class="property">exception </em><tt class="descclassname">devilry.core.gradeplugin.</tt><tt class="descname">GradePluginDoesNotExistError</tt><a class="headerlink" href="#devilry.core.gradeplugin.GradePluginDoesNotExistError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#devilry.core.gradeplugin.GradePluginError" title="devilry.core.gradeplugin.GradePluginError"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.GradePluginError</span></tt></a></p>
+<p>Raised when a grade plugin does not exist.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="devilry.core.gradeplugin.WrongContentTypeError">
+<em class="property">exception </em><tt class="descclassname">devilry.core.gradeplugin.</tt><tt class="descname">WrongContentTypeError</tt><a class="headerlink" href="#devilry.core.gradeplugin.WrongContentTypeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#devilry.core.gradeplugin.GradePluginError" title="devilry.core.gradeplugin.GradePluginError"><tt class="xref py py-class docutils literal"><span class="pre">devilry.core.gradeplugin.GradePluginError</span></tt></a></p>
+<p>Raised when the grade object on a feedback is not using the grade
+plugin on the assignment.</p>
 </dd></dl>
 
 <dl class="class">
@@ -434,7 +457,8 @@ DEVILRY_DEFAULT_GRADEPLUGIN setting).</p>
           <a href="plugins.html" title="How to write a plugin"
              >previous</a> |</li>
 	<li><a href="../index.html">About</a>&nbsp;|&nbsp;</li>
-	<li><a href="../overview.html">Overview</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="../user/overview.html">User documentation</a>&nbsp;|&nbsp;</li>
+	<li><a href="overview.html">Developer documentation</a>&nbsp;|&nbsp;&nbsp;&nbsp;</li>
 
           <li><a href="contents.html" >Developers</a> &raquo;</li> 
       </ul>
