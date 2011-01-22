@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>Selenium tests &mdash; Devilry v0.1alpha0 documentation</title>
-    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -18,9 +18,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
     <link rel="prev" title="Developing and extending the command line client" href="commandline.html" /> 
@@ -60,35 +60,58 @@
 <span id="developer-selenium-tests"></span><h1>Selenium tests<a class="headerlink" href="#selenium-tests" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="requirements-for-selenium-testing">
 <h2>Requirements for Selenium testing<a class="headerlink" href="#requirements-for-selenium-testing" title="Permalink to this headline">¶</a></h2>
-<p><strong>robotframework</strong></p>
-<p>Download: <a class="reference external" href="http://code.google.com/p/robotframework/wiki/">http://code.google.com/p/robotframework/wiki/</a></p>
-<p>Install:</p>
-<div class="highlight-python"><pre>$ easy_install robotframework</pre>
+<div class="section" id="install-the-selenium-server">
+<h3>Install the selenium server<a class="headerlink" href="#install-the-selenium-server" title="Permalink to this headline">¶</a></h3>
+<p>Download <em>Selenium RC</em> from <a class="reference external" href="http://seleniumhq.org/">http://seleniumhq.org/</a>. Put
+<tt class="docutils literal"><span class="pre">selenium-server.jar</span></tt> somewhere of your choice. At the time of writing, the
+.jar-file is in <tt class="docutils literal"><span class="pre">selenium-server-VERSION/</span></tt>.</p>
 </div>
-<p><strong>SeleniumLibrary</strong></p>
-<p>Download: <a class="reference external" href="http://code.google.com/p/robotframework-seleniumlibrary/wiki">http://code.google.com/p/robotframework-seleniumlibrary/wiki</a></p>
-<p>Install:</p>
-<div class="highlight-python"><pre>$ hg clone https://robotframework-seleniumlibrary.googlecode.com/hg/ robotframework-seleniumlibrary
-$ python setup.py install</pre>
+<div class="section" id="install-the-selenium-python-library">
+<h3>Install the selenium python library<a class="headerlink" href="#install-the-selenium-python-library" title="Permalink to this headline">¶</a></h3>
+<p>Two alternatives:</p>
+<ol class="arabic">
+<li><p class="first">Install from pypi:</p>
+<blockquote>
+<p>Instructions here: <a class="reference external" href="http://pypi.python.org/pypi/selenium/">http://pypi.python.org/pypi/selenium/</a></p>
+<p>Note that the instructions say to use <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">selenium</span></tt>, but:</p>
+<div class="highlight-python"><pre>~$ easy_install -U selenium</pre>
+</div>
+<p>Works as well.</p>
+</blockquote>
+</li>
+<li><p class="first">Install from source:</p>
+<blockquote>
+<p>The selenium python library is a single python file, <tt class="docutils literal"><span class="pre">selenium.py</span></tt>, that
+you need to add to you PYTHONPATH. At the time of writing it is located in
+<tt class="docutils literal"><span class="pre">selenium-python-client-driver-VERSION/</span></tt> in the Selenium RC package you
+downloaded to install the selenium server.</p>
+</blockquote>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="running-the-tests">
 <h2>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h2>
-<p>To run tests, first start the selenium server</p>
-<div class="highlight-python"><pre>robotframework-seleniumlibrary/demo$ python rundemo.py selenium start</pre>
+<ol class="arabic">
+<li><p class="first">Start the selenium server with (from where you installed it):</p>
+<div class="highlight-python"><pre>~$ java -jar selenium-server.jar</pre>
 </div>
-<p>Then run the tests with:</p>
-<div class="highlight-python"><pre>devilry$ make selenium-test</pre>
+</li>
+<li><p class="first">Start the django server (from this directory):</p>
+<div class="highlight-python"><pre>~$ python manage.py runserver</pre>
 </div>
-<p>The server is stopped with:</p>
-<div class="highlight-python"><pre>robotframework-seleniumlibrary/demo$ python rundemo.py selenium stop</pre>
+</li>
+<li><p class="first">Run the tests with:</p>
+<div class="highlight-python"><pre>~$ make selenium-tests</pre>
 </div>
+</li>
+</ol>
 </div>
 <div class="section" id="creating-selenium-tests-using-firefox-plugin">
 <h2>Creating Selenium tests using Firefox plugin<a class="headerlink" href="#creating-selenium-tests-using-firefox-plugin" title="Permalink to this headline">¶</a></h2>
 <p>To create tests through Firefox using Firefox pugin, install
 <a class="reference external" href="http://seleniumhq.org/download/">Selenium IDE</a>:</p>
-<p><strong>Creating the python test</strong></p>
+<p>To create the python test using the selenium firefox plugin:</p>
 <ul class="simple">
 <li>Go to Tools-&gt;Selenium IDE in Firefox</li>
 <li>Go to the web page you wish to record.</li>
@@ -108,7 +131,11 @@ $ python setup.py install</pre>
   <h3><a href="../contents.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Selenium tests</a><ul>
-<li><a class="reference internal" href="#requirements-for-selenium-testing">Requirements for Selenium testing</a></li>
+<li><a class="reference internal" href="#requirements-for-selenium-testing">Requirements for Selenium testing</a><ul>
+<li><a class="reference internal" href="#install-the-selenium-server">Install the selenium server</a></li>
+<li><a class="reference internal" href="#install-the-selenium-python-library">Install the selenium python library</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
 <li><a class="reference internal" href="#creating-selenium-tests-using-firefox-plugin">Creating Selenium tests using Firefox plugin</a></li>
 </ul>
@@ -120,7 +147,7 @@ $ python setup.py install</pre>
                         title="previous chapter">Developing and extending the command line client</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/developer/selenium-tests.txt"
+    <li><a href="../_sources/developer/selenium-tests.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

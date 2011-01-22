@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>Command line client &mdash; Devilry v0.1alpha0 documentation</title>
-    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -18,9 +18,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
     <link rel="next" title="Developers" href="../developer/contents.html" />
@@ -66,7 +66,11 @@
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="quick-install">
 <h3>Quick install<a class="headerlink" href="#quick-install" title="Permalink to this headline">¶</a></h3>
-<p>On Mac and Linux, run the following command to install the Devilry command line client:</p>
+<p>You need the <tt class="docutils literal"><span class="pre">python-setuptools</span></tt> package to install the Devilry command line client. This package is installed on Mac OS X 10.5 and up.
+On Ubuntu, run the following command to install it:</p>
+<div class="highlight-python"><pre>sudo apt-get install python-setuptools</pre>
+</div>
+<p>Then, run the following command to install the client:</p>
 <div class="highlight-python"><pre>~$ sudo easy_install -U devilry_xmlrpc_client</pre>
 </div>
 <p>This command will generate several lines of output, among which you should locate the following line:</p>
@@ -78,10 +82,19 @@
 </div>
 <div class="section" id="installation-issues">
 <h3>Installation issues<a class="headerlink" href="#installation-issues" title="Permalink to this headline">¶</a></h3>
-<p>The command <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">easy_install</span> <span class="pre">devilry-xmlrpc-client</span></tt> might ask you to update your version of setuptools, by running:</p>
+<div class="section" id="update-setuptools">
+<h4>Update setuptools<a class="headerlink" href="#update-setuptools" title="Permalink to this headline">¶</a></h4>
+<p>The command <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">easy_install</span> <span class="pre">devilry-xmlrpc-client</span></tt> might ask you to
+update your version of setuptools, by running:</p>
 <div class="highlight-python"><pre>easy_install -U setuptools</pre>
 </div>
 <p>If so, run this command first, the run <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">devilry-xmlrpc-client</span></tt> again.</p>
+</div>
+<div class="section" id="devilry-examiner-py-no-such-command-or-similar">
+<h4>devilry-examiner.py: no such command (or similar)<a class="headerlink" href="#devilry-examiner-py-no-such-command-or-similar" title="Permalink to this headline">¶</a></h4>
+<p>If you do not have the <tt class="docutils literal"><span class="pre">devilry-examiner.py</span></tt> command available after installing, but
+you can execute <tt class="docutils literal"><span class="pre">/usr/local/bin/devilry-examiner.py</span></tt>, you need to add <tt class="docutils literal"><span class="pre">/usr/local/bin/</span></tt> to your <tt class="docutils literal"><span class="pre">PATH</span></tt>.</p>
+</div>
 </div>
 </div>
 <div class="section" id="getting-started">
@@ -94,7 +107,7 @@
 <dd>The login command to use. This will be either <tt class="docutils literal"><span class="pre">login</span></tt> or <tt class="docutils literal"><span class="pre">formlogin</span></tt>.</dd>
 </dl>
 <p>Start by creating a Devilry checkout directory and change to it. You may give this directory any name you want.
-In this guide, we use <tt class="docutils literal"><span class="pre">devilrycheckout</span></tt>.</p>
+In this guide, we use <tt class="docutils literal"><span class="pre">devilrycheckout</span></tt>:</p>
 <div class="highlight-python"><pre>~$ mkdir devilrycheckout
 ~$ cd devilrycheckout</pre>
 </div>
@@ -134,7 +147,11 @@ configured.</p>
 <li><a class="reference internal" href="#">Command line client</a><ul>
 <li><a class="reference internal" href="#install">Install</a><ul>
 <li><a class="reference internal" href="#quick-install">Quick install</a></li>
-<li><a class="reference internal" href="#installation-issues">Installation issues</a></li>
+<li><a class="reference internal" href="#installation-issues">Installation issues</a><ul>
+<li><a class="reference internal" href="#update-setuptools">Update setuptools</a></li>
+<li><a class="reference internal" href="#devilry-examiner-py-no-such-command-or-similar">devilry-examiner.py: no such command (or similar)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
@@ -150,7 +167,7 @@ configured.</p>
                         title="next chapter">Developers</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/user/xmlrpc_client.txt"
+    <li><a href="../_sources/user/xmlrpc_client.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

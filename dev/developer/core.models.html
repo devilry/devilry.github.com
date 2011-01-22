@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>devilry.core.models — Devilry core datastructure &mdash; Devilry v0.1alpha0 documentation</title>
-    <link rel="stylesheet" href="../static/devilry.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/devilry.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -18,9 +18,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Devilry v0.1alpha0 documentation" href="../index.html" />
     <link rel="up" title="Developers" href="contents.html" />
     <link rel="next" title="devilry.core.utils — Devilry core utilities" href="core.utils.html" />
@@ -535,10 +535,10 @@ the assignment.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="devilry.core.models.Assignment.deadline">
-<tt class="descname">deadline</tt><a class="headerlink" href="#devilry.core.models.Assignment.deadline" title="Permalink to this definition">¶</a></dt>
-<dd><p>A <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#datetimefield">django.db.models.DateTimeField</a> representing the deadline of the
-assignment.</p>
+<dt id="devilry.core.models.Assignment.anonymous">
+<tt class="descname">anonymous</tt><a class="headerlink" href="#devilry.core.models.Assignment.anonymous" title="Permalink to this definition">¶</a></dt>
+<dd><p>A models.BooleanField specifying if the assignment should be
+anonymously for correcters.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -566,6 +566,54 @@ grade-plugin. More info on grade-plugins
 <dt id="devilry.core.models.Assignment.filenames">
 <tt class="descname">filenames</tt><a class="headerlink" href="#devilry.core.models.Assignment.filenames" title="Permalink to this definition">¶</a></dt>
 <dd><p>A optional string of filenames separated by whitespace.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.pointscale">
+<tt class="descname">pointscale</tt><a class="headerlink" href="#devilry.core.models.Assignment.pointscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The points will be scaled down or up making the _this_
+number the maximum number of points. Defaults to 1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.autoscale">
+<tt class="descname">autoscale</tt><a class="headerlink" href="#devilry.core.models.Assignment.autoscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this field is True, the pointscale will automatically be set
+to the maximum number of points possible with the selected grade
+plugin.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.maxpoints">
+<tt class="descname">maxpoints</tt><a class="headerlink" href="#devilry.core.models.Assignment.maxpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of points possible without scaling. This is set
+using <a class="reference internal" href="grade-plugins.html#devilry.core.gradeplugin.GradeModel.get_maxpoints" title="devilry.core.gradeplugin.GradeModel.get_maxpoints"><tt class="xref py py-meth docutils literal"><span class="pre">devilry.core.gradeplugin.GradeModel.get_maxpoints()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.attempts">
+<tt class="descname">attempts</tt><a class="headerlink" href="#devilry.core.models.Assignment.attempts" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of attempts a student get on this assignment. This is
+not a hard limit, but it makes the work of the examiners easier
+because the system will close groups (leaving students unable to
+deliver more attempts) when they have this many published
+feedbacks. Examiners can open closed groups, and they are
+notified when a group is automatically closed.</p>
+<p>If this is None, closing of groups has to be handled manually.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Assignment.must_pass">
+<tt class="descname">must_pass</tt><a class="headerlink" href="#devilry.core.models.Assignment.must_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each student must get a passing grade on this assignment to get a
+passing grade on the period. Defaults to False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Assignment.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save and recalculate the value of <a class="reference internal" href="#devilry.core.models.Assignment.maxpoints" title="devilry.core.models.Assignment.maxpoints"><tt class="xref py py-attr docutils literal"><span class="pre">maxpoints</span></tt></a> and
+<a class="reference internal" href="#devilry.core.models.Assignment.pointscale" title="devilry.core.models.Assignment.pointscale"><tt class="xref py py-attr docutils literal"><span class="pre">pointscale</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -749,10 +797,11 @@ path-elements (uses <a class="reference internal" href="#devilry.core.models.spl
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.Assignment.assignment_groups_where_is_examiner_or_admin">
-<tt class="descname">assignment_groups_where_is_examiner_or_admin</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.assignment_groups_where_is_examiner_or_admin" title="Permalink to this definition">¶</a></dt>
+<dt id="devilry.core.models.Assignment.assignment_groups_where_can_examine">
+<tt class="descname">assignment_groups_where_can_examine</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.Assignment.assignment_groups_where_can_examine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all assignment groups within this assignment where the given
-<tt class="docutils literal"><span class="pre">user_obj</span></tt> is examiner or is admin.</p>
+<tt class="docutils literal"><span class="pre">user_obj</span></tt> is examiner or admin. If the user is superadmin, all
+assignments are returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -884,6 +933,90 @@ deliveries or not.</p>
 <dt id="devilry.core.models.AssignmentGroup.deadlines">
 <tt class="descname">deadlines</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.deadlines" title="Permalink to this definition">¶</a></dt>
 <dd><p>A set of deadlines for this assignmentgroup</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.status">
+<tt class="descname">status</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores data that can be deduces from other data in the database, but
+since this requires complex queries, we store it as a integer
+instead, with the following values:</p>
+<blockquote>
+<ol class="arabic" start="0">
+<li><p class="first">No deliveries</p>
+</li>
+<li><p class="first">Not corrected</p>
+</li>
+<li><p class="first">Corrected, not published</p>
+</li>
+<li><dl class="first docutils">
+<dt>Corrected and published</dt>
+<dd><p class="first last">The group has at least one published feedback.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.status_mapping">
+<tt class="descname">status_mapping</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.status_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> to a translated string for examiners and
+admins. <tt class="docutils literal"><span class="pre">status_mapping[0]</span></tt> contains a localized version of <tt class="docutils literal"><span class="pre">&quot;No</span>
+<span class="pre">deliveries&quot;</span></tt>, and so on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.status_mapping_student">
+<tt class="descname">status_mapping_student</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.status_mapping_student" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> to a translated string for students. The same as
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.status_mapping" title="devilry.core.models.AssignmentGroup.status_mapping"><tt class="xref py py-attr docutils literal"><span class="pre">status_mapping</span></tt></a> except that <tt class="docutils literal"><span class="pre">status_mapping_student[2]</span></tt>
+contains <tt class="docutils literal"><span class="pre">&quot;Not</span> <span class="pre">corrected&quot;</span></tt>, and <tt class="docutils literal"><span class="pre">status_mapping_student[3]</span></tt>
+contains <tt class="docutils literal"><span class="pre">&quot;Corrected&quot;</span></tt>. This is because the student should never
+know about unpublished feedback.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.points">
+<tt class="descname">points</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points this group got on their latest published
+delivery. This fields is only updated when a published feedback
+is saved.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.scaled_points">
+<tt class="descname">scaled_points</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.scaled_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#devilry.core.models.AssignmentGroup.points" title="devilry.core.models.AssignmentGroup.points"><tt class="xref py py-attr docutils literal"><span class="pre">points</span></tt></a> of this group scaled according to
+<a class="reference internal" href="#devilry.core.models.Assignment.pointscale" title="devilry.core.models.Assignment.pointscale"><tt class="xref py py-attr docutils literal"><span class="pre">Assignment.pointscale</span></tt></a> and <a class="reference internal" href="#devilry.core.models.Assignment.maxpoints" title="devilry.core.models.Assignment.maxpoints"><tt class="xref py py-attr docutils literal"><span class="pre">Assignment.maxpoints</span></tt></a>.</p>
+<p>Calculated as: <cite>float(pointscale)/maxpoints * points</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.NO_DELIVERIES">
+<tt class="descname">NO_DELIVERIES</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.NO_DELIVERIES" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numberic value corresponding to <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> <em>no deliveries</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.NOT_CORRECTED">
+<tt class="descname">NOT_CORRECTED</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.NOT_CORRECTED" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numberic value corresponding to <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> <em>not corrected</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.CORRECTED_NOT_PUBLISHED">
+<tt class="descname">CORRECTED_NOT_PUBLISHED</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.CORRECTED_NOT_PUBLISHED" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numberic value corresponding to <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> <em>corrected, not
+published</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.AssignmentGroup.CORRECTED_AND_PUBLISHED">
+<tt class="descname">CORRECTED_AND_PUBLISHED</tt><a class="headerlink" href="#devilry.core.models.AssignmentGroup.CORRECTED_AND_PUBLISHED" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numberic value corresponding to <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status" title="devilry.core.models.AssignmentGroup.status"><tt class="xref py py-attr docutils literal"><span class="pre">status</span></tt></a> <em>corrected, and
+published</em>.</p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -1108,17 +1241,44 @@ comma (<tt class="docutils literal"><span class="pre">','</span></tt>).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.AssignmentGroup.get_status">
-<tt class="descname">get_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get status as a translated string.</p>
-<p>Returns one of:</p>
-<blockquote>
-<ul class="simple">
-<li>&#8220;No deliveries&#8221;</li>
-<li>&#8220;Not corrected&#8221;</li>
-<li>&#8220;Corrected&#8221;</li>
-</ul>
-</blockquote>
+<dt id="devilry.core.models.AssignmentGroup.can_examine">
+<tt class="descname">can_examine</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.can_examine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the user has permission to examine (creeate
+feedback and browse files) on this assignment group.</p>
+<p>Examiners, admins and superusers has this permission.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_localized_status">
+<tt class="descname">get_localized_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_localized_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from <a class="reference internal" href="#devilry.core.models.AssignmentGroup.status_mapping" title="devilry.core.models.AssignmentGroup.status_mapping"><tt class="xref py py-attr docutils literal"><span class="pre">status_mapping</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_localized_student_status">
+<tt class="descname">get_localized_student_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_localized_student_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.status_mapping_student" title="devilry.core.models.AssignmentGroup.status_mapping_student"><tt class="xref py py-attr docutils literal"><span class="pre">status_mapping_student</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_status_cssclass">
+<tt class="descname">get_status_cssclass</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_status_cssclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from
+<tt class="xref py py-attr docutils literal"><span class="pre">status_mapping_cssclass</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_status_student_cssclass">
+<tt class="descname">get_status_student_cssclass</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_status_student_cssclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from
+<tt class="xref py py-attr docutils literal"><span class="pre">status_mapping_student_cssclass</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_number_of_deliveries">
+<tt class="descname">get_number_of_deliveries</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_number_of_deliveries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of deliveries by this assignment group.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1136,22 +1296,31 @@ or <tt class="xref docutils literal"><span class="pre">None</span></tt> if there
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.AssignmentGroup.get_grade_as_short_string">
-<tt class="descname">get_grade_as_short_string</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_grade_as_short_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the grade</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="devilry.core.models.AssignmentGroup.get_number_of_deliveries">
-<tt class="descname">get_number_of_deliveries</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_number_of_deliveries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the number of deliveries by this assignment group.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="devilry.core.models.AssignmentGroup.get_deliveries_with_published_feedback">
 <tt class="descname">get_deliveries_with_published_feedback</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_deliveries_with_published_feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the the deliveries by this assignment group which have
 published feedback.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_latest_delivery_with_published_feedback">
+<tt class="descname">get_latest_delivery_with_published_feedback</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_latest_delivery_with_published_feedback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the latest delivery with published feedback.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.get_grade_as_short_string">
+<tt class="descname">get_grade_as_short_string</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_grade_as_short_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the grade as a &#8220;short string&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.AssignmentGroup.can_save">
+<tt class="descname">can_save</tt><big>(</big><em>user_obj</em><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.can_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the user has permission to save this AssignmentGroup.
+This only runs <tt class="xref py py-meth docutils literal"><span class="pre">Assignment.is_admin()</span></tt>, so there is no need to
+use this if you have already used can_save() on the
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.parentnode" title="devilry.core.models.AssignmentGroup.parentnode"><tt class="xref py py-attr docutils literal"><span class="pre">parentnode</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1165,12 +1334,15 @@ and end time is checked.</p>
 <dl class="method">
 <dt id="devilry.core.models.AssignmentGroup.get_active_deadline">
 <tt class="descname">get_active_deadline</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.AssignmentGroup.get_active_deadline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the active deadline. Checked id the following order:</p>
-<ol class="arabic simple">
-<li>None if no deadline is set.</li>
-<li>First deadline after current date/time.</li>
-<li>Previous deadline before current date/time.</li>
-</ol>
+<dd><p>Get the active deadline.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">Latest deadline, or None if no deadline is set.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1219,7 +1391,7 @@ and end time is checked.</p>
 <dl class="method">
 <dt id="devilry.core.models.Deadline.is_old">
 <tt class="descname">is_old</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Deadline.is_old" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if <a class="reference internal" href="#devilry.core.models.Deadline.deadline" title="devilry.core.models.Deadline.deadline"><tt class="xref py py-attr docutils literal"><span class="pre">deadline</span></tt></a> is in the past.</p>
+<dd><p>Return True if <a class="reference internal" href="#devilry.core.models.Deadline.deadline" title="devilry.core.models.Deadline.deadline"><tt class="xref py py-attr docutils literal"><span class="pre">deadline</span></tt></a> expired.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1370,10 +1542,48 @@ to this delivery.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="devilry.core.models.Delivery.get_status">
-<tt class="descname">get_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the status for this delivery; &#8216;Corrected&#8217; or
-&#8216;Not Corrected&#8217;.</p>
+<dt id="devilry.core.models.Delivery.get_status_number">
+<tt class="descname">get_status_number</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_status_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the numeric status for this delivery.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">The numeric status:
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.NOT_CORRECTED" title="devilry.core.models.AssignmentGroup.NOT_CORRECTED"><tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.NOT_CORRECTED</span></tt></a>,
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.CORRECTED_NOT_PUBLISHED" title="devilry.core.models.AssignmentGroup.CORRECTED_NOT_PUBLISHED"><tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.CORRECTED_NOT_PUBLISHED</span></tt></a> or
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.CORRECTED_AND_PUBLISHED" title="devilry.core.models.AssignmentGroup.CORRECTED_AND_PUBLISHED"><tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.CORRECTED_AND_PUBLISHED</span></tt></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Delivery.get_localized_status">
+<tt class="descname">get_localized_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_localized_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.status_mapping" title="devilry.core.models.AssignmentGroup.status_mapping"><tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.status_mapping</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Delivery.get_localized_student_status">
+<tt class="descname">get_localized_student_status</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_localized_student_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string from
+<a class="reference internal" href="#devilry.core.models.AssignmentGroup.status_mapping_student" title="devilry.core.models.AssignmentGroup.status_mapping_student"><tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.status_mapping_student</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Delivery.get_status_cssclass">
+<tt class="descname">get_status_cssclass</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_status_cssclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the css class for the current status from
+<tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.status_mapping_cssclass</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devilry.core.models.Delivery.get_status_student_cssclass">
+<tt class="descname">get_status_student_cssclass</tt><big>(</big><big>)</big><a class="headerlink" href="#devilry.core.models.Delivery.get_status_student_cssclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the css class for the current status from
+<tt class="xref py py-attr docutils literal"><span class="pre">AssignmentGroup.status_mapping_student_cssclass</span></tt>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1393,6 +1603,22 @@ last.</p>
 <em class="property">class </em><tt class="descclassname">devilry.core.models.</tt><tt class="descname">Feedback</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#devilry.core.models.Feedback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
 <p>Represents the feedback for a given <a class="reference external" href="#delivery">Delivery</a>.</p>
+<p>Typical usage for manual manipulation of feedbacks (in tests and xmlrpc):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test</span> <span class="o">=</span> <span class="n">Assignment</span><span class="p">(</span>
+        <span class="n">parentnode</span> <span class="o">=</span> <span class="n">Period</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">publishing_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+        <span class="n">anonymous</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
+        <span class="n">grade_plugin</span> <span class="o">=</span> <span class="s">&quot;grade_approved:approvedgrade&quot;</span><span class="p">)</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">assignmentgroups</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;My group&quot;</span><span class="p">)</span>
+<span class="n">delivery</span> <span class="o">=</span> <span class="n">Delivery</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">&quot;student1&quot;</span><span class="p">))</span>
+<span class="n">delivery</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;test&quot;</span><span class="p">])</span>
+<span class="n">delivery</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+<span class="n">feedback</span> <span class="o">=</span> <span class="n">delivery</span><span class="o">.</span><span class="n">get_feedback</span><span class="p">()</span>
+<span class="n">feedback</span><span class="o">.</span><span class="n">last_modified_by</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">&quot;examiner1&quot;</span><span class="p">)</span>
+<span class="n">feedback</span><span class="o">.</span><span class="n">set_grade_from_xmlrpcstring</span><span class="p">(</span><span class="s">&quot;approved&quot;</span><span class="p">)</span>
+<span class="n">feedback</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="devilry.core.models.Feedback.text">
 <tt class="descname">text</tt><a class="headerlink" href="#devilry.core.models.Feedback.text" title="Permalink to this definition">¶</a></dt>
@@ -1422,6 +1648,18 @@ text. Valid values are:</p>
 published or not. This allows editing and saving the feedback before
 publishing it. Is useful for exams and other assignments when
 feedback and grading is published simultaneously for all Deliveries.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Feedback.last_modified_by">
+<tt class="descname">last_modified_by</tt><a class="headerlink" href="#devilry.core.models.Feedback.last_modified_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/auth/#users">django.contrib.auth.models.User</a> that last modified the feedback.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="devilry.core.models.Feedback.last_modified">
+<tt class="descname">last_modified</tt><a class="headerlink" href="#devilry.core.models.Feedback.last_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date/time of last modification.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1650,7 +1888,7 @@ of the <a class="reference internal" href="#devilry.core.models.FileMeta.deliver
                         title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">devilry.core.utils</span></tt> &#8212; Devilry core utilities</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/developer/core.models.txt"
+    <li><a href="../_sources/developer/core.models.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
