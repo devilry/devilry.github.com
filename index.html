@@ -1,8 +1,129 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns='http://www.w3.org/1999/xhtml'>
-	<head>
-		<meta http-equiv="Refresh" content="0; url=http://devilry.github.com/dev/">		
-	</head>
-	<body>
-	</body>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      Devilry
+    </title>
+
+    <link rel="stylesheet" href="reset.css"
+      type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="layout.css"
+      type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="colors.css"
+      type="text/css" media="screen" charset="utf-8"/>
+
+    <link rel="stylesheet" href="s3slider.css"
+      type="text/css" media="screen" charset="utf-8"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="s3Slider.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() { 
+           $('#s3slider').s3Slider({ 
+              timeOut: 4000 
+           });
+        });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        Devilry
+      </h1>
+      <span id="projectlink">Open source general purpose delivery system</span>
+    </header>
+
+    <div id="s3slider">
+       <ul id="s3sliderContent">
+          <li class="s3sliderImage">
+              <img src="slideshow/student-dash.png" />
+              <span><em class='picthead'>Devilry is</em>
+                  easy for students</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/examiner-dash.png" />
+              <span><em class='picthead'>Devilry provides</em>
+                  examiners with instant access to what they usually need via their dashboard</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/community.png" />
+              <span><em class='picthead'>Devilry has</em>
+                  an active open source community, where anyone is welcome.</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/examiner-overview.png" />
+              <span><em class='picthead'>Devilry provides</em>
+                  examiners with a detailed overview, enabling them to keep track of their assignment students or groups of students.</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/examiner-feedback.png" />
+              <span><em class='picthead'>Devilry comes with</em>
+                  powerful tools for every step of the process of producing feedback to students.</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/statistics.png" />
+              <span><em class='picthead'>Devilry can show</em>
+                  a detailed overview of all students on a subject within a given period.</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/student-stats.png" />
+              <span><em class='picthead'>Devilry allows</em>
+                  students to see their own statistics, and administrators to view statistics for each student.</span>
+          </li>
+
+          <li class="s3sliderImage">
+              <img src="slideshow/assignment-admin-groups.png" />
+              <span><em class='picthead'>Devilry allows</em>
+                  administrators to manage each assignment in detail, however they are also provided with shortcuts for common actions.</span>
+          </li>
+
+          <div class="clear s3sliderImage"></div>
+       </ul>
+    </div>
+
+    <div id="main">
+
+        <div class='cell'>
+            <div class="section">
+                <h2>About</h2>
+                Devilry is a system for handling electronic deliveries. The system is
+                designed to be flexible and customizable so that many different needs can be
+                met. Devilry is designed to work with all types of electronic deliveries.
+            </div>
+
+            <div class="section">
+                <h2>Get involved</h2>
+                The easiest way of contributing to Devilry is by submitting <strong>bugs and issues</strong> to
+                our <a href="https://github.com/devilry/devilry-django/issues">issue tracker</a>.
+                Furthermore, you can suggest <em>improvements</em> and <em>new features</em>
+                through the same issue tracker.
+                If you have the skills, you can even help us 
+                <a href="https://github.com/devilry/devilry-django/wiki/Getting-started-%28for-new-developers%29">
+                    develop Devilry</a>.
+            </div>
+        </div>
+
+        <div class="cell">
+            <div class="section">
+                <h2>Documentation</h2>
+                Most documentation is available through the wiki <a href="#">Wiki</a>. Developers
+                may want to jump directly to the <a href="#">API docs</a>, however new developers
+                should check out the Wiki first.
+            </div>
+
+            <div class="section">
+                <h2>Source code and license</h2>
+
+                The Devilry source code is available at our <a href="#">repository</a>
+                under the <a href="#">BSD license</a>, which is an open source license.
+            </div>
+        </div>
+    </div>
+  </body>
 </html>
