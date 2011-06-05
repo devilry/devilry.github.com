@@ -1,5 +1,5 @@
 intro
-intro
-model
-intro
 django
+model
+database
+templatelang
