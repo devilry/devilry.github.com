@@ -2,4 +2,8 @@ Object-relational mapping
 Introduction to the Django ORM
 ----
 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<p>"Object-relational mapping (ORM, O/RM, and O/R mapping) in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages." (Wikipedia).
+
+<p>Python classes are used to define data models that the Django ORM converts to relational datadbase models. The Django query langauge hides the SQL queries from the programmer, making a database switch very easy(<a href="https://docs.djangoproject.com/en/dev/ref/databases/"></a>). The Django query language is database independent, making a database switch very easy. Supported databases are PostgreSQL, MySQL, SQLit, Oracle.</p>
+
+<p>ORM has some overhead compared to native SQL queries, but there are many optimization techniques avaialable in Django. Where maximum efficieny is needed, it's even possible to write RAW SQL statements. (More on <a href="https://docs.djangoproject.com/en/dev/topics/db/optimization/">optimizing database access</a> in Django.</p>
