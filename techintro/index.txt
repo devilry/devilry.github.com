@@ -2,4 +2,4 @@ intro
 django
 model: big,multi
 database: small,single
-templatelang
+templatelang: small,single
