@@ -23,28 +23,69 @@ body>header #projectlink {
 div#main {
     background-color: #fff;
     border: 1px solid #d8d8d8;
-    margin: 30px 30px 30px 30px;
+    margin: 30px auto 30px auto;
     border-radius: 12px 12px 12px 12px;
+    width: 900px;
 }
 
 
 div.part {
+    margin-bottom: 60px;
 }
-div.part h2 {
-    font-size: 25px;
-    font-weight: bold;
-    margin: 20px 0 20px 0;
-    padding: 0;
+div.clearboth {
+    clear: both;
 }
 
-div.part h3 {
-    font-size: 13px;
-    font-weight: bold;
-    margin: 0 0 4px 0;
-    padding: 0;
+div.part>h2 {
+    font-size: 3.0em;
+    font-weight: normal;
+    text-align: left;
+    color: #000;
+    margin: 0 60px 0 60px;
+    padding: 30px 0 0 0;
+    border-top: 1px solid #aaa;
+}
+
+div.part:first-child>h2 {
+    border-top: none;
 }
 
 div.text {
+    margin: 60px;
+    font-size: 1.2em;
+    text-align: justify;
+    color: #444;
+}
+
+
+div.text>h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    padding: 0;
+    text-align: left;
+    color: #111;
+}
+
+.singleimage>img.singleimage {
+    width: 550px;
+    padding: 0;
+    /*border: 1px solid #000;*/
+    border: none;
+    margin: 0;
+    margin-top: 20px;
+    /*margin-bottom: 60px;*/
+}
+
+.left>img.singleimage {
+    float: left;
+    margin-right: 60px;
+    margin-left: 0;
+}
+.right>img.singleimage {
+    float: right;
+    margin-right: 0;
+    margin-left: 60px;
 }
 
 div.onlytext {

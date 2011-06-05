@@ -1,7 +1,5 @@
 from sys import argv
-from glob import glob
-from os import sep
-from os.path import splitext, dirname, abspath, join, split, exists
+from os.path import dirname, abspath, join, split, exists
 
 if len(argv) != 2:
     raise SystemExit("usage: %s <dirname>" % argv[0])
@@ -12,7 +10,7 @@ def readtpl(name):
 def path_to_urlpath(path):
     return '/'.join(split(path))
 
-showcase_dir = argv[1]
+showcase_dir = argv[1].replace('/', '')
 this_dir = abspath(dirname(__file__))
 outfile = '%(showcase_dir)s.html' % vars()
 single_image_ext = 'single.png'
@@ -22,19 +20,38 @@ singleimagetpl = readtpl('singleimagetpl')
 onlytexttpl = readtpl('onlytext')
 
 parts = []
-for filename in glob('%(showcase_dir)s%(sep)s*.html' % vars()):
-    name = splitext(filename)[0]
-    singleimage_path = "%(name)s.%(single_image_ext)s" % vars()
+partnames = [x.strip() for x in open(join(showcase_dir, 'index.txt')).readlines()]
+print partnames
+pervious_img_floatleft = True # did the previous part have its image on the left?
+for partname in partnames:
+    singleimage_name = "%(partname)s.%(single_image_ext)s" % vars()
+    singleimage_path = join(showcase_dir, singleimage_name)
+    hasimage = False
     if exists(singleimage_path):
-        singleimage_src = path_to_urlpath(singleimage_path)
+        hasimage = True
+        singleimage_src = '%s/%s' % (showcase_dir, singleimage_name)
         tpl = singleimagetpl
     else:
         tpl = onlytexttpl
 
-    text = open(filename).read()
-    parts.append(tpl % dict(vars()))
+    extraclasses = ''
+    if hasimage:
+        if pervious_img_floatleft:
+            pervious_img_floatleft = False
+            extraclasses = 'right'
+        else:
+            extraclasses = 'left'
+    else:
+        pervious_img_floatleft = True
+
+    infofilename = join(showcase_dir, "%s.html" % partname)
+    head, text = open(infofilename).read().split('----')
+    heading, subheading = head.strip().split('\n')
+    print "Adding", heading
+    print text
+    parts.append(tpl % vars())
 
 main = '\n\n'.join(parts)
 out = template % dict(main=main)
 open(outfile, 'wb').write(out)
-print 'Output written to %s.' % outfile
+print 'Output written to %s' % outfile
