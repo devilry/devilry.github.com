@@ -1,0 +1,24 @@
+body {
+	background-color: #fff;
+    background-color: #f8f8f8;
+	color: #222;
+}
+
+body>header {background-color: #000; color: #fff;}
+body>header #projectlink {color: #a00;}
+
+body>footer {
+	color: #D4D2CE;
+	border-top-color: 1px solid #ECEBE9;
+	background-color: #fff;
+}
+
+a {
+    color: #0B5A9D;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #6E0840;
+}
