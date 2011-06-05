@@ -1,5 +1,5 @@
 intro
 django
-model
-database
+model: big,multi
+database: small,single
 templatelang
