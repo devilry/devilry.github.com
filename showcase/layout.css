@@ -75,16 +75,18 @@ div.text>h3 {
     margin: 0;
     margin-top: 20px;
     /*margin-bottom: 60px;*/
+    box-shadow: -3px 3px 10px 3px #888;
+
 }
 
 .left>img.singleimage {
     float: left;
     margin-right: 60px;
-    margin-left: 0;
+    margin-left: -30px;
 }
 .right>img.singleimage {
     float: right;
-    margin-right: 0;
+    margin-right: -30px;
     margin-left: 60px;
 }
 
