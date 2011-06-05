@@ -100,3 +100,38 @@ div.onlytext {
     /*margin-left: auto;*/
     /*margin-right: auto;*/
 }
+
+
+.cite-text {
+    font-size: 1.0em;
+    color: #000;
+    font-family: "Georgia", "Times New Roman", "Times", serif;
+    font-style: italic;
+}
+.cite-text:before, .cite-text:after {
+    color: #69c;
+    font-size: 1.6em;
+}
+
+.cite-text:before {
+    content: '\201C';
+    height: 0;
+}
+.cite-text:after{
+    content: '\201D';
+}
+a.cite-source{
+    font-size: 0.6em;
+    color: #777;
+    text-decoration: none;
+    vertical-align:top;
+    font-weight: normal;
+}
+a.cite-source:hover{
+    color: #777;
+    text-decoration: underline;
+}
+a.cite-source:visited{
+    color: #777;
+    text-decoration: underline;
+}
