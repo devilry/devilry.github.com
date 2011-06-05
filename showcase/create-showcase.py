@@ -48,7 +48,7 @@ for partname in partnames:
     head, text = open(infofilename).read().split('----')
     heading, subheading = head.strip().split('\n')
     print "Adding", heading
-    print text
+    #print text
     parts.append(tpl % vars())
 
 main = '\n\n'.join(parts)
