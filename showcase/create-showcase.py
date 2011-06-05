@@ -46,7 +46,7 @@ for part in partnames:
                     if item.startswith('%s.multi.' % partname)]
             imagenames.sort()
             images = '\n'.join([
-                '<li><img src="%s/%s"/></li>' % (showcase_dir, i)\
+                '<img src="%s/%s" alt="Description here" title="Some title here"/>' % (showcase_dir, i)\
                 for i in imagenames])
             tpl = bigimagetpl
             
