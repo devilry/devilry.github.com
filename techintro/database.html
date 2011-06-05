@@ -1,5 +1,30 @@
 Database
-Database something something....
+The Devilry database structure
 ----
 
-<p>TODO</p>
+<p>The database model is a hierarchical tree of nodes. An example for a university:</p>
+<pre>
+* Faculty of Mathematics (node)
+   * Department of Informatics (node)
+      * INF1000 (subject)
+         * Autumn 2010 (period)
+            * Oblig1 (assignment)
+            * Oblig2 (assignment)
+            * Oblig3 (assignment)
+            * Oblig4 (assignment)
+      * INF1100
+         * Autumn 2010 (period)
+            * Week1 (assignment)
+            * Week2 (assignment)
+            * Week3 (assignment)
+            * Week4 (assignment)
+            * Week5 (assignment)
+      * INF1010
+         * Spring 2011 (period)
+            * Oblig1 (assignment)
+            * Oblig2 (assignment)
+            * Oblig3 (assignment)
+            * Oblig4 (assignment)
+
+</pre>
+<p>Users can be assigned admin rights on nodes which includes all subnodes as well. An admin on the node "Ifi" will also be admin on all subject nodes on the node "Ifi" and so on. </p>
