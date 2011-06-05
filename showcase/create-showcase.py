@@ -24,6 +24,7 @@ partnames = [x.strip() for x in open(join(showcase_dir, 'index.txt')).readlines(
 print partnames
 pervious_img_floatleft = True # did the previous part have its image on the left?
 for partname in partnames:
+    print "Parsing", partname
     singleimage_name = "%(partname)s.%(single_image_ext)s" % vars()
     singleimage_path = join(showcase_dir, singleimage_name)
     hasimage = False
@@ -47,7 +48,7 @@ for partname in partnames:
     infofilename = join(showcase_dir, "%s.html" % partname)
     head, text = open(infofilename).read().split('----')
     heading, subheading = head.strip().split('\n')
-    print "Adding", heading
+    print "   Adding", heading
     #print text
     parts.append(tpl % vars())
 
