@@ -27,6 +27,8 @@ partnames = [x.strip() for x in open(join(showcase_dir, 'index.txt')).readlines(
 print partnames
 pervious_img_floatleft = True # did the previous part have its image on the left?
 for part in partnames:
+    if part.strip() == '':
+        continue
     p = [x.strip() for x in part.split(': ')]
     partname = p[0]
     if len(p) > 1:
