@@ -68,7 +68,7 @@ div.text>h3 {
     color: #111;
 }
 
-div.singleimage_container>img.singleimage {
+.singleimage {
     display: block;
     width: 550px;
     padding: 0;
@@ -81,25 +81,25 @@ div.singleimage_container>img.singleimage {
 
 }
 
-div.left>img.singleimage {
+.left.singleimage {
     float: left;
     margin-right: 60px;
     margin-left: -30px;
 }
-div.right>img.singleimage {
+.right.singleimage {
     float: right;
     margin-right: -30px;
     margin-left: 60px;
 }
 
-
-div.bigsingleimage_container>img.bigsingleimage {
-    display: block;
-    padding: 0;
-    border: none;
-    width: 880px;
+.big {
+    /*display: block;*/
+    /*padding: 0;*/
+    /*border: none;*/
+    width: 880px !important;
     margin: 30px auto 30px auto !important;
-    box-shadow: -3px 3px 10px 3px #888;
+    float: none !important;
+    /*box-shadow: -3px 3px 10px 3px #888;*/
 }
 
 

@@ -25,6 +25,13 @@
                 width:1000,
                 height:650
             });
+
+            $('img.small').dblclick(function(eventObject) {
+                var imgelem = eventObject.srcElement;
+                $(imgelem).toggleClass("big");
+                //console.log(eventObject);
+            });
+            
         });
     </script>
     

@@ -5,4 +5,4 @@ orm
 database: small,single
 datamodel: small,single
 SQL_tables: small,single
-queries: big,single
+queries: small,single

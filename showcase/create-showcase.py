@@ -26,7 +26,7 @@ onlytexttpl = readtpl('onlytext')
 parts = []
 partnames = [x.strip() for x in open(join(showcase_dir, 'index.txt')).readlines()]
 print partnames
-pervious_img_floatleft = True # did the previous part have its image on the left?
+previous_smallimg_floatleft = True # did the previous part have its image on the left?
 for part in partnames:
     if part.strip() == '':
         continue
@@ -56,17 +56,15 @@ for part in partnames:
                 for i in imagenames])
             tpl = bigimagetpl
 
-            
-
     extraclasses = ''
     if imagesize == 'small':
-        if pervious_img_floatleft:
-            pervious_img_floatleft = False
+        if previous_smallimg_floatleft:
             extraclasses = 'right'
         else:
             extraclasses = 'left'
+        previous_smallimg_floatleft = not previous_smallimg_floatleft
     else:
-        pervious_img_floatleft = True
+        previous_smallimg_floatleft = True
 
     infofilename = join(showcase_dir, "%s.html" % partname)
     head, text = open(infofilename).read().split('----')
