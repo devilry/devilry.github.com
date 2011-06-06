@@ -147,3 +147,28 @@ a.cite-source:visited{
     color: #777;
     text-decoration: underline;
 }
+
+
+ul {
+    margin-left: 20px;
+}
+
+ul.colorized {
+    margin-left: 40px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+ul.colorized ul {
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+ul.colorized li {
+    font-style: italic;
+    list-style: none;
+}
+ul.colorized li { color: #333; font-size: 15px; }
+ul.colorized li li { color: #005580; font-size: 14.2px; }
+ul.colorized li li li { color: #558000; font-size: 13.4px; }
+ul.colorized li li li li{ color: #802B00; font-size: 12.6px; }
+ul.colorized li li li li li{ color: #555; font-size: 11.8px; }

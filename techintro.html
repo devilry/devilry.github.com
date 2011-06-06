@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      Devilry
+    </title>
+
+    <link rel="stylesheet" href="showcase/reset.css"
+      type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="showcase/layout.css"
+      type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="showcase/colors.css"
+      type="text/css" media="screen" charset="utf-8"/>
+
+    <link rel="stylesheet" href="s3slider.css"
+      type="text/css" media="screen" charset="utf-8"/>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"
+          type="text/javascript"></script>
+    <script src="galleria/galleria-1.2.3.min.js"
+        type="text/javascript"></script>
+    <script src="showcase/jquery.qtip-1.0.0-rc3.min.js"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() { 
+            $('.gallery').galleria({
+                width:1000,
+                height:650
+            });
+
+            $('img.small').dblclick(function(eventObject) {
+                var imgelem = eventObject.srcElement;
+                $(imgelem).toggleClass("big");
+                //console.log(eventObject);
+            });
+
+            $('img.singleimage').qtip({
+                content: 'Double-click to change size',
+                position: { target: 'mouse' },
+                show: 'mouseover',
+                hide: 'mouseout',
+                style: {
+                    name: 'dark',
+                    border: {
+                       width: 3,
+                       radius: 8,
+                       color: '#222'
+                    },
+                    
+                }
+            });
+            
+        });
+    </script>
+    
+
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        Devilry
+      </h1>
+      <span id="projectlink">Open source general purpose delivery system</span>
+    </header>
+
+    <div id="main">
+        <div class='part onlytext '>
+    <h2>Technical overview</h2>
+    <div class='text'>
+        <h3>An overview of the technical details of Devilry</h3>
+        
+
+<p>Devilry is an open source system for handing in assignment deliveries, and for correcting and providing feedback on the assignments. Devilry uses <a href="https://www.djangoproject.com/">Django</a>, an open source web application framwork written in Python. Devilry has been planned from the beginning to be a general system for use at educational institutions, supporting all kinds of electronic deliveries.</p>
+
+<p>Devilry has been designed for three groups of users; students, correctors/examiners and administrators. The student interface has been designed to be compatible with most browser, even IE6. The examiner and admin interfaces are designed with more modern web techonolgies requiring modern web browsers to work as expected.</p>
+
+<p>Devilry has a <a href="http://github.com/devilry/devilry-django">project page at github</a> with a Wiki, issue tracking and git repositories, all of which are publicly available. The Devilry source code is released under the <a href="https://raw.github.com/devilry/devilry-django/master/LICENSE">BSD license</a>.
+</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part onlytext '>
+    <h2>Django</h2>
+    <div class='text'>
+        <h3>What is Django</h3>
+        
+
+<p><a href="https://www.djangoproject.com/">Django</a> is a web application framwork written in Python, supported by the Django Software Foundation. It follows the model-template-view pattern, which naturally separates the data (models), web-frontend (template) and the creation of the web-front-end (view).
+The core Django framwork consists of an <a href="#info">object-relation mapper</a> where data models are defined using Python classes, and a database-abstraction API that makes changes to the data models easy.</p>
+
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part' id='templatelang'>
+    <h2>Templating</h2>
+    <img class='singleimage small right' src='techintro/templatelang.single.png' />
+    <div class='text'>
+        <h3>The Django template language</h3>
+        
+
+<p>The Django template language makes creating HTML code a breeze.</p>
+
+<p class="cite">
+<span class="cite-text">Django's template language is designed to strike a balance between power and ease. It's designed to feel comfortable to those used to working with HTML.</span>
+<a class="cite-source" href="https://docs.djangoproject.com/en/dev/topics/templates">Django website</a>
+</p>
+</p>
+
+<p class="cite">
+<span class="cite-text">If you have a background in programming, or if you're used to languages like PHP which mix programming code directly into HTML, you'll want to bear in mind that the Django template system is not simply Python embedded into HTML. This is by design: the template system is meant to express presentation, not program logic.</span>
+<a class="cite-source" href="https://docs.djangoproject.com/en/dev/topics/templates">Django website</a>
+</p>
+
+
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part onlytext '>
+    <h2>Object-relational mapping</h2>
+    <div class='text'>
+        <h3>Introduction to the Django ORM</h3>
+        
+
+<p class="cite">
+<span class="cite-text">Object-relational mapping (ORM, O/RM, and O/R mapping) in computer software is a programming technique for converting data between incompatible type systems in object-oriented programming languages.</span>
+<a class="cite-source" href="http://en.wikipedia.org/wiki/Object-relational_mapping">Wikipedia</a>
+</p>
+
+<p>Python classes are used to define data models that the Django ORM converts to relational datadbase models. The Django query langauge hides the SQL queries from the programmer, making a database switch very easy(<a href="https://docs.djangoproject.com/en/dev/ref/databases/"></a>). The Django query language is database independent, making a database switch very easy. Supported databases are PostgreSQL, MySQL, SQLit, Oracle.</p>
+
+<p>ORM has some overhead compared to native SQL queries, but there are many optimization techniques avaialable in Django. Where maximum efficieny is needed, it's even possible to write RAW SQL statements. (More on <a href="https://docs.djangoproject.com/en/dev/topics/db/optimization/">optimizing database access</a> in Django.</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part' id='database'>
+    <h2>Database</h2>
+    <img class='singleimage small right' src='techintro/database.single.png' />
+    <div class='text'>
+        <h3>The Devilry database structure</h3>
+        
+
+<p>The database model is a hierarchical tree of nodes. An example for a university:</p>
+<ul class='colorized'>
+    <li>Faculty of Mathematics (node)
+        <ul>
+            <li>Department of Informatics (node)
+                <ul>
+                    <li>INF1000 (subject)
+                        <ul>
+                            <li>Autumn 2010 (period)
+                                <ul>
+                                    <li>Oblig1 (assignment)</li>
+                                    <li>Oblig2 (assignment)</li>
+                                    <li>Oblig3 (assignment)</li>
+                                    <li>Oblig4 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>INF1100 (subject)
+                        <ul>
+                            <li>Autumn 2010 (period)
+                                <ul>
+                                    <li>Week1 (assignment)</li>
+                                    <li>Week2 (assignment)</li>
+                                    <li>Week3 (assignment)</li>
+                                    <li>Week4 (assignment)</li>
+                                    <li>Week5 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>INF1010 (subject)
+                        <ul>
+                            <li>Spring 2011 (period)
+                                <ul>
+                                    <li>Oblig1 (assignment)</li>
+                                    <li>Oblig2 (assignment)</li>
+                                    <li>Oblig3 (assignment)</li>
+                                    <li>Oblig4 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>Users can be assigned administrator-rights on nodes, subjects, periods and assignments. Admin rights are inherited. Thus, an administrator on <em>Department of Informatics</em> is also administrator on all subject, periods and assignments below this node.</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part' id='datamodel'>
+    <h2>Data model</h2>
+    <img class='singleimage small left' src='techintro/datamodel.single.png' />
+    <div class='text'>
+        <h3>Python classes as data models</h3>
+        
+
+<p>Data models are defined with Python classes. In this manner, we can define the data model of a relational database in a database independent manner.
+
+<p>Furthermore, we can define arbitrarily complex constraints and custom fields.</p>
+
+<p>Even more powerful is the ability to associate methods with our data models, enabling us to extend the power of relational databases with the flexibility offered by a programming language.</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part' id='SQL_tables'>
+    <h2>SQL tables</h2>
+    <img class='singleimage small right' src='techintro/SQL_tables.single.png' />
+    <div class='text'>
+        <h3>SQL tables created from the Python models</h3>
+        
+
+<p>SQL tables are automatically created based on the Python classes.</p>
+
+<p>SQL based relational databases all implement one form of SQL, however their implementations vary. We generate our database from our data model. The database abstraction layer generates the SQL for our database, and handles common sources of compatibility issues, such as index creation and constraints.</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+
+<div class='part' id='queries'>
+    <h2>Django queries</h2>
+    <img class='singleimage small left' src='techintro/queries.single.png' />
+    <div class='text'>
+        <h3>Queries using the Django database-abstraction API</h3>
+        
+
+<p>The Django database-abstraction API simplifies writing queries greatly, by automatically translating Python code into SQL queries.</p>
+
+    </div>
+    <div class='clearboth'></div>
+</div>
+
+    </div>
+  </body>
+</html>

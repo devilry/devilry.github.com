@@ -3,28 +3,51 @@ The Devilry database structure
 ----
 
 <p>The database model is a hierarchical tree of nodes. An example for a university:</p>
-<pre>
-* Faculty of Mathematics (node)
-   * Department of Informatics (node)
-      * INF1000 (subject)
-         * Autumn 2010 (period)
-            * Oblig1 (assignment)
-            * Oblig2 (assignment)
-            * Oblig3 (assignment)
-            * Oblig4 (assignment)
-      * INF1100 (subject)
-         * Autumn 2010 (period)
-            * Week1 (assignment)
-            * Week2 (assignment)
-            * Week3 (assignment)
-            * Week4 (assignment)
-            * Week5 (assignment)
-      * INF1010 (subject)
-         * Spring 2011 (period)
-            * Oblig1 (assignment)
-            * Oblig2 (assignment)
-            * Oblig3 (assignment)
-            * Oblig4 (assignment)
-
-</pre>
-<p>Users can be assigned admin rights on nodes which includes all subnodes as well. An admin on the node <em>Department of Informatics</em> will also be admin on all subject nodes on the node <em>Department of Informatics</em> and so on. </p>
+<ul class='colorized'>
+    <li>Faculty of Mathematics (node)
+        <ul>
+            <li>Department of Informatics (node)
+                <ul>
+                    <li>INF1000 (subject)
+                        <ul>
+                            <li>Autumn 2010 (period)
+                                <ul>
+                                    <li>Oblig1 (assignment)</li>
+                                    <li>Oblig2 (assignment)</li>
+                                    <li>Oblig3 (assignment)</li>
+                                    <li>Oblig4 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>INF1100 (subject)
+                        <ul>
+                            <li>Autumn 2010 (period)
+                                <ul>
+                                    <li>Week1 (assignment)</li>
+                                    <li>Week2 (assignment)</li>
+                                    <li>Week3 (assignment)</li>
+                                    <li>Week4 (assignment)</li>
+                                    <li>Week5 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>INF1010 (subject)
+                        <ul>
+                            <li>Spring 2011 (period)
+                                <ul>
+                                    <li>Oblig1 (assignment)</li>
+                                    <li>Oblig2 (assignment)</li>
+                                    <li>Oblig3 (assignment)</li>
+                                    <li>Oblig4 (assignment)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>Users can be assigned administrator-rights on nodes, subjects, periods and assignments. Admin rights are inherited. Thus, an administrator on <em>Department of Informatics</em> is also administrator on all subject, periods and assignments below this node.</p>
