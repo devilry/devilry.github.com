@@ -68,7 +68,8 @@ div.text>h3 {
     color: #111;
 }
 
-.singleimage>img.singleimage {
+div.singleimage_container>img.singleimage {
+    display: block;
     width: 550px;
     padding: 0;
     /*border: 1px solid #000;*/
@@ -80,16 +81,27 @@ div.text>h3 {
 
 }
 
-.left>img.singleimage {
+div.left>img.singleimage {
     float: left;
     margin-right: 60px;
     margin-left: -30px;
 }
-.right>img.singleimage {
+div.right>img.singleimage {
     float: right;
     margin-right: -30px;
     margin-left: 60px;
 }
+
+
+div.bigsingleimage_container>img.bigsingleimage {
+    display: block;
+    padding: 0;
+    border: none;
+    width: 880px;
+    margin: 30px auto 30px auto !important;
+    box-shadow: -3px 3px 10px 3px #888;
+}
+
 
 div.onlytext {
 }

@@ -1,5 +1,5 @@
 from sys import argv
-from os.path import dirname, abspath, join, split, exists
+from os.path import dirname, abspath, join, split
 from os import listdir
 
 if len(argv) != 2:
@@ -19,6 +19,7 @@ single_image_ext = 'single.png'
 
 template = readtpl('tpl')
 singleimagetpl = readtpl('singleimagetpl')
+bigsingleimagetpl = readtpl('bigsingleimagetpl')
 bigimagetpl = readtpl('bigimagetpl')
 onlytexttpl = readtpl('onlytext')
 
@@ -39,18 +40,22 @@ for part in partnames:
 
     tpl = onlytexttpl
     if imagesize:
-        if imagesize == 'small':
+        if multi == 'single':
             singleimage_name = "%(partname)s.%(single_image_ext)s" % vars()
             singleimage_src = '%s/%s' % (showcase_dir, singleimage_name)
-            tpl = singleimagetpl
+            if imagesize == 'small':
+                tpl = singleimagetpl
+            else:
+                tpl = bigsingleimagetpl
         elif imagesize == 'big' and multi == 'multi':
             imagenames = [item for item in listdir(showcase_dir) \
                     if item.startswith('%s.multi.' % partname)]
             imagenames.sort()
             images = '\n'.join([
-                '<img src="%s/%s" alt="Description here" title="Some title here"/>' % (showcase_dir, i)\
+                '<img src="%s/%s" alt="" title=""/>' % (showcase_dir, i)\
                 for i in imagenames])
             tpl = bigimagetpl
+
             
 
     extraclasses = ''
