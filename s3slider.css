@@ -7,7 +7,7 @@
 
 #s3slider { 
     border: 1px solid #ccc;
-    width: 900px; /* important to be same as image width */ 
+    width: 703px; /* important to be same as image width */ 
     height: 430px; /* important to be same as image height */
     position: relative; /* important */
     overflow: hidden; /* important */
