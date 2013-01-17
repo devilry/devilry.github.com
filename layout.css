@@ -2,6 +2,8 @@ body {
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
 	font-size: 12px;
     color: #222;
+    background-image: url('bgimage/pw_maze_white.png');
+    padding-bottom: 20px;
 }
 
 
