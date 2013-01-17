@@ -46,3 +46,7 @@ div.section>h2 {
 .cell {
     display: table-cell;
 }
+
+.first-cell {
+    min-width: 300px;
+}
