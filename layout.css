@@ -47,6 +47,7 @@ div.section>h2 {
 
 .cell {
     display: table-cell;
+    width: 50%;
 }
 
 .first-cell {
