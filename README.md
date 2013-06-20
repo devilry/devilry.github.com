@@ -6,6 +6,14 @@ This is the main website.
 
 Contains links to different part of the documentation. etc.
 
+## Testing it locally
+
+Install jekyll locally (http://jekyllrb.com/), run:
+
+    $ jekyll serve --watch
+
+Then open http://localhost:4000/.
+
 
 ## Components
 We use these components to build the website.
