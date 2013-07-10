@@ -76,20 +76,21 @@ title: Devilry
             <i class="icon-tag marketing-huge-icon"></i>
             <h2>About</h2>
             <p>Devilry is a system for handling electronic deliveries. The system is designed to be flexible and customizable so that many different needs can be met. Devilry is designed to work with all types of electronic deliveries.</p>
+            <p><a class="btn" href="#aboutbox">Read more&raquo;</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
             <!--<img class="img-circle" data-src="holder.js/140x140">-->
             <i class="icon-comments marketing-huge-icon"></i>
             <h2>Help</h2>
             <p>Submit bugs, problems, improvements or new features via our issue tracker, or help other users on our Q&amp;A forum.</p>
-            <p><a class="btn" href="https://devilry-userdoc.readthedocs.org/en/latest/contact.html">More info &raquo;</a></p>
+            <p><a class="btn" href="#helpbox">Read more&raquo;</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
             <!--<img class="img-circle" data-src="holder.js/140x140">-->
             <i class="icon-puzzle-piece marketing-huge-icon"></i>
             <h2>Develop</h2>
-            <p>The Devilry source code is available at our repository under the BSD license, which is an open source license.</p>
-            <p><a class="btn" href="https://github.com/devilry/devilry-django/wiki/Developer">More info &raquo;</a></p>
+            <p>Devilry is open source, and we have an open community. This means that you can help us develop Devilry.</p>
+            <p><a class="btn" href="#developerbox">Read more&raquo;</a></p>
         </div><!-- /.span4 -->
     </div><!-- /.row -->
 
@@ -99,25 +100,55 @@ title: Devilry
     <hr class="featurette-divider">
 
     <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-chrome.png">
-        <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
+        <div class="featurette-graphics">
+            <div class="fb-like-box" data-href="https://www.facebook.com/DevilryProsjektet" data-width="300" data-height="400" data-show-faces="true" data-stream="false" data-show-border="true" data-header="false"></div>
+        </div>
+
+        <h2>Get involved. <span class="muted">Join a friendly community.</span></h2>
+        <p class="lead">
+            Join us on <a href="https://www.facebook.com/DevilryProsjektet">Facebook</a>.
+            Suggest improvements and report bugs through our <a href="">issue
+            tracker at GitHub.</a>
+        </p>
+        <p>
+            TODO: More info about why people should contribute (help build a
+            good system for your own sake), and what kind of people actively
+            contribute (teachers, professors, students, ...)
+        </p>
+    </div>
+
+    <hr class="featurette-divider" id="aboutbox">
+
+    <div class="featurette" id="">
+        <div class="featurette-graphics">
+            <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
+            <i class="icon-tag marketing-huge-icon"></i>
+        </div>
+        <h2>About Devilry. <span class="muted">And why people love it</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="featurette">
-        <img class="featurette-image pull-left" src="../assets/img/examples/browser-icon-firefox.png">
-        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+    <div class="featurette" id="helpbox">
+        <div class="featurette-graphics">
+            <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
+            <i class="icon-comments marketing-huge-icon"></i>
+        </div>
+        <h2>Get help. <span class="muted">Or help someone else.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p>TODO: Include the info from <a href="https://devilry-userdoc.readthedocs.org/en/latest/contact.html">the userdocs</a></p>
     </div>
 
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-        <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-safari.png">
-        <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+    <div class="featurette" id="developerbox">
+        <div class="featurette-graphics">
+            <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
+            <i class="icon-puzzle-piece marketing-huge-icon"></i>
+        </div>
+        <h2>Develop Devilry. <span class="muted">We will help you get started.</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p>The Devilry source code is available at our repository under the BSD license, which is an open source license.</p>
+        <p><a href="https://github.com/devilry/devilry-django/wiki/Developer">Developer Wiki</a></p>
     </div>
 
     <hr class="featurette-divider">
@@ -158,4 +189,13 @@ title: Devilry
     })
   }(window.jQuery)
 </script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <!--<script src="../assets/js/holder/holder.js"></script>-->
