@@ -38,3 +38,6 @@ Bootstrap. See: http://lesscss.org/.
 
 ### jQuery
 Required by Twitter Bootstrap javascript components.
+
+### Font Awesome
+The iconic font designed for Bootstrap
