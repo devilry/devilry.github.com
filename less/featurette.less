@@ -1,6 +1,7 @@
 @featuretteMarginSides: 70px;
-@featuretteMarginTop: 120px;
-
+@featuretteGraphicsMarginTop: 150px;
+@featuretteGraphicsWidth: 440px; // NOTE: This is an estimate - we use font-sizes, which may not be exact, so instead we simply add a few pixels to be on the safe side.
+@featuretteVerticalSpacing: 100px;
 
 
 .btn-large {
@@ -11,83 +12,97 @@
 }
 
 
-.featurette {
-    //padding-top: @featuretteMarginTop; /* Vertically center images part 1: add padding above and below text. */
-    overflow: hidden; /* Vertically center images part 2: clear their floats. */
+.featurettes {
+    .featurette {
+        padding-top: @featuretteGraphicsMarginTop + @featuretteVerticalSpacing;
+        padding-bottom: @featuretteVerticalSpacing;
+        border-top: 1px solid #ddd;
 
-    .featurette-divider {
-          margin: 80px 0 @featuretteMarginTop+80px 0;
-    }
-    .featurette-graphics {
-        float: right;
-        margin: -@featuretteMarginTop 0 @featuretteMarginSides @featuretteMarginSides;
-        i.featurette-huge-icon {
-            font-size: 420px;
-        }
-        .stacked-buttons {
-            width: 300px;
-            .box-sizing(border-box);
-            margin: 0 auto 0 auto;
-            .btn {
-                margin-top: 10px;
-                display: block;
-                position: relative;
-                padding-left: 70px;
-                text-align: left;
-                i {
-                    position: absolute;
-                    top: 8px;
-                    left: 12px;
-                    font-size: 45px;
-                }
-            }
-        }
-    }
-    &:nth-child(odd) {
         .featurette-graphics {
-            float: left;
-            margin: -@featuretteMarginTop @featuretteMarginSides @featuretteMarginSides 0;
-        }
-    }
-    h2 {
-        font-size: 50px;
-        font-weight: 300;
-        line-height: 1;
-        letter-spacing: -1px;
-    }
-    &#help {
-        .buttonbar {
-            line-height: 74px;
-            .btn-large {
-                position: relative;
-                i {
-                    position: absolute;
-                    top: 8px;
-                    left: 10px;
-                    font-size: 45px;
+            margin-top: -@featuretteGraphicsMarginTop;
+            text-align: center;
+            i.featurette-huge-icon {
+                font-size: 350px;
+                @media (min-width: 1200px) { /* Large desktop */
+                    font-size: 400px;
                 }
-                padding-left: 58px;
-                text-align: left;
+                @media (min-width: 768px) and (max-width: 979px) { /* Portrait tablet to landscape and desktop */
+                    font-size: 280px;
+                }
+                @media (max-width: 767px) { /* Phones to portrait tablet */
+                    display: none;
+                }
+            }
+            @media (min-width: 320px) and (max-width: 320px) {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+            .facebook-box-wrapper,
+            .stacked-buttons {
+                width: 300px;
+                .box-sizing(border-box);
+                margin: 0 auto 0 auto;
+            }
+            .facebook-box-wrapper {
+                overflow: hidden;
+            }
+            .stacked-buttons {
+                .btn {
+                    margin-top: 10px;
+                    display: block;
+                    position: relative;
+                    padding-left: 70px;
+                    text-align: left;
+                    i {
+                        position: absolute;
+                        top: 8px;
+                        left: 12px;
+                        font-size: 45px;
+                    }
+                }
+                @media (max-width: 480px) { /* Landscape phones and down */
+                    width: auto;
+                    .btn {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 767px) { /* Landscape phone to portrait tablet */
+            padding-top: @featuretteVerticalSpacing;
+            .featurette-graphics {
+                margin-top: 40px;
+            }
+        }
+        &:first-child {
+            border-top: none;
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+        &#help {
+            .buttonbar {
+                line-height: 74px;
+                .btn-large {
+                    position: relative;
+                    i {
+                        position: absolute;
+                        top: 8px;
+                        left: 10px;
+                        font-size: 45px;
+                    }
+                    padding-left: 58px;
+                    text-align: left;
+                    @media (max-width: 480px) { /* Landscape phones and down */
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
             }
         }
     }
-}
-//.featurette-image {
-  //margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-//}
-
-/* Give some space on the sides of the floated elements so text doesn't run right into it. */
-//.featurette-image.pull-left {
-  //margin-right: 40px;
-//}
-//.featurette-image.pull-right {
-  //margin-left: 40px;
-//}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
 }
