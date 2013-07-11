@@ -1,6 +1,10 @@
 ---
 layout: base
 title: Devilry
+forumurl: https://groups.google.com/forum/#!forum/devilry-help
+forumnewtopicurl: https://groups.google.com/forum/#!newtopic/devilry-help
+issuetrackerurl: https://groups.google.com/forum/#!newtopic/devilry-help
+facebookurl: https://www.facebook.com/DevilryProsjektet
 ---
 
 <!-- NAVBAR
@@ -130,16 +134,27 @@ title: Devilry
 
     <div class="featurette" id="social">
         <div class="featurette-graphics">
-            <div class="fb-like-box" data-href="https://www.facebook.com/DevilryProsjektet" data-width="300" data-height="400" data-show-faces="true" data-stream="false" data-show-border="false" data-header="false"></div>
+            <div class="fb-like-box stacked-box" data-href="{{ page.facebookurl }}" data-width="300" data-height="320" data-show-faces="true" data-stream="false" data-show-border="true" data-header="false"></div>
+            <a class="stacked-box btn btn-success btn-large" href="https://github.com/devilry/devilry-django/issues/new">
+                <i class="icon-github"></i>
+                Submit an issue
+                <small>improvements, new features or bugs</small>
+            </a>
+            <a class="stacked-box btn btn-success btn-large" href="https://groups.google.com/forum/#!newtopic/devilry-help">
+                <i class="icon-edit"></i>
+                Create a forum topic
+                <small>discuss all matters concerning Devilry</small>
+            </a>
         </div>
 
         <h2>Get involved. <span class="muted">Join a open and friendly community.</span></h2>
         <p class="lead">
             Join us
-            on <a href="https://www.facebook.com/DevilryProsjektet">Facebook</a>. We
+            on <a href="{{ page.facebookurl }}">Facebook</a>. We
             appreciate comments and guiding input from the community.
-            Suggest improvements and report bugs through our <a href="https://github.com/devilry/devilry-django/issues?state=open">issue
-            tracker at GitHub.</a>
+            Suggest improvements and report bugs through our
+            <a href="{{ page.issuetrackerurl }}">issue tracker</a>,
+            or discuss broader topics in our <a href="{{ page.forumurl }}">Forum</a>.
         </p>
         <p>
           There are many ways to contribute to the
@@ -153,8 +168,6 @@ title: Devilry
             tasks for students, teachers and administrators. No
             contribution is considered to small. 
         </p>
-        <p><a class="btn btn-info"
-        href="https://github.com/devilry/devilry-django/issues/new">Give Feedback</a></p>
     </div>
 
     <hr class="featurette-divider" id="about">
@@ -162,32 +175,45 @@ title: Devilry
     <div class="featurette" id="">
         <div class="featurette-graphics">
             <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
-            <i class="icon-tag marketing-huge-icon"></i>
+            <i class="icon-tag featurette-huge-icon"></i>
         </div>
-        <h2>About Devilry. <span class="muted">And why people love it</span></h2>
+        <h2>About Devilry. <span class="muted">Why people love it.</span></h2>
        
- <p class="lead">Devilry started out in 2008 by a group of students at the Informatics Department, University of Oslo with a vision to improve the current solutions around deliveries of obligatory assignments. Devilry is designed to be flexible and customizable with a minimal maintainability cost. The system can handle all kinds of deliveries from source code to essays. On top a simple and easy-to-use delivery layer Devilry provides a sophisticated interface for examiners and teaching assistants to manage student group directly in their favorite browser. Course administrators are given a focused interface to be able to easily manage all formalities around course management, from task deadlines to exam lists. </p>
-<p>
- Devilry is currently the main devilry management system used at the Department of Informatics, UiO with plans of expanding to span across all departments at the The Faculty of Mathematics and Natural Sciences, UiO.</p>
+        <p class="lead">Devilry started out in 2008 by a group of students at
+        the Department of Informatics, University of Oslo with a vision to improve
+        the current solutions around deliveries of obligatory assignments.
+        Devilry is designed to be flexible and customizable with a minimal
+        maintainability cost.
+        </p>
+        <p>The system can handle all kinds of deliveries
+        from source code to essays. On top a simple and easy-to-use delivery
+        layer Devilry provides a sophisticated interface for examiners and
+        teaching assistants to manage student group directly in their favorite
+        browser. Course administrators are given a focused interface to be able
+        to easily manage all formalities around course management, from task
+        deadlines to exam lists.</p>
+        <p>Devilry is currently the main delivery management system used at the
+        Department of Informatics, UiO with plans of expanding to span across
+        all departments at the The Faculty of Mathematics and Natural Sciences,
+        UiO.</p>
     </div>
 
     <hr class="featurette-divider">
 
     <div class="featurette" id="help">
-      <div class="featurette-graphics-left">
-        <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
-        <i class="icon-comments marketing-huge-icon"></i>
-      </div>
+        <div class="featurette-graphics featurette-graphics-left">
+            <i class="icon-comments featurette-huge-icon"></i>
+        </div>
       <h2>Get help. <span class="muted">Or help someone else.</span></h2>
 
 
       <p class="lead">
-        The easiest way to start out is to give us a like at our
-        <a href="https://www.facebook.com/DevilryProsjektet">Facebook page</a>. To dig into what happens directly to the
-        Devilry code base visit
-        our <a href="https://github.com/devilry/devilry-django/issues?state=open">issue
-        tracker at GitHub</a>To help
-        out others become of a part of the team now!
+          <!--The easiest way to start out is to give us a like at our-->
+          <!--<a href="{{ page.facebookurl }}">Facebook page</a>.-->
+          Visit our <a href="{{ page.issuetrackerurl }}">issue tracker</a>
+          and submit or help with bugs and suggestions. Visit our
+          <a href="{{ page.forumurl }}">forum</a> to get help, or to discuss
+          all matters concerning Devilry. Become a part of our community now!
       </p>
 
     </div>
@@ -195,33 +221,23 @@ title: Devilry
     <div class="featurette" id="developer">
         <div class="featurette-graphics">
             <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
-            <i class="icon-puzzle-piece marketing-huge-icon"></i>
+            <i class="icon-puzzle-piece featurette-huge-icon"></i>
         </div>
         <h2>Develop Devilry. <span class="muted">We will help you get started.</span></h2>
         <p class="lead">
-
-          Developers can clone our repository
-          at <a href="https://github.com/devilry/devilry-django">GitHub</a>
-          and start right
-          away. The <a href="http://devilry.readthedocs.org/en/latest/">Devilry
-          Devoloper Documentation</a> will guide you in the right
-          direction. Feel free to consult
-          the <a href="https://groups.google.com/forum/#!forum/devilry-help">Devilry Help Questions and Answers</a> forum for further help on every matters concerning Devilry.
-</p>
-        <p>The Devilry source code is available at our repository under the BSD license, which is an open source license.</p>
-        <p><a href="https://github.com/devilry/devilry-django/wiki/Developer">Developer Wiki</a></p>
+            Developers can clone <a href="https://github.com/devilry/devilry-django">our repository</a>
+            at GitHub and start right away. The
+            <a href="http://devilry.readthedocs.org/en/latest/">Devilry Devoloper Documentation</a>
+            will guide you in the right direction. Feel free to consult
+            the <a href="https://groups.google.com/forum/#!forum/devilry-help">Devilry Help Questions and Answers</a> forum for further help on all matters concerning Devilry.
+        </p>
+        <p>The Devilry source code is released with the the <a href="https://github.com/devilry/devilry-django/blob/master/LICENSE">BSD license</a>, which is an open source license.</p>
     </div>
 
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 
-
-    <!-- FOOTER -->
-    <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
 
 </div><!-- /.container -->
 

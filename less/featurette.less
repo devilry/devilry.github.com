@@ -1,22 +1,41 @@
+@featuretteMarginSides: 70px;
+@featuretteMarginTop: 120px;
+
 
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
 .featurette {
-    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+    padding-top: @featuretteMarginTop; /* Vertically center images part 1: add padding above and below text. */
     overflow: hidden; /* Vertically center images part 2: clear their floats. */
     .featurette-graphics {
         float: right;
-        margin: -120px 0 60px 60px;
-        i {
+        margin: -@featuretteMarginTop 0 @featuretteMarginSides @featuretteMarginSides;
+        i.featurette-huge-icon {
             font-size: 420px;
         }
-    }
-.featurette-graphics-left {
-        float: left;
-        margin: -120px 60px 60px 0;
-        i {
-            font-size: 420px;
+        .stacked-box {
+            margin-bottom: 10px;
+            &.btn {
+                position: relative;
+                i {
+                    position: absolute;
+                    top: 8px;
+                    left: 12px;
+                    font-size: 45px;
+                }
+                padding-left: 70px;
+                text-align: left;
+                display: block;
+                small {
+                    display: block;
+                    font-size: @baseFontSize - 4px;
+                }
+            }
+        }
+        &.featurette-graphics-left {
+            float: left;
+            margin: -@featuretteMarginTop @featuretteMarginSides @featuretteMarginSides 0;
         }
     }
     h2 {
