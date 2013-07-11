@@ -1,19 +1,49 @@
 .marketing {
     margin-top: 40px;
-    .marketing-huge-icon {
-        font-size: 150px;
-    }
 
     /* Center align the text within the three columns below the carousel */
     .span4 {
         text-align: center;
-        p {
-            margin-left: 10px;
-            margin-right: 10px;
+        .marketing-huge-icon {
+            font-size: 150px;
         }
-    }
-    h2 {
-        font-weight: normal;
+        h2 {
+            font-weight: normal;
+        }
+        @media (max-width: 767px) { /* Phones to portrait tablet */
+            position: relative;
+            .marketing-huge-icon {
+                position: absolute;
+                top: 30px;
+                left: 0;
+                font-size: 100px;
+            }
+            padding-left: 130px;
+            padding-top: 6px;
+            text-align: left;
+            min-height: 180px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 500px) { /* Phones */
+            h2 {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .marketing-huge-icon {
+                top: 50px;
+            }
+        }
+        @media (max-width: 280px) { /* Very small phones */
+            padding-left: 0;
+            h2,
+            .marketing-huge-icon {
+                padding: 0 0 10px 0;
+                position: static;
+            }
+        }
     }
 }
 
