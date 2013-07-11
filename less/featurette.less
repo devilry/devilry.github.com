@@ -2,38 +2,49 @@
 @featuretteMarginTop: 120px;
 
 
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+
+.btn-large {
+    small.meta {
+        display: block;
+        font-size: @baseFontSize - 4px;
+    }
 }
+
+
 .featurette {
-    padding-top: @featuretteMarginTop; /* Vertically center images part 1: add padding above and below text. */
+    //padding-top: @featuretteMarginTop; /* Vertically center images part 1: add padding above and below text. */
     overflow: hidden; /* Vertically center images part 2: clear their floats. */
+
+    .featurette-divider {
+          margin: 80px 0 @featuretteMarginTop+80px 0;
+    }
     .featurette-graphics {
         float: right;
         margin: -@featuretteMarginTop 0 @featuretteMarginSides @featuretteMarginSides;
         i.featurette-huge-icon {
             font-size: 420px;
         }
-        .stacked-box {
-            margin-bottom: 10px;
-            &.btn {
+        .stacked-buttons {
+            width: 300px;
+            .box-sizing(border-box);
+            margin: 0 auto 0 auto;
+            .btn {
+                margin-top: 10px;
+                display: block;
                 position: relative;
+                padding-left: 70px;
+                text-align: left;
                 i {
                     position: absolute;
                     top: 8px;
                     left: 12px;
                     font-size: 45px;
                 }
-                padding-left: 70px;
-                text-align: left;
-                display: block;
-                small {
-                    display: block;
-                    font-size: @baseFontSize - 4px;
-                }
             }
         }
-        &.featurette-graphics-left {
+    }
+    &:nth-child(odd) {
+        .featurette-graphics {
             float: left;
             margin: -@featuretteMarginTop @featuretteMarginSides @featuretteMarginSides 0;
         }
@@ -43,6 +54,22 @@
         font-weight: 300;
         line-height: 1;
         letter-spacing: -1px;
+    }
+    &#help {
+        .buttonbar {
+            line-height: 74px;
+            .btn-large {
+                position: relative;
+                i {
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                    font-size: 45px;
+                }
+                padding-left: 65px;
+                text-align: left;
+            }
+        }
     }
 }
 //.featurette-image {
