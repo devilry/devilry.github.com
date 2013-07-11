@@ -1,35 +1,160 @@
-#imageCarousel {
-    display: none;
-  margin: 20px auto 20px auto;
-  width: 702px;
-  height: 429px;
-  border: 1px solid #eee;
 
-  //.container {
-    //position: relative;
-    //z-index: 9;
-  //}
-  .item {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+//@imageCarouselCaptionWidth: 400px;
+@imageCarouselSidePadding: 20px;
 
-    .carousel-caption {
-      font-size: @baseFontSize * 1.5;
-      font-weight: 200;
-      line-height: @baseLineHeight * 1.5;
+.imageCarouselSizes (@imageCarouselCaptionWidth, @imageWidth) {
+    .item {
+        img {
+            margin-left: @imageCarouselCaptionWidth + 20px;
+            width: @imageWidth;
+        }
+        .box-sizing(border-box);
+        .carousel-caption {
+            width: @imageCarouselCaptionWidth;
+        }
     }
-  }
 
-  .carousel-control {
-    top: 160px;
-    margin-top: 0;
-    //height: 80px;
-    //margin-top: 0;
-    //font-size: 120px;
-    //text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    //background-color: transparent;
-    //border: 0;
-    //z-index: 10;
-  }
+    .carousel-controls {
+        width: @imageCarouselCaptionWidth;
+    }
+}
+
+#imageCarousel {
+    margin: 0;
+    //height: 450px;
+    position: relative;
+
+    .item {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            display: block;
+            //margin-left: @imageCarouselCaptionWidth;
+        }
+        .box-sizing(border-box);
+        .carousel-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            //width: @imageCarouselCaptionWidth;
+            height: 100%;
+            //background-color: rgba(255, 255, 255, 0.4);
+            background: none;
+            .box-sizing(border-box);
+            padding: 0 @imageCarouselSidePadding 0 @imageCarouselSidePadding;
+            p {
+                font-size: 18px;
+                line-height: 23px;
+                font-weight: 200;
+                color: rgba(255, 255, 255, .8);
+            }
+        }
+    }
+
+    .carousel-controls {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        .box-sizing(border-box);
+        //background-color: red;
+        //width: @imageCarouselCaptionWidth;
+        height: 42px;
+        ol.carousel-indicators {
+            position: static;
+            .box-sizing(border-box);
+            margin: 0;
+            padding: 16px 0 0 0;
+            width: 100%;
+            text-align: center;
+            display: block;
+            width: 100%;
+            height: 15px;
+            li {
+                float: none;
+                display: inline-block;
+            }
+        }
+        .carousel-control {
+            position: absolute
+            top: 0;
+            left: @imageCarouselSidePadding;
+            font-size: 120px;
+            text-shadow: 0 1px 1px rgba(0,0,0,.4);
+            background-color: transparent;
+            border: 0;
+            z-index: 10;
+            &.right {
+                right: @imageCarouselSidePadding;
+                left: auto;
+            }
+        }
+    }
+
+    .imageCarouselSizes(@imageCarouselCaptionWidth: 310px, @imageWidth: 605px);
+
+    @media (min-width: 1200px) { /* Large desktop */
+        .imageCarouselSizes(@imageCarouselCaptionWidth: 400px, @imageWidth: 745px);
+    }
+    @media (min-width: 768px) and (max-width: 979px) { /* Portrait tablet to landscape and desktop */
+        .imageCarouselSizes(@imageCarouselCaptionWidth: 245px, @imageWidth: 455px);
+    }
+    @media (max-width: 767px) { /* Tablets */
+        .item {
+            img {
+                margin-left: 0;
+                width: 100%;
+            }
+            .carousel-caption {
+                position: absolute;
+                top: auto;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                .box-sizing(border-box);
+                padding: 20px 50px 50px 50px;
+                background-color: rgba(0, 0, 0, 0.8);
+                p {
+                    text-align: center;
+                    font-size: 18px;
+                    line-height: 23px;
+                    font-weight: 200;
+                    color: rgba(255, 255, 255, .8);
+                }
+            }
+        }
+        .carousel-controls {
+            width: 100%;
+            //top: 0;
+            bottom: 10px;
+            .carousel-control {
+                &.left {
+                    left: 0;
+                }
+                &.right {
+                    right: 0;
+                }
+            }
+        }
+    }
+    @media (max-width: 500px) { /* Phones */
+        .item {
+            .carousel-caption {
+                padding: 12px 50px 12px 50px;
+                min-height: 60px;
+                p {
+                    font-size: 13px;
+                    line-height: 16px;
+                }
+            }
+        }
+        .carousel-controls {
+            ol.carousel-indicators {
+                display: none;
+            }
+        }
+    }
 }
