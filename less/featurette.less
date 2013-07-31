@@ -1,0 +1,108 @@
+@featuretteMarginSides: 70px;
+@featuretteGraphicsMarginTop: 150px;
+@featuretteGraphicsWidth: 440px; // NOTE: This is an estimate - we use font-sizes, which may not be exact, so instead we simply add a few pixels to be on the safe side.
+@featuretteVerticalSpacing: 100px;
+
+
+.btn-large {
+    small.meta {
+        display: block;
+        font-size: @baseFontSize - 4px;
+    }
+}
+
+
+.featurettes {
+    .featurette {
+        padding-top: @featuretteGraphicsMarginTop + @featuretteVerticalSpacing;
+        padding-bottom: @featuretteVerticalSpacing;
+        border-top: 1px solid #ddd;
+
+        .featurette-graphics {
+            margin-top: -@featuretteGraphicsMarginTop;
+            text-align: center;
+            i.featurette-huge-icon {
+                font-size: 350px;
+                @media (min-width: 1200px) { /* Large desktop */
+                    font-size: 400px;
+                }
+                @media (min-width: 768px) and (max-width: 979px) { /* Portrait tablet to landscape and desktop */
+                    font-size: 280px;
+                }
+                @media (max-width: 767px) { /* Phones to portrait tablet */
+                    display: none;
+                }
+            }
+            @media (min-width: 320px) and (max-width: 320px) {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+            .facebook-box-wrapper,
+            .stacked-buttons {
+                width: 300px;
+                .box-sizing(border-box);
+                margin: 0 auto 0 auto;
+            }
+            .facebook-box-wrapper {
+                overflow: hidden;
+            }
+            .stacked-buttons {
+                .btn {
+                    margin-top: 10px;
+                    display: block;
+                    position: relative;
+                    padding-left: 70px;
+                    text-align: left;
+                    i {
+                        position: absolute;
+                        top: 8px;
+                        left: 12px;
+                        font-size: 45px;
+                    }
+                }
+                @media (max-width: 480px) { /* Landscape phones and down */
+                    width: auto;
+                    .btn {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 767px) { /* Landscape phone to portrait tablet */
+            padding-top: @featuretteVerticalSpacing;
+            .featurette-graphics {
+                margin-top: 40px;
+            }
+        }
+        &:first-child {
+            border-top: none;
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+        &#help {
+            .buttonbar {
+                line-height: 74px;
+                .btn-large {
+                    position: relative;
+                    i {
+                        position: absolute;
+                        top: 8px;
+                        left: 10px;
+                        font-size: 45px;
+                    }
+                    padding-left: 58px;
+                    text-align: left;
+                    @media (max-width: 480px) { /* Landscape phones and down */
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

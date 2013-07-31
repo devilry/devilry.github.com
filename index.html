@@ -1,33 +1,356 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      Devilry
-    </title>
+---
+layout: base
+title: Devilry
+forumurl: https://groups.google.com/forum/#!forum/devilry-help
+forumnewtopicurl: https://groups.google.com/forum/#!newtopic/devilry-help
+issuetrackerurl: https://github.com/devilry/devilry-django/issues?state=open
+issuetrackernewissueurl: https://github.com/devilry/devilry-django/issues/new
+wikiurl: https://github.com/devilry/devilry-django/wiki
+licenseurl: https://github.com/devilry/devilry-django/blob/master/LICENSE
+repourl: https://github.com/devilry/devilry-django
+facebookurl: https://www.facebook.com/DevilryProsjektet
+---
 
-    <link rel="stylesheet" href="reset.css"
-      type="text/css" media="screen" charset="utf-8"/>
-    <link rel="stylesheet" href="layout.css"
-      type="text/css" media="screen" charset="utf-8"/>
-    <link rel="stylesheet" href="colors.css"
-      type="text/css" media="screen" charset="utf-8"/>
 
-    <link rel="stylesheet" href="s3slider.css"
-      type="text/css" media="screen" charset="utf-8"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script src="s3Slider.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() { 
-           $('#s3slider').s3Slider({ 
-              timeOut: 4000 
-           });
-        });
-    </script>
-  </head>
+<div id="header">
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
 
-  <body>
-  
-  <div id="fb-root"></div>
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Devilry</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#social">Get involved</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help/docs</a></li>
+                <li><a href="#develop">Develop</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div id="imageCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="slideshowimages/role-selector-view.png" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <p>
+                                    Devilry is a flexible and powerful
+                                    role oriented system for handling electronic deliveries.
+                                    </p>
+                                    <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <img src="slideshowimages/student-history-view.png" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <p>
+                                      Devilry is focused and user-friendly.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="slideshowimages/courseadmin-overview.png" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <p>
+                                    Devilry is a complete tool for course administrators that want to have full control over their assignments, students and examiners.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="item">
+                            <img src="slideshowimages/exam-qualification-view.png" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <p>
+                                    Devilry provide a advanced toolkit
+                                    for administrators to monitor
+                                    students progress.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="slideshowimages/intelligent-assignment-wizard.png" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <p>
+                                      Devilry afford intelligent
+                                      assignment wizards for easy setup.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="carousel-controls">
+                        <ol class="carousel-indicators">
+                            <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#imageCarousel" data-slide-to="1"></li>
+                            <li data-target="#imageCarousel" data-slide-to="2"></li>
+                            <li data-target="#imageCarousel"
+                                data-slide-to="3"></li>
+                            <li data-target="#imageCarousel" data-slide-to="4"></li>
+                        </ol>
+                        <a class="left carousel-control" href="#imageCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="right carousel-control" href="#imageCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="span4">
+            <i class="icon-tag marketing-huge-icon"></i>
+            <h2>About</h2>
+            <p>Devilry is a system optimized for delivering and correcting electronic deliveries.</p>
+            <p><a class="btn" href="#about">Read more&raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+            <i class="icon-comments marketing-huge-icon"></i>
+            <h2>Help</h2>
+            <p>Submit bugs or suggest improvements via our issue tracker, or help other users on our forum.</p>
+            <p><a class="btn" href="#help">Read more&raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+            <i class="icon-coffee marketing-huge-icon"></i>
+            <h2>Develop</h2>
+            <p>Open source and open community means that you can help us develop Devilry.</p>
+            <p><a class="btn" href="#develop">Read more&raquo;</a></p>
+        </div><!-- /.span4 -->
+    </div><!-- /.row -->
+</div>
+
+<div class="container featurettes">
+    <div class="featurette row" id="social">
+        <div class="span7">
+            <h2>Get involved. <span class="muted">Join a open and friendly community.</span></h2>
+            <p class="lead">
+                Join us
+                on <a href="{{ page.facebookurl }}">Facebook</a>. We
+                appreciate comments and guiding input from the community.
+                Suggest improvements and report bugs through our
+                <a href="{{ page.issuetrackerurl }}">issue tracker</a>,
+                or discuss broader topics in our <a href="{{ page.forumurl }}">forum</a>.
+            </p>
+            <p>
+              There are many ways to contribute to the
+                Devilry Project. Teachers, professors, teaching
+                assistants and students among others are providing
+              essential knowledge and insight to keep the system alive and
+                updated. 
+              Everyone is welcome to
+                participate in the open and including community of
+                Devilry. Do not hesitate to jump onboard if you eager to ease the daily
+                tasks for students, teachers and administrators. No
+                contribution is considered to small. 
+            </p>
+        </div>
+        <div class="span5 featurette-graphics">
+            <div class="facebook-box-wrapper">
+                <div class="fb-like-box" data-href="{{ page.facebookurl }}" data-width="300" data-height="320" data-show-faces="true" data-stream="false" data-show-border="true" data-header="false"></div>
+            </div>
+            <div class="stacked-buttons">
+                <a class="btn btn-success btn-large" href="{{ page.issuetrackernewissueurl }}">
+                    <i class="icon-bug"></i>
+                    Submit an issue
+                    <small class="meta">improvements, new features or bugs</small>
+                </a>
+                <a class="btn btn-success btn-large" href="https://groups.google.com/forum/#!newtopic/devilry-help">
+                    <i class="icon-edit"></i>
+                    Create a forum topic
+                    <small class="meta">discuss all matters concerning Devilry</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="featurette row" id="about">
+        <div class="span5 featurette-graphics">
+            <i class="icon-tag featurette-huge-icon"></i>
+        </div>
+        <div class="span7">
+            <h2>About Devilry. <span class="muted">Why people love it.</span></h2>
+            <p class="lead">We focus on making it efficient and easy to provide
+            feedback to students. This lets teachers/correctors focus on giving
+            good feedback instead of other administrative tasks. We provide a
+            minimalistic user interface for students, where they upload deliveries,
+            and view feedback, and a sleek and intuitive user interface for
+            course administrators and higher level administrators.</p>
+
+            <p>Devilry is designed with higher education in mind. This means that
+            we do not cluttre the system with any of those artifical and uneeded
+            constructs, like classrooms or folders. Instead, we try to give each
+            user the shortest and most intuitive path to perform their tasks.</p>
+
+            <p>The system can handle all kinds of deliveries
+            from source code to essays. On top a simple and easy-to-use delivery
+            layer Devilry provides a sophisticated interface for examiners and
+            teaching assistants to manage student group directly in their favorite
+            browser. Course administrators are given a focused interface to be able
+            to easily manage all formalities around course management, from task
+            deadlines to exam lists.</p>
+
+            <p>Devilry started out in 2008 by a group of students at the Department
+            of Informatics, University of Oslo with a vision to improve the current
+            solutions around deliveries of obligatory assignments. It is currently
+            the main delivery management system used at the Department of
+            Informatics, UiO with plans of expanding to span across all departments
+            at the The Faculty of Mathematics and Natural Sciences, UiO.</p>
+        </div>
+    </div>
+
+
+    <div class="featurette row" id="help">
+        <div class="span7">
+            <h2>Get help. <span class="muted">Or help someone else.</span></h2>
+            <p class="lead">
+                <!--The easiest way to start out is to give us a like at our-->
+                <!--<a href="{{ page.facebookurl }}">Facebook page</a>.-->
+                Visit our <a href="{{ page.issuetrackerurl }}">issue tracker</a>
+                and submit or help with bugs and suggestions. Visit our
+                <a href="{{ page.forumurl }}">forum</a> to get help, or to discuss
+                all matters concerning Devilry. Follow the links below to go to the
+                appropriate parts of our documentation.
+            </p>
+            <p class="buttonbar">
+                <a class="btn btn-large btn-primary" href="https://devilry-userdoc.readthedocs.org">
+                    <i class="icon-user"></i>
+                    User docs
+                    <small class="meta">Students, examiners, admins</small>
+                </a>
+                <a class="btn btn-large btn-primary" href="https://devilry-deploy.readthedocs.org">
+                    <i class="icon-fire-extinguisher"></i>
+                    Sysadmin docs
+                    <small class="meta">Setup, deploy and update</small>
+                </a>
+                <a class="btn btn-large" href="{{ page.wikiurl }}">
+                    <i class="icon-github"></i>
+                    Wiki
+                    <small class="meta">... everything else</small>
+                </a>
+            </p>
+            <p>
+                All our documentation is open source projects where anyone can
+                contribute. For the User and Sysadmin docs, we have a big green box
+                on the frontpage with more info. All you need is a
+                <a href="http://github.com">GitHub</a> user. The Wiki is open for
+                anyone with a GitHub user.
+            </p>
+           
+            <!--<h3>Contact us by email</h3>-->
+            <p>You can contact the developers by email. <span class="muted">This is only for contact
+            requests that does not belong in the open contact channels, like the
+            issue tracker, or the forums. This mailinglist is typically for those that
+            need private and direct contact with the Developers, and requests
+            belonging in the other contact channels is ignored. If you have read and
+            understand this, feel free to contact us at
+            <a href="mailto:devilry-contact@googlegroups.com" class="muted">devilry-contact@googlegroups.com</a></span>.
+            </p>
+        </div>
+        <div class="span5 featurette-graphics">
+            <i class="icon-comments featurette-huge-icon"></i>
+            <div class="stacked-buttons">
+                <a class="btn btn-success btn-large" href="{{ page.issuetrackernewissueurl }}">
+                    <i class="icon-bug"></i>
+                    Submit an issue
+                    <small class="meta">improvements, new features or bugs</small>
+                </a>
+                <a class="btn btn-success btn-large" href="https://groups.google.com/forum/#!newtopic/devilry-help">
+                    <i class="icon-edit"></i>
+                    Create a forum topic
+                    <small class="meta">discuss all matters concerning Devilry</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="featurette row" id="develop">
+        <div class="span5 featurette-graphics">
+            <!--<img alt="Devilry logo" src="devilrylogo-large.png"/>-->
+            <i class="icon-coffee featurette-huge-icon"></i>
+        </div>
+        <div class="span7">
+            <h2>Develop Devilry. <span class="muted">Get started today.</span></h2>
+            <p class="lead">
+                Developers can clone <a href="{{ page.repourl }}">our repository</a>
+                at GitHub and start right away. The
+                <a href="http://devilry.readthedocs.org/en/latest/">Devilry Developer Documentation</a>
+                will guide you in the right direction. Feel free to consult
+                the <a href="https://groups.google.com/forum/#!forum/devilry-help">Devilry Help Questions and Answers</a> forum for further help on all matters concerning Devilry.
+            </p>
+            <p>The Devilry source code is released with the the <a href="{{ page.licenseurl }}">BSD license</a>, which is an open source license.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="components/jquery/jquery.min.js"></script>
+<script src="components/bootstrap/js/bootstrap-transition.js"></script>
+<script src="components/bootstrap/js/bootstrap-alert.js"></script>
+<script src="components/bootstrap/js/bootstrap-modal.js"></script>
+<script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
+<script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+<script src="components/bootstrap/js/bootstrap-tab.js"></script>
+<script src="components/bootstrap/js/bootstrap-tooltip.js"></script>
+<script src="components/bootstrap/js/bootstrap-popover.js"></script>
+<script src="components/bootstrap/js/bootstrap-button.js"></script>
+<script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+<script src="components/bootstrap/js/bootstrap-carousel.js"></script>
+<script src="components/bootstrap/js/bootstrap-typeahead.js"></script>
+<script>
+  !function ($) {
+    $(function(){
+      $('#imageCarousel').carousel()
+    })
+  }(window.jQuery)
+</script>
+
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -35,167 +358,4 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-  
-  
-    <header>
-      <h1>
-        Devilry
-      </h1>
-      <span id="projectlink">Open source general purpose delivery system</span>
-    </header>
-
-    <div id="s3slider">
-       <ul id="s3sliderContent">
-          <li class="s3sliderImage">
-              <img src="slideshow/frontpage.png" />
-              <span><em class='picthead'>Devilry handles</em> all parts of the
-                      electronic delivery and feedback process.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/courseadmin-assignmentoverview.png" />
-              <span><em class='picthead'>Devilry is</em>
-                  is a complete tool for course administrators that want to have full control over their assignments, students and examiners.</span>
-          </li>
-          <li class="s3sliderImage">
-              <img src="slideshow/courseadmin-managestudents.png" />
-              <span><em class='picthead'>Devilry is</em>
-                  easy and effective for course administrators with simple needs.</span>
-          </li>
-          <li class="s3sliderImage">
-              <img src="slideshow/courseadmin-singlegroup.png" />
-              <span><em class='picthead'>Devilry provides</em>
-                  the information course administrators need about their students.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/courseadmin-managestudents-select.png" />
-              <span><em class='picthead'>Devilry has</em>
-                  powerful tools for course administrators with lots of students.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/opensource.png" />
-              <span><em class='picthead'>Devilry is</em>
-                  open source software, and it is based on several open source
-                  libraries and tools</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/studentdash.png" />
-              <span><em class='picthead'>Devilry is</em>
-                  easy for students.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/courseadmin-projectgroups.png" />
-              <span><em class='picthead'>Devilry has</em>
-                  excellent support for cooperative project assignments.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/examiner-todolist.png" />
-              <span><em class='picthead'>Devilry provides</em> examiners with a
-                  TODO-list and a detailed overview, enabling them to keep
-                  track of their students.</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/community.png" />
-              <span><em class='picthead'>Devilry has</em>
-                  an active open source community where anyone is welcome</span>
-          </li>
-
-          <li class="s3sliderImage">
-              <img src="slideshow/examiner-feedback.png" />
-              <span><em class='picthead'>Devilry comes with</em> powerful tools
-                  for every step of the process of producing feedback to
-                  students</span>
-          </li>
-
-          <div class="clear s3sliderImage"></div>
-       </ul>
-    </div>
-
-
-
-
-
-    <div id="main">
-
-
-<div style="margin: 0 20px;">
-  
-  <div class="fb-like-box" data-href="https://www.facebook.com/DevilryProsjektet" data-width="292" data-show-faces="false" data-stream="false" data-show-border="false" data-header="false"></div>
-  
-</div>
-
-
-
-
-        <div class='cell first-cell'>
-            <div class="section">
-                <h2>Get involved</h2>
-                Submit bugs, problems, improvements or new features via our issue tracker,
-                or help other users on our Q&amp;A forum.
-                <a href="https://devilry-userdoc.readthedocs.org/en/latest/contact.html">Read more</a>.
-            </div>
-
-            <div class="section">
-                <h2>Help</h2>
-                Contact us via Facebook, Question &amp; Answer forum, issue tracker or email.
-                <a href="https://devilry-userdoc.readthedocs.org/en/latest/contact.html">Read more</a>.
-            </div>
-
-            <div class="section">
-                <h2>Documentation</h2>
-                <p>
-                    <a href="https://devilry-userdoc.readthedocs.org">User docs</a> |
-                    <a href="https://devilry-deploy.readthedocs.org">Sysadmin docs</a> |
-                    <a href="https://devilry.readthedocs.org">Developer docs</a> |
-                    <a href="https://github.com/devilry/devilry-django/wiki">Wiki</a>.
-                </p>
-                <p>New developers may also want to take a look at the <a href="techintro.html">technical intro</a>.</p>
-            </div>
-        </div>
-
-        <div class="cell">
-            <div class="section">
-                <h2>About</h2>
-                Devilry is a system for handling electronic deliveries. The system is
-                designed to be flexible and customizable so that many different needs can be
-                met. Devilry is designed to work with all types of electronic deliveries.
-            </div>
-
-            <div class="section">
-                <h2>Source code and license</h2>
-                The Devilry source code is available at our <a href="https://github.com/devilry/devilry-django">repository</a>
-                under the <a href="https://github.com/devilry/devilry-django/raw/master/LICENSE">BSD license</a>,
-                which is an open source license.
-            </div>
-
-            <div class="section">
-                <h2>Develop</h2>
-                If you have the skills, you can help us 
-                <a href="https://github.com/devilry/devilry-django/wiki/Developer">
-                    develop Devilry</a>.
-            </div>
-            
-            
-            
-        </div>
-
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-37692385-4']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-         </script>
-    </div>
-  </body>
-</html>
+<!--<script src="../assets/js/holder/holder.js"></script>-->

@@ -1,0 +1,10 @@
+{
+  "name": "devilry.github.com",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~1.8.3",
+    "bootstrap": "~2.3.2",
+    "html5shiv": "~3.6.2",
+    "font-awesome": "~3.2.1"
+  }
+}
