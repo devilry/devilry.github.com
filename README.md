@@ -15,6 +15,32 @@ Install jekyll locally (http://jekyllrb.com/), run:
 Then open http://localhost:4000/.
 
 
+## Building the LESS sources
+
+### Development
+Comment out the line with ``css/styles.css`` in ``_layouts/base.html``, and
+comment in the lines for the less sources right above.
+
+NEVER COMMIT in development mode. It makes the website hang in IE8.
+
+## Production
+Make sure the ``less.XXXX.js`` and ``less/styles.less`` is not imported, and
+that ``css/styles.css`` is imported in ``_layouts/base.html``.
+
+The first time, you have to install lessc locally (in ``node_modules/``) with:
+
+    $ npm install
+
+To build the LESS sources to css, use:
+
+    $ node_modules/.bin/lessc -x less/styles.less css/styles.css
+
+Then test and commit the changes.
+
+DOT NOT use your global ``lessc``, it may not be 100% compatible with the
+version we have specified in ``package.json``.
+
+
 ## Components
 We use these components to build the website.
 
