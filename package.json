@@ -1,0 +1,9 @@
+{
+  "name": "devilry.github.com",
+  "description": "Dependencies for building less",
+  "version": "1.0.0",
+  "dependencies": {
+    "less": "1.4.x"
+  },
+  "engine": "node >= 0.8.14"
+}
