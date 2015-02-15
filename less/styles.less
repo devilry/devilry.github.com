@@ -2,7 +2,12 @@
 @import "../components/bootstrap/less/responsive";
 
 @import "../components/font-awesome/less/variables.less";
+
 @FontAwesomePath: "../dist/vendor/fonts";
+@baseBorderRadius: 2px;
+@borderRadiusLarge: 3px;
+@btnBorder: #ddd;
+
 @import "../components/font-awesome/less/mixins.less";
 @import "../components/font-awesome/less/path.less";
 @import "../components/font-awesome/less/core.less";
@@ -19,4 +24,19 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+}
+
+
+.btn {
+  .box-shadow(none);
+  border-bottom-color: @btnBorder;
+  
+  &,
+  &.btn-primary,
+  &.btn-success {
+    text-shadow: none;
+    background-image: none;
+    filter: none;
+    transition: none;
+  }
 }
