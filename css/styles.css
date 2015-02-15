@@ -7896,10 +7896,15 @@ a .icon-flip-vertical:before {
   border-top: none;
 }
 .featurettes .featurette h2 {
-  font-size: 50px;
+  font-size: 36px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+}
+@media (min-width: 767px) {
+  .featurettes .featurette h2 {
+    font-size: 50px;
+  }
 }
 .featurettes .featurette#help .buttonbar {
   line-height: 74px;
